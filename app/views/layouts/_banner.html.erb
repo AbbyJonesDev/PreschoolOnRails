@@ -1,0 +1,39 @@
+      <!-- Tablet/Desktop Banner and Nav -->
+<div class="row show-for-large-up">
+  <div class="large-12 columns">
+    <nav role="navigation">
+      <ul class="desktop-nav">
+        <li> <%= link_to "Home", root_path, :class => (@home ? "current" : nil) %> </li>
+        <li> <%= link_to "About Us", about_us_path, :class => (@about ? "current" : nil) %> </li>
+        <li> <%= link_to "Schedule", schedule_path, :class => (@sched ? "current" : nil) %> </li>
+        <li> <%= link_to "Register", register_path, :class => (@reg ? "current" : nil) %> </li>
+        <li> <%= link_to "Photo Gallery", photo_gallery_path, :class => (@photo ? "current" : nil) %> </li>
+      </ul>
+    </nav>
+  </div>
+
+  <%= link_to(root_path) do %>
+    <%= image_tag 'ResponsiveBanner.jpg', :class => "banner", :alt => "Here We Grow Preschool" %>
+  <% end %>        
+</div>
+
+
+
+<!-- Mobile Banner and Nav -->
+<div class="row hide-for-large-up">
+  <%= link_to(root_path) do %>
+    <%= image_tag "ResponsiveBanner-Mobile.jpg", :alt => "Here We Grow Preschool" %>
+  <% end %>
+  <div class="small-12 columms">
+    <nav role="navigation">
+      <a href="#" class="mobile-nav-button small-12 columns">Learn More</a>
+        <ul class="mobile-dropdown-menu no-bullet hide">   
+        <li> <%= link_to "Home", root_path, :class => (@home ? "current" : nil) %> </li>
+        <li> <%= link_to "About Us", about_us_path, :class => (@about ? "current" : nil) %> </li>
+        <li> <%= link_to "Schedule", schedule_path, :class => (@sched ? "current" : nil) %> </li>
+        <li> <%= link_to "Register", register_path, :class => (@reg ? "current" : nil) %> </li>
+        <li> <%= link_to "Photo Gallery", photo_gallery_path, :class => (@photo ? "current" : nil) %> </li>
+        </ul>
+    </nav>
+  </div>
+</div>

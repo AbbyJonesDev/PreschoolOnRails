@@ -1,0 +1,166 @@
+<!-- Schedule -->
+<main>
+  <h1 class="row text-center"> Here We Grow Preschool is in session between the months of August-May </h1>
+
+  <br>
+  
+  <div class="row">
+    <div class="small-12 large-7 columns">
+      
+      <div class="hide-for-large-up">
+        <%= link_to "See the 2014-2015 Calendar!", calendar_path,
+              :class => 'button cal-button' %>
+        <!-- <a class="button cal-button" href="public/docs/2014-15 Calendar.pdf" target="__blank"> See the 2014-2015 Calendar! </a> -->
+        <!-- <a href="public/docs/2014-15 Calendar.pdf" target="__blank">  -->
+          <%= image_tag "CalendarPic.jpg", :class =>"CalendarPic",  
+          :alt => "Preschool calendar" %> 
+        </a>
+        <br> <br>
+      </div>
+
+      <table class="ScheduleTable">
+        <thead>
+          <tr> 
+            <th class="text-center" colspan="2"> Morning Option #1: <br /> Monday/Wednesday/Friday <br> 8:30 to 11:30 a.m. </th>
+          </tr>
+        </thead>
+        <tr>  
+          <td class="table-time"> 8:30-8:45 </td>  
+          <td> Welcome and Bathroom Break </td>  
+        </tr>
+        <tr>  
+          <td> 8:45-9:30 </td>  
+          <td> <%= link_to "Opening Group", activities_path(:anchor => "OpeningGroup") %> </td>
+        </tr>
+        <tr>  
+          <td> 9:30-10:00 </td> 
+          <td> <%= link_to "Snack", activities_path(:anchor => "Snack") %> and Bathroom Break </td>  
+        </tr>
+        <tr>  
+          <td> 10:00-10:40 </td>  
+          <td> <%= link_to "Centers", activities_path(:anchor => "Centers") %> </td>  
+        </tr>
+        <tr>  
+          <td> 10:40-11:10 </td> 
+          <td> <%= link_to "Small Groups", activities_path(:anchor => "SmallGroups") %> </td> 
+        </tr>
+        <tr>  
+          <td> 11:10-11:30 </td>  
+          <td> <%= link_to "Large Group and Dismissal", activities_path(:anchor => "LargeGroup") %> </td>
+        </tr>
+      </table>
+
+      <table class="ScheduleTable">
+        <thead>
+          <tr> 
+            <th class="text-center" colspan="2"> Morning Option #2: <br/> Tuesday/Thursday <br> 8:30 to 11:30 a.m. </th>
+          </tr>
+        </thead>      
+        <tr>
+          <td class="table-time"> 8:30-8:45 </td>
+          <td> Welcome and Bathroom Break </td>
+        </tr>
+        <tr>
+          <td> 8:45-9:30 </td>
+          <td> <%= link_to "Opening Group", activities_path(:anchor => "OpeningGroup") %> </td>
+        </tr>
+        <tr>
+          <td> 9:30-10:00 </td>
+          <td> <%= link_to "Snack", activities_path(:anchor => "Snack") %> and Bathroom Break </td>  
+        </tr>
+        <tr>
+          <td> 10:00-10:40 </td>
+          <td> <%= link_to "Centers", activities_path(:anchor => "Centers") %> </td> 
+        </tr>
+        <tr>
+          <td> 10:40-11:10 </td>
+          <td> <%= link_to "Small Groups", activities_path(:anchor => "SmallGroups") %> </td>
+        </tr>
+        <tr> 
+          <td> 11:10-11:30 </td>
+          <td> <%= link_to "Large Group and Dismissal", activities_path(:anchor => "LargeGroup") %> </td>
+        </tr>
+      </table>
+
+      <table class="ScheduleTable">
+        <thead>
+          <tr> 
+            <th class="text-center" colspan="2"> Afternoon Option #3: <br />  
+              Monday-Thursday <br> 12:30 to 3:30 p.m. </th> 
+          </tr>
+        </thead>
+        <tr>
+          <td class="table-time"> 12:30-12:45 </td>
+          <td> Welcome and Bathroom Break </td>
+        </tr>
+        <tr>
+          <td> 12:45-1:30 </td>
+          <td> <%= link_to "Opening Group", activities_path(:anchor => "OpeningGroup")%> </td>
+        </tr>
+        <tr>
+          <td> 1:30-2:00 </td>
+          <td> <%= link_to "Snack", activities_path(:anchor => "Snack") %> and Bathroom Break </td>
+        </tr>
+        <tr>
+          <td> 2:00-2:40 </td>
+          <td> <%= link_to "Centers", activities_path(:anchor => "Centers") %> </td>
+        </tr>
+        <tr>
+          <td> 2:40-3:10 </td>
+          <td> <%= link_to "Small Groups", activities_path(:anchor => "SmallGroups") %> </td>
+        </tr>
+        <tr>
+          <td> 3:10-3:30 </td>
+          <td> <%= link_to "Large Group and Dismissal", activities_path(:anchor => "LargeGroup") %> </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="large-5 columns show-for-large-up">
+        <%= link_to "See the 2014-2015 Calendar!", calendar_path,
+              :class => 'button cal-button' %>
+      <%= link_to calendar_path do %>  
+        <%= image_tag "CalendarPic.jpg", :class =>"CalendarPic", 
+        :alt => "Preschool calendar" %> 
+      <% end %>
+
+      <%= image_tag "crayons.jpg", :class => "SchedulePics",
+      :alt => "Colorful array of paint brushes" %>
+
+      <%= image_tag "CircleTime.jpeg", :class => "SchedulePics", 
+      :alt => "Chairs in a circle on butterfly rug" %>
+    </div>
+  </div>
+  
+
+  <div class="row">
+    <div class="large-12 columns show-for-large-up panel">
+      <h2 class="text-center"> Activities </h2>
+
+     <p> 
+      <b> <%= link_to "Opening Group", activities_path(:anchor => "OpeningGroup")%></b> 
+      This time together allows us to begin our day with a greeting and a smile.  Activities during opening group may include calendar time, book sharing, writing practice, listening activities, and music. 
+    </p>
+
+     <p> 
+      <b><%= link_to "Snack", activities_path(:anchor => "Snack") %></b> 
+      This is a very language-rich part of our day. A nutritious snack time, not only provides the opportunity to learn healthy eating habits, but also encourages students to practice social language and manners. 
+    </p>
+
+     <p> 
+      <b><%= link_to "Centers", activities_path(:anchor => "Centers") %></b> 
+      Sometimes known as work time, this is a child-led, play-based part of the day. Students choose an area of the classroom to play in, and are encouraged to expand play schemes, social play, and time engaged in an activity. The teacher may invite a student during this time to participate in a one-on-one activity and/or assessment. 
+    </p>
+  
+     <p> 
+      <b><%= link_to "Small Groups", activities_path(:anchor => "SmallGroups") %></b>
+      Students are divided into two groups to enjoy special activities and projects related to the current theme. Groups may participate in art projects, book sharing/making, games, and pre-academic activities. 
+    </p>
+
+     <p>
+      <b><%=link_to "Large Group and Dismissal", activities_path(:anchor => "LargeGroup")%></b>
+      Gross and fine motor movement is the focus of our large group time. We will engage in outdoor play as much as possible, but if weather is inclement, we will head inside to move and play. 
+    </p>
+    </div>
+  </div>
+</main>

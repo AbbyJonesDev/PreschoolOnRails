@@ -1,0 +1,229 @@
+@import "foundation_and_overrides";
+
+
+// CUSTOM VARIABLES AND MIXINS
+//===========================================
+
+$large-font-size: 115%; 
+$larger-font-size: 130%;
+
+.large-font { 
+  font-size: $large-font-size;
+  line-height: $paragraph-line-height * 1.05;
+}
+
+.larger-font {
+  font-size: $larger-font-size;
+  line-height: $paragraph-line-height * 1.05;
+}
+
+@mixin text-border {
+  border: rem-calc(3px) solid white;
+}
+
+@mixin photo-border {
+  border: rem-calc(4px) groove $light-blue;
+}
+
+
+// SITE-WIDE STYLES
+//===========================================
+
+html, body {
+  height: auto;
+}
+
+.blue-background {
+  background-color: $dark-blue;
+
+  footer {
+    color: $light-blue;
+  }
+
+  .footer-nav > li > a {
+    color: white;
+  }
+
+  footer a {
+    color: $light-blue;
+  }
+
+  footer a:hover {
+    color: white;
+  }
+
+  .panel {
+    a {
+    color: $dark-blue;
+    }
+    a:hover {
+    color: white;
+    }
+  }
+}
+
+.light-blue-background {
+  background-color: darken($light-blue, 10%);
+}
+
+.pink-background {
+  background-color: $pink;
+}
+
+.orange-background {
+  background-color: $orange;
+}
+
+footer > div > nav {
+  margin-top: rem-calc(50px);
+}
+
+footer a {
+  color: $dark-blue;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.panel { 
+  @include text-border;
+
+  a {
+    color: $dark-blue;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: white;
+  }
+
+  h1, h2, h3, h4 { color: white;}
+}
+
+
+.indent {
+  text-indent: rem-calc(5px);
+}
+
+.reduce-margin {
+  margin-bottom: 0;
+}
+
+
+.mobile-nav-button {
+  width: 100%;
+  margin-bottom: rem-calc(10px);
+  text-align: center;
+  padding-top: rem-calc(15px);
+  padding-bottom: rem-calc(15px);
+  background-color: $light-blue;
+  color: $dark-blue;
+  text-decoration: underline;
+  font-family: $header-font-family;
+  font-size: $larger-font-size;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.mobile-nav-button:hover {
+  color: white;
+  background-color: darken($light-blue, 5%);
+}
+
+
+.dropdownwrap {
+  display: none;
+}
+
+.mobile-dropdown-menu {
+  background-color: $light-blue;
+  padding-top: rem-calc(50px);
+  padding-bottom: rem-calc(15px);
+
+
+  li {
+    text-align: center;
+    margin: rem-calc(12px) auto;
+    padding: rem-calc(5, 10);
+    line-height: rem-calc(18);
+  }
+
+  a {
+    color: $dark-blue;
+    font-family: $header-font-family;
+    text-decoration: underline;
+  }
+}
+
+.current {
+  color: white;
+  background-color: lighten($light-blue, 8%);
+  padding: rem-calc(5px 7px);
+}
+
+.embedded_pdf {
+  height: rem-calc(300px);
+}
+  
+
+
+@media #{$large-up} {
+
+  nav {
+    ul {
+      li {
+        display: inline;
+        padding: 4.5%;
+        }  
+      a {
+        color: $dark-blue;
+        text-decoration: underline;
+        font-family: $header-font-family
+      }
+      a:hover {
+          color: white;
+      }
+    }
+  }
+
+  header nav {
+    width: 100%;
+    position: absolute;
+    top: rem-calc(115px);
+    left: 8%;
+  }
+
+  footer nav {
+    margin-left: 8%;
+  }
+}
+
+
+@media #{$medium-up} {
+  body {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: none;
+    border-width: rem-calc(10px);
+    border-style: double;
+    border-color: white;
+    border-radius: rem-calc(10px);
+  }
+
+  main {
+    padding: rem-calc(5px);
+  }
+
+  .indent {
+    text-indent: rem-calc(20px)
+  }
+
+  .embedded_pdf {
+    height: rem-calc(700px); 
+  }
+}
+
+@import "foundation";
+

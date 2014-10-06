@@ -1,0 +1,48 @@
+<!-- Register -->
+<main>
+
+  <h1 class="text-center"> Tuition and Registration </h1>
+
+  <div class="row">
+    <div class="large-6 columns"> 
+      <div class="panel" id="TuitionInfo">
+        <h3 class="text-center"> Tuition Rates </h3>
+        <hr />
+        <p class="reduce-margin">  <strong> Morning Sessions:  </strong> </p>
+        <p class="indent reduce-margin"> Monday/Wednesday/Friday: $175 per month </p>
+        <p class="indent"> Tuesday/Thursday: $150 per month </p>
+        <p class="reduce-margin"> <strong> Afternoon Session:  </strong> </p>
+        <p class="indent"> Monday-Thursday: $225 per month </p>     
+        <p class="reduce-margin"> <strong> Registration Fee:  </strong> </p>
+        <p class="indent"> There is a one-time registration fee of $50.  This fee is not refundable. </p>
+    </div>
+  </div>
+
+    <div class="large-6 columns">
+        <%= link_to registration_form_path, id: "RegButton", :class=>"button" do %> 
+          <%= image_tag "logo_transparent1.png", alt: "Here We Grow Preschool Logo" %>
+           <div> 2014-2015 <br> Registration Form </div>
+        <% end %> 
+        <%= link_to handbook_path, id: "HBButton", :class=>"button" do %>
+          <%= image_tag "logo_transparent1.png", alt: "Here We Grow Preschool Logo" %>
+          <div> Here We Grow <br> Handbook </div>
+        <% end %> 
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns panel">
+      <h3 class="text-center"> Payment Details </h3>
+      <hr />
+
+      <p> Tuition is due on or before the 1st of each month.  You may pay tuition on an annual or monthly basis. Please make checks payable to <b> Here We Grow Preschool. </b> </p>
+
+      <p> If tuition is not paid by the 10th of each month, a $30.00 late fee will be charged. Should tuition go unpaid for 30 days, parents/guardians may be asked to find an alternative placement for their student. A $30.00 charge will be assessed for returned checks (i.e. insufficient funds, stop payment, etc.). </p>
+
+      <p> Tuition will not be prorated for inclement weather, holidays, vacations, early withdrawal/dismissal, or absences. </p>
+
+      <p>Should you decide to withdraw your child for any reason, please provide a written notice 30 days in advance. Tuition will be charged for that month. </p>
+    </div>
+  </div>
+</main>

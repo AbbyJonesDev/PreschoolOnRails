@@ -3,8 +3,16 @@ PreschoolOnRails::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static_pages#home'
 
+  get '/about_us' => 'static_pages#about_us'
+  get '/schedule' => 'static_pages#schedule'
+  get '/activities' => 'static_pages#activities'
+  get '/photo_gallery' => 'static_pages#photo_gallery'
+  get '/register' => 'static_pages#register'
+  get '/calendar' => 'static_pages#calendar'
+  get "/registration_form" => 'static_pages#reg_form'
+  get "/handbook" => 'static_pages#handbook'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
