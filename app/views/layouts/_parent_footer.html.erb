@@ -1,0 +1,25 @@
+<!-- PARENT SITE -->
+<div class="row show-for-large-up">
+  <nav role="navigation">
+    <ul class="footer-nav">
+      <li> <%= link_to "Home", root_path %> </li>
+      <li> <%= link_to "Peek", '#', :class => (@news ? "current" : nil) %> </li>
+      <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
+      <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
+      <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
+      <li> <%= link_to "Sign Out", '#' %> </li>
+    </ul>
+  </nav>
+</div>
+<div class="row">
+  <hr>
+  <div class="small-12 columns">
+    <p class="text-center"> <small> Website by Abby Jones </small> </p> 
+    <p class="text-center"> 
+      <small> 
+        <a href="mailto:abbyjonesdev@gmail.com"> Email: abbyjonesdev@gmail.com </a> | 
+        <a href="https://twitter.com/AbbyJones80"> Tweet: @AbbyJones80 </a> 
+      </small> 
+    </p>
+  </div>
+</div>  

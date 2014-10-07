@@ -15,14 +15,14 @@
   <body class=<%= @body_background %> >
 
     <header>
-      <%= render 'layouts/banner' %>
+      <%= render_banner %>
     </header>
 
 
     <%= yield %>
 
     <footer>
-      <%= render 'layouts/footer' %>
+      <%= render_footer %>
     </footer>
 
     <%= javascript_include_tag "application" %>
