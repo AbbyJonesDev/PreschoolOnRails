@@ -10,7 +10,7 @@
         <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
         <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
         <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
-        <li> <%= link_to "Sign Out", '#' %> </li>
+        <%= render 'layouts/login_button' %>
       </ul>
     </nav>
   </div>
@@ -25,7 +25,7 @@
 <!-- Mobile Banner and Nav -->
 <div class="row hide-for-large-up">
   <%= link_to('#') do %>
-    <%= image_tag "parent_banner-Mobile.jpg", :alt => "Here We Grow Parents" %>
+    <%= image_tag "mobile_parent_banner.jpg", :alt => "Here We Grow Parents" %>
   <% end %>
   <div class="small-12 columms">
     <nav role="navigation">
@@ -36,7 +36,7 @@
         <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
         <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
         <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
-        <li> <%= link_to "Sign Out", '#' %> </li>
+        <%= render 'layouts/login_button' %>
         </ul>
     </nav>
   </div>

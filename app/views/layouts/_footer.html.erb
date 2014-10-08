@@ -6,6 +6,7 @@
       <li> <%= link_to "Schedule", schedule_path, :class => (@sched ? "current" : nil) %> </li>
       <li> <%= link_to "Register", register_path, :class => (@reg ? "current" : nil) %> </li>
       <li> <%= link_to "Photo Gallery", photo_gallery_path, :class => (@photo ? "current" : nil) %> </li>
+      <%= render 'layouts/login_button' %>
     </ul>
   </nav>
 </div>
