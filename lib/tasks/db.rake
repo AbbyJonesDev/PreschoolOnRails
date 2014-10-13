@@ -52,12 +52,12 @@ end
 
 def create_newsletters
   Newsletter.create(date: Time.now - 3.weeks,
-    file: File.new("#{Rails.root}/tmp/summer_camp.pdf")
+    file: File.new("#{Rails.root}/db/summer_camp.pdf")
     )
   Newsletter.create(date: Time.now - 2.weeks,
-    file: File.new("#{Rails.root}/tmp/summer_camp.pdf")
+    file: File.new("#{Rails.root}/db/summer_camp.pdf")
     )
   Newsletter.create(date: Time.now - 1.weeks,
-    file: File.new("#{Rails.root}/tmp/summer_camp.pdf")
+    file: File.new("#{Rails.root}/db/summer_camp.pdf")
     )
 end
