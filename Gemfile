@@ -47,10 +47,11 @@ gem 'unicorn'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'capybara'  # To simulate user interaction with browser
+  gem 'capybara', '~> 2.4.3'  # To simulate user interaction with browser
   gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
   gem 'database_cleaner'  # To clean database after capybara-webkit messes it up
   gem 'debugger'
+  gem 'launchy'
 end
 
 gem 'rails_12factor', group: :production # To make app work on Heroku

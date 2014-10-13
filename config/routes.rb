@@ -1,5 +1,4 @@
 PreschoolOnRails::Application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,8 +13,32 @@ PreschoolOnRails::Application.routes.draw do
   get '/calendar' => 'static_pages#calendar'
   get "/registration_form" => 'static_pages#reg_form'
   get "/handbook" => 'static_pages#handbook'
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+
+  resources :newsletters, only: :index
+
+  
+  # Don't allow users to register... Admin/teacher will do that 
+  # for them. They just need to change their password
+  devise_for :users, :skip => [:registrations]
+
+  # Add back the routes for users to edit their passwords
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
+  # this lets you add to devise's routes because
+  # now it knows you'll be in the user scope 
+  # so you can use the simplified routes
+  # (since devise is built for multiple scopes)
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new"
+    get "login", :to => "devise/sessions#new"
+    delete "sign_out", :to => "devise/sessions#destroy"
+    delete "logout", :to => "devise/sessions#destroy"
+    get 'users', :to => redirect('/newsletters'), :as => :user_root
+  end
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
