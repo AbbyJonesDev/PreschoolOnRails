@@ -13,5 +13,12 @@ describe "Parent Basics" do
     expect(current_path).to eq(newsletters_path)
   end
 
+  context "with parent logged in" do
+    before { login(parent) }
+
+    it "has no dashboard link for parents" do
+      expect(page).not_to have_link("Dashboard")
+    end
+  end
 
 end

@@ -12,11 +12,16 @@
 </div>
 <div class="row">
   <hr>
-  <div class="small-12 columns">
+  <div class="small-12 columns text-center">
+    <% if admin_logged_in? %>
+      <%= link_to "Dashboard", admin_dashboard_path %>
+      <br> <br>
+    <% end %>    
+
     <p class="text-center"> <small> Website by Abby Jones </small> </p> 
     <p class="text-center"> 
       <small> 
-        <a href="mailto:abbyjonesdev@gmail.com"> Email: abbyjonesdev@gmail.com </a> | 
+        <a href="mailto:hello@abbyjones.net"> Email: hello@abbyjones.net </a> | 
         <a href="https://twitter.com/AbbyJones80"> Tweet: @AbbyJones80 </a> 
       </small> 
     </p>
