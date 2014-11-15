@@ -1,3 +1,31 @@
 // Place all the styles related to the admin/dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin admin-button {
+  @include button;
+  width: 100%;
+  padding: rem-calc(8px) rem-calc(16px);
+  border: rem-calc(4px) solid white;
+}
+
+.admin-button-green {
+  @include admin-button;
+  background-color: darken($green, 5%);
+}
+
+.admin-button-orange {
+  @include admin-button;
+  background-color: $orange;
+}
+
+.admin-button-orange.current-tab {
+  @include admin-button;
+  background-color: white;
+  border-color: $orange;
+}
+
+.admin-button-green.current-tab {
+  @include admin-button;
+  border-color: darken($green, 5%);
+}

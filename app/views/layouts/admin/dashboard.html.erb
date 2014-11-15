@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Here We Grow" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <%= render 'shared/ga' %> 
+  </head>
+
+  <body class="light-blue-background">
+
+    <header>
+      <%= render_banner %>
+    </header>
+
+    <%= render 'layouts/flash_messages' %>
+
+    <div class="row text-center">
+      <h1>Admin Dashboard</h1>
+    </div>
+
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= render 'layouts/admin/admin_nav' %>        
+      </div>
+
+      <div class="medium-8 columns">
+        <div class="panel">
+          <%= yield %>       
+        </div> 
+      </div>
+    </div>
+
+
+    <footer>
+      <%= render_footer %>
+    </footer>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
