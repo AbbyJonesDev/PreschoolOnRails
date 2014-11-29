@@ -1,0 +1,14 @@
+<%= form_for @group, url: { action: :create} do |f| %>
+
+  <div class="row">
+    <div class="medium-9 columns">
+      <%= f.label :name, "Class Name:" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :student_ids, "Students" %>
+      <%= f.collection_select :student_ids, Student.all, :id, :name, {prompt: true}, {multiple: true} %>
+    </div>
+
+  </div>
+
+<% end %>

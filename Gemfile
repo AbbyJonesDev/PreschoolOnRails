@@ -36,6 +36,9 @@ gem 'aws-sdk'
 # Use Devise for Admin and User authentication
 gem 'devise'
 
+# Create demo users
+gem 'faker'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

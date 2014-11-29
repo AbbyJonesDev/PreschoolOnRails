@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
+  serialize :days, Array
+  
   has_and_belongs_to_many   :students,  
                             :join_table =>  :enrolled_students
   
