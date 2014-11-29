@@ -54,6 +54,10 @@ group :development, :test do
   gem 'launchy'
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
 gem 'rails_12factor', group: :production # To make app work on Heroku
 
 # Use Capistrano for deployment

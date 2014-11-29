@@ -4,19 +4,17 @@ Warden.test_mode!  # login_as(parent, :scope => :user)
 
 describe "Admin Dashboard" do 
   # Access control tested in controller spec
+  before { login_admin }
 
-  it "takes admin to dashboard when they log in" do
-    login_admin
-    expect(current_path).to eq(admin_dashboard_path)
-  end
- 
-  context "with admin logged in" do
-    before { login_admin }
-
-    it "has link to dashboard in footer" do
+  describe "After Logging In" do
+    it "takes admin to dashboard" do
+      expect(current_path).to eq(admin_dashboard_path)
+    end
+   
+    it "has link to dashboard from other pages" do
+      visit root_path
       expect(page).to have_link("Dashboard", href: admin_dashboard_path)
     end
-    
   end
 
 end

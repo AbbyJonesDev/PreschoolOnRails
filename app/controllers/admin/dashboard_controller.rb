@@ -4,7 +4,6 @@ class Admin::DashboardController < ApplicationController
 def home
 end
 
-
 private
 
 def authenticate_admin

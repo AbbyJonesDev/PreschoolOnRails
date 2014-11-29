@@ -42,6 +42,8 @@ PreschoolOnRails::Application.routes.draw do
   #  Admin Dashboard Paths
   namespace :admin do
     get "/dashboard" => 'dashboard#home'
+    resources :classes
+    resources :parents, class_name: "user"
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
