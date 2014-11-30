@@ -11,25 +11,15 @@ describe "Class Manager" do
     end
 
     describe "with valid inputs" do
-      let!(:student1) { FactoryGirl.create(:student) }
-      let!(:student2) { FactoryGirl.create(:student) }
-      let!(:student3) { FactoryGirl.create(:student) }
-
-      let!(:parent1) { FactoryGirl.create(:user, role: "parent") }
-      let!(:parent2) { FactoryGirl.create(:user, role: "parent") }
-      let!(:parent3) { FactoryGirl.create(:user, role: "parent") }
-
+      let(:klass) { Group.last }
       before do
         fill_in('Class Name:', with: "Class 1")
-        save_and_open_page
-        select(student1.name, from: "Students")
-        select(parent1, from: "Parents")
         check("Monday")
         check("Wednesday")
         check("Friday")
         fill_in("Begins:", with: "8:30")
         fill_in("Ends:", with: "11:30")
-        click("Create")
+        click_on("Submit")
       end
 
 
@@ -37,17 +27,25 @@ describe "Class Manager" do
         expect(Group.count).to eq 1
       end
 
-      it "adds selected students to class"
+      specify "with correct days" do
+        expect(klass.days).to eq(["Monday", "Wednesday", "Friday"])
+      end
 
-      it "does not add other students to class"
+      specify "with correct start time" do
+        expect(klass.start_time.hour).to eq(8)
+      end
 
-      it "adds selected parents to class"
+      specify "with correct end time" do
+        expect(klass.end_time.hour).to eq(11)
+      end
 
-      it "does not add other parents to class"
+      it "displays confirmation message" do
+        expect(page).to have_selector("div", text: "Class successfully created")
+      end
 
-      it "displays confirmation message"
-
-      it "redirects to class index"
+      it "redirects to class index" do
+        expect(current_path).to eq(admin_classes_path)
+      end
 
     end
   end
