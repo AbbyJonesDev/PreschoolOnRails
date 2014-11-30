@@ -21,6 +21,11 @@ describe "Class Manager" do
     it "displays table of classes" do
       expect(page).to have_selector("table tr", count: 3)
     end
+
+    it "has links to edit each class" do
+      click_on("Edit", :match => :first)
+      expect(current_path).to eq(edit_admin_class_path(Group.first))
+    end
   end
 
   context "On Add Class Page" do
