@@ -20,7 +20,8 @@
         <td> <%= time_to_s(group.end_time) %> </td>
         <td> 
           <%= link_to "Edit", edit_admin_class_path(group)  %> /
-          <%= link_to "Delete", "#" %>
+          <%= link_to "Delete", admin_class_path(group), method: :delete, 
+                data: { confirm: "Are you sure?" } %>
         </td>        
       </tr>
     <% end %>

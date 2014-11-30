@@ -1,4 +1,6 @@
 require 'rails_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 describe "Class Manager" do
   before { login_admin }
@@ -28,11 +30,37 @@ describe "Class Manager" do
     end
 
     describe "delete class" do
-      before { click_on("Delete", :match => :first) }
 
-      it ""
+      xit "removes class", js: true do
+        # Need to research how to test this
+        # Capybara thinks no one is logged in
+        # Logging in again here doesn't help
+
+        # First problem  resolved by using Warden Test Helper
+        admin = FactoryGirl.create(:user, role: "admin")
+        login_as(admin, :scope => :user, :run_callbacks => false)
+        # But now classes aren't being displayed in the index
+        # Even though they appear in debugger session
+        3.times { FactoryGirl.create(:group) }
+        # debugger
+        visit admin_classes_path
+        save_and_open_page
+
+        expect { 
+          click_on("Delete", match: :first)
+          page.accept_alert 'Are you sure?' do
+            click_button('OK')
+          end
+          }.to change(Group, :count).by(-1)
+      end
+
+      it "removes association with students"
+      it "unenrolls students"
+      it "removes association with parents"
+      it "deactivates parents"
     end
   end
+
 
   context "On Add Class Page" do
     before { visit new_admin_class_path }

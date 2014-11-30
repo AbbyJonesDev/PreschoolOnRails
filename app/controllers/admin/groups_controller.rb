@@ -32,6 +32,13 @@ class Admin::GroupsController < Admin::DashboardController
     end
   end    
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    flash[:notice] = "#{@group.name} has been deleted"
+    redirect_to admin_classes_path
+  end
+
 
   private
     def group_params
