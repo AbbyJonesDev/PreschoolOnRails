@@ -42,7 +42,8 @@ PreschoolOnRails::Application.routes.draw do
   #  Admin Dashboard Paths
   namespace :admin do
     get "/dashboard" => 'dashboard#home'
-    resources :classes
+    resources :classes, controller: 'groups'
+    resources :groups
     resources :parents, class_name: "user"
   end
 

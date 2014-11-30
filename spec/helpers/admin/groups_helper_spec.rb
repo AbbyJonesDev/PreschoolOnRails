@@ -10,5 +10,5 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe Admin::ClassesHelper, :type => :helper do
+RSpec.describe Admin::GroupsHelper, :type => :helper do
 end
