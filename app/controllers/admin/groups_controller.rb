@@ -10,9 +10,6 @@ class Admin::GroupsController < Admin::DashboardController
 
   def create
     @group = Group.new(group_params)
-    # Remove days with value of 0
-    @group.days = group_params["days"].reject { |day| day == "0" }
-
     if @group.save
       flash[:notice] = "Class successfully created"
       redirect_to admin_classes_path

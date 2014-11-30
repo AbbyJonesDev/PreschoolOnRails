@@ -7,36 +7,20 @@
     </div>
   
     <div class="medium-6 columns">
-      <div class="medium-1 columns">
-        <%= f.label :days_monday, "Monday" %>
-      </div>   
-      <div class="medium-11 columns">
-        <%= f.check_box :days, {:multiple => true}, "Monday" %>
-      </div>
-      <div class="medium-1 columns">
-        <%= f.label :days_tuesday, "Tuesday" %>
-      </div>   
-      <div class="medium-11 columns">
-        <%= f.check_box :days, {:multiple => true}, "Tuesday" %>
-      </div>
-      <div class="medium-1 columns">
-        <%= f.label :days_wednesday, "Wednesday" %>
-      </div>   
-      <div class="medium-11 columns">
-        <%= f.check_box :days, {:multiple => true}, "Wednesday" %>
-      </div>
-      <div class="medium-1 columns">
-        <%= f.label :days_thursday, "Thursday" %>
-      </div>   
-      <div class="medium-11 columns">
-        <%= f.check_box :days, {:multiple => true}, "Thursday" %>
-      </div>
-      <div class="medium-1 columns">
-        <%= f.label :days_friday, "Friday" %>
-      </div>   
-      <div class="medium-11 columns">
-        <%= f.check_box :days, {:multiple => true}, "Friday" %>
-      </div>
+      <%= f.check_box :days, {:multiple => true}, "Monday", nil %>
+      <%= f.label :days_monday, "Monday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Tuesday", nil %>
+      <%= f.label :days_tuesday, "Tuesday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Wednesday", nil %>
+      <%= f.label :days_wednesday, "Wednesday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Thursday", nil %>
+      <%= f.label :days_thursday, "Thursday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Friday", nil %>
+      <%= f.label :days_friday, "Friday" %>
     </div>
 
     <div class="medium-6 columns">

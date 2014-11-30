@@ -26,13 +26,19 @@ describe "Class Manager" do
       click_on("Edit", :match => :first)
       expect(current_path).to eq(edit_admin_class_path(Group.first))
     end
+
+    describe "delete class" do
+      before { click_on("Delete", :match => :first) }
+
+      it ""
+    end
   end
 
   context "On Add Class Page" do
     before { visit new_admin_class_path }
 
     it "has correct header" do
-      expect(page).to have_selector("h1", text: "ADD NEW CLASS")
+      expect(page).to have_selector("h2", text: "ADD NEW CLASS")
     end
 
     describe "with valid inputs" do
@@ -71,7 +77,33 @@ describe "Class Manager" do
       it "redirects to class index" do
         expect(current_path).to eq(admin_classes_path)
       end
+    end
 
+    describe "with invalid inputs" do
+      it "shows error message"
+    end
+  end
+
+  context "On Edit Page" do
+    let(:klass) { FactoryGirl.create(:group, days: ["Monday, Wednesday, Friday"]) }
+    before do
+     visit edit_admin_class_path(klass) 
+     check("Tuesday")
+     check("Thursday")
+     click_on("Submit")
+   end
+
+    it "updates days" do
+      klass.reload
+      expect(klass.days).to eq(["Tuesday", "Thursday"])
+    end
+    
+    it "shows confirmation message" do
+      expect(page).to have_selector("div", text: "Class successfully updated")
+    end
+
+    it "redirect to class index" do
+      expect(current_path).to eq(admin_classes_path)
     end
   end
 
