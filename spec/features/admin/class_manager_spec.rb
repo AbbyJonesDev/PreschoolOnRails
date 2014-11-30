@@ -27,15 +27,15 @@ describe "Class Manager" do
         expect(Group.count).to eq 1
       end
 
-      specify "with correct days" do
+      specify "has correct days" do
         expect(klass.days).to eq(["Monday", "Wednesday", "Friday"])
       end
 
-      specify "with correct start time" do
+      specify "has correct start time" do
         expect(klass.start_time.hour).to eq(8)
       end
 
-      specify "with correct end time" do
+      specify "has correct end time" do
         expect(klass.end_time.hour).to eq(11)
       end
 
