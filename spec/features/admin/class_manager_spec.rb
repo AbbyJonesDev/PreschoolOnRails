@@ -3,6 +3,26 @@ require 'rails_helper'
 describe "Class Manager" do
   before { login_admin }
 
+  context "On Class Index Page" do
+    before do
+      3.times { FactoryGirl.create(:group) }
+      visit admin_classes_path
+    end
+
+    it "has link to add class" do
+      expect(page).to have_link("Add new class")
+    end
+
+    specify "link goes to add class page" do
+      click_on("Add new class")
+      expect(current_path).to eq(new_admin_class_path)
+    end
+
+    it "displays table of classes" do
+      expect(page).to have_selector("table tr", count: 3)
+    end
+  end
+
   context "On Add Class Page" do
     before { visit new_admin_class_path }
 

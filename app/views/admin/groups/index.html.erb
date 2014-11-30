@@ -1,1 +1,28 @@
-hallo
+<h2><small> Current Classes </small></h2>
+
+<%= link_to "Add new class", new_admin_class_path, :class => "button" %>
+
+<table>
+  <thead>
+    <th> Name </th>
+    <th> Days </th>
+    <th> Start </th>
+    <th> End </th>
+    <th> Edit/Delete </th>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td> <%= group.name %> </td>
+        <td> <%= arr_to_s(group.days) %> </td>
+        <td> <%= time_to_s(group.start_time) %> </td>
+        <td> <%= time_to_s(group.end_time) %> </td>
+        <td> 
+          <%= link_to "Edit", edit_admin_class_path(group)  %> /
+          <%= link_to "Delete", "#" %>
+        </td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
