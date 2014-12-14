@@ -1,7 +1,7 @@
 class Admin::DashboardController < ApplicationController
   before_filter :authenticate_admin
 
-def home
+def index
 end
 
 private

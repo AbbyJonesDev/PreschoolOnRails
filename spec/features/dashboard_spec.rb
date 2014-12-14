@@ -17,4 +17,16 @@ describe "Admin Dashboard" do
     end
   end
 
+  describe "Links to Each Section" do
+    it "links to Class Manager section" do
+      click_on("Classes")
+      expect(current_path).to eq(admin_classes_path)
+    end
+
+    it "links to Account Manager section" do
+      click_on("Account Management")
+      expect(current_path).to eq(admin_parents_path)
+    end
+  end
+
 end

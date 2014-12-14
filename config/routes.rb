@@ -44,7 +44,8 @@ PreschoolOnRails::Application.routes.draw do
     get "/dashboard" => 'dashboard#home'
     resources :classes, controller: 'groups'
     resources :groups
-    resources :parents, class_name: "user"
+    resources :parents, controller: "users"
+    resources :users
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
