@@ -9,23 +9,48 @@
   border: rem-calc(4px) solid white;
 }
 
-.admin-button-green {
-  @include admin-button;
-  background-color: darken($green, 5%);
+.admin {
+  // Buttons
+  .admin-button-green {
+    @include admin-button;
+    background-color: darken($green, 5%);
+  }
+
+  .admin-button-orange {
+    @include admin-button;
+    background-color: $orange;
+  }
+
+  .admin-button-orange.current-tab {
+    @include admin-button;
+    background-color: white;
+    border-color: $orange;
+  }
+
+  .admin-button-green.current-tab {
+    @include admin-button;
+    border-color: darken($green, 5%);
+  }
+
+  // Panel
+  .panel {
+    background-color: white;
+    border: rem-calc(4px) solid $orange;
+    margin-bottom: 0;
+
+    h1, h2, h3, h4, p, h1 small, h2 small {
+      color: $light-blue;
+    }
+  }
+
+  .panel:last-of-type {
+    border-top: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
 }
 
-.admin-button-orange {
-  @include admin-button;
-  background-color: $orange;
-}
 
-.admin-button-orange.current-tab {
-  @include admin-button;
-  background-color: white;
-  border-color: $orange;
-}
-
-.admin-button-green.current-tab {
-  @include admin-button;
-  border-color: darken($green, 5%);
-}

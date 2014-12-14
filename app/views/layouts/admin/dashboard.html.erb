@@ -12,7 +12,7 @@
     <%= render 'shared/ga' %> 
   </head>
 
-  <body class="light-blue-background">
+  <body class="light-blue-background admin">
 
     <header>
       <%= render_banner %>
@@ -30,9 +30,8 @@
       </div>
 
       <div class="medium-8 columns">
-        <div class="panel">
-          <%= yield %>       
-        </div> 
+        <!-- Main Content In Panels -->
+        <%= yield %>       
       </div>
     </div>
 
