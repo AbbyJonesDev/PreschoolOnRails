@@ -16,16 +16,12 @@
       <%= f.text_field :email %>
     </div>
     <div class="medium-6 columns">
-      <%= f.label :groups, "Class:" %>
-      <%= f.select :groups, options_from_collection_for_select(@groups, 'id', 'name') %>
+      <%= f.label :group_ids, "Class:" %>
+      <%= f.select :group_ids, options_from_collection_for_select(@groups, 'id', 'name') %>
     </div>
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
-      <%= f.label :role, "Role:" %>
-      <%= f.select :role, options_for_select([["Parent", 1], ["Teacher", 2]], 1) %>
-    </div>
     <div class="medium-6 columns">
       <%= f.label :active, "Status:" %>
       <div class="medium-6 columns">
@@ -37,12 +33,13 @@
         <%= f.radio_button :active, false %>
       </div>
     </div>
+    <div class="medium-6 columns">
+      <br>
+      <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
+    </div>
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
-      <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
-    </div>
     <div class="medium-2 columns">
       <%= f.submit "Create" %>
     </div>

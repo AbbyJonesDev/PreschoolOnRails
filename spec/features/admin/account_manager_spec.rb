@@ -18,17 +18,22 @@ describe "Account Manager" do
         before do 
           fill_in("First Name", with: "Harriette")
           fill_in("Last Name", with: "Winslow")
-          select("Parent", from: "Role")
           choose("user_active_true") #Radio button - Active
           fill_in("Email", with: "hwinslow@example.com")
-          # Password field - hidden
-          # Select student - optional
           select("#{Group.last.name}", from: "Class")
+          # select("Parent", from: "Role") - maybe later
+          # Password field - hidden
+          # Add or select student - later
           click_on("Create")
+          @new_parent = User.last
         end
 
         it "creates parent" do
-          expect(User.last.email).to eq("hwinslow@example.com")
+          expect(@new_parent.email).to eq("hwinslow@example.com")
+        end
+
+        it "builds association with class" do
+          expect(@new_parent.groups).to eq([Group.last])
         end
       end
     end 
