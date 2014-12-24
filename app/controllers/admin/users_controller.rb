@@ -10,10 +10,11 @@ class Admin::UsersController < Admin::DashboardController
     @user = User.new(user_params)
     @user.password = Devise.friendly_token unless params[:user][:password]
     if @user.save
+      @user.update_klasses(params[:group_ids])
       flash[:notice] = "Parent account successfully added"
       redirect_to admin_parents_path
     else
-      render :index
+      redirect_to admin_parents_path
     end
   end
 
@@ -25,7 +26,7 @@ class Admin::UsersController < Admin::DashboardController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :active, :password, :group_ids => [])
+    params.require(:user).permit(:fname, :lname, :email, :active, :password)
   end
 end
 

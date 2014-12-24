@@ -17,7 +17,7 @@
     </div>
     <div class="medium-6 columns">
       <%= f.label :group_ids, "Class:" %>
-      <%= f.select :group_ids, options_from_collection_for_select(@groups, 'id', 'name') %>
+      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name'), multiple: true %>
     </div>
   </div>
 

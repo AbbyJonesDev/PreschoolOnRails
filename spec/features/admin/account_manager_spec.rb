@@ -20,7 +20,7 @@ describe "Account Manager" do
           fill_in("Last Name", with: "Winslow")
           choose("user_active_true") #Radio button - Active
           fill_in("Email", with: "hwinslow@example.com")
-          select("#{Group.last.name}", from: "Class")
+          select("#{Group.last.name}", from: "group_ids[]")
           # select("Parent", from: "Role") - maybe later
           # Password field - hidden
           # Add or select student - later
