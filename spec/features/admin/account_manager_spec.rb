@@ -15,6 +15,7 @@ describe "Account Manager" do
 
     describe "Form to Add Parent" do
       context "With Complete/Valid Inputs" do
+        let(:confirmation_email) { ActionMailer::Base.deliveries.last }
         before do 
           fill_in("First Name", with: "Harriette")
           fill_in("Last Name", with: "Winslow")
@@ -24,7 +25,7 @@ describe "Account Manager" do
           # select("Parent", from: "Role") - maybe later
           # Password field - hidden
           # Add or select student - later
-          click_on("Create")
+          click_on("Submit")
           @new_parent = User.last
         end
 
@@ -32,8 +33,41 @@ describe "Account Manager" do
           expect(@new_parent.email).to eq("hwinslow@example.com")
         end
 
+        it "creates random password" do
+          expect(@new_parent.encrypted_password).not_to be_nil
+        end
+
         it "builds association with class" do
           expect(@new_parent.groups).to eq([Group.last])
+        end
+
+        it "shows success message" do
+          expect(page).to have_selector('div', text: "Parent account successfully added")
+        end
+
+        it "sends email with confirmation instructions" do
+          expect(confirmation_email.body.to_s).to include("confirmation")
+        end
+      end
+
+      context "With Form Errors" do
+        before do
+          ActionMailer::Base.deliveries.clear
+          fill_in("First Name", with: "Madison")
+          click_on("Submit")
+        end
+
+        it "does not save parent record" do
+          # 3 parents created at top of spec + 0 more
+          expect(User.where(role: "parent").count).to eq(3)
+        end
+
+        it "does not send confirmation email" do
+          expect(ActionMailer::Base.deliveries.count).to eq(0)
+        end
+
+        it "displays error message" do
+          expect(page).to have_selector('div', text: /errors? prevented/)
         end
       end
     end 

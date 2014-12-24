@@ -165,6 +165,10 @@ footer a:hover {
 .embedded_pdf {
   height: rem-calc(300px);
 }
+
+#error_explanation p, #error_explanation li {
+  color: darken($orange, 3%);
+}
   
 
 

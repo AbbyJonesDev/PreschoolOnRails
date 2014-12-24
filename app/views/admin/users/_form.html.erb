@@ -1,4 +1,18 @@
 <%= form_for [:admin, @user] do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@user.errors.count, "error") %> prevented this account from being saved:
+      </p>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="medium-6 columns">
       <%= f.label :fname, "First Name:" %>
@@ -35,10 +49,10 @@
   </div>
 
   <br>
-  
+
   <div class="row">
     <div class="medium-2 columns">
-      <%= f.submit "Create" %>
+      <%= f.submit "Submit" %>
     </div>
   </div>
 <% end %>

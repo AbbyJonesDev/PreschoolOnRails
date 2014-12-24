@@ -1,9 +1,6 @@
 class Admin::UsersController < Admin::DashboardController
   def index
-    @user = User.new 
-    @parents = User.where(role: "parent")
-    @students = Student.all
-    @groups = Group.all
+    load_variables
   end
 
   def create
@@ -14,7 +11,8 @@ class Admin::UsersController < Admin::DashboardController
       flash[:notice] = "Parent account successfully added"
       redirect_to admin_parents_path
     else
-      redirect_to admin_parents_path
+      load_variables
+      render :index
     end
   end
 
@@ -28,6 +26,14 @@ class Admin::UsersController < Admin::DashboardController
   def user_params
     params.require(:user).permit(:fname, :lname, :email, :active, :password)
   end
+
+  def load_variables
+    @user ||= User.new 
+    @parents = User.where(role: "parent")
+    @students = Student.all
+    @groups = Group.all
+  end
+
 end
 
 
