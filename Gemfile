@@ -57,6 +57,8 @@ group :development, :test do
   gem 'launchy'
 end
 
+gem "letter_opener", :group => :development
+
 group :test do
   gem 'shoulda-matchers', require: false
 end
