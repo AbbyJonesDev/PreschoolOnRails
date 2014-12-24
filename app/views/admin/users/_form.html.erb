@@ -14,15 +14,7 @@
     <div class="medium-6 columns">
       <%= f.label :email, "Email:" %>
       <%= f.text_field :email %>
-    </div>
-    <div class="medium-6 columns">
-      <%= f.label :group_ids, "Class:" %>
-      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name'), multiple: true %>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="medium-6 columns">
       <%= f.label :active, "Status:" %>
       <div class="medium-6 columns">
         <%= f.label :active, "Active", style: "display:inline" %>
@@ -32,13 +24,18 @@
         <%= f.label :active, "Inactive", style: "display:inline" %>
         <%= f.radio_button :active, false %>
       </div>
-    </div>
-    <div class="medium-6 columns">
-      <br>
+
       <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
+    </div>
+    
+    <div class="medium-6 columns">
+      <%= f.label :group_ids, "Class:" %>
+      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name'), {multiple: true, prompt: 'Use "shift" to make multiple selections'} %>
     </div>
   </div>
 
+  <br>
+  
   <div class="row">
     <div class="medium-2 columns">
       <%= f.submit "Create" %>
