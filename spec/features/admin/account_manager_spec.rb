@@ -65,6 +65,25 @@ describe "Account Manager" do
       end
     end 
 
+    describe "Edit Parent Account" do
+      # Need better test coverage here or in controller spec
+      before do
+        click_on "Edit", match: :first
+      end
+
+      it "updates email" do
+        fill_in("Email", with: "new-email@boo.yah")
+        click_on("Submit")
+        expect(page).to have_selector('div', text: "Account updated")
+      end
+    end
+
+    describe "Delete Parent Account" do
+      it "removes parent account" do
+        expect{ click_on("Delete", match: :first) }.to change{User.count}.by(-1)
+      end
+    end
+
     describe "Table of Users" do
       it "displays table of users" do
         expect(page).to have_selector("table tr", count: 3)

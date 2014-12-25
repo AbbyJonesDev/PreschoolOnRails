@@ -17,9 +17,32 @@ class Admin::UsersController < Admin::DashboardController
   end
 
   def edit
+    @groups = Group.all
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.skip_reconfirmation!
+    if @user.update(user_params)
+      @user.update_klasses(params[:group_ids]) if params[:group_ids]
+      flash[:notice] = "Account updated"
+      redirect_to admin_parents_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "Account removed"
+      redirect_to admin_parents_path
+    else
+      flash[:notice] = "Account not found"
+      redirect_to admin_parents_path
+    end
+  end
 
   private
 
