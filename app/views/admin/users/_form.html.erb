@@ -38,8 +38,10 @@
         <%= f.label :active, "Inactive", style: "display:inline" %>
         <%= f.radio_button :active, false %>
       </div>
-
-      <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
+      
+      <div id="password_field">
+        <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
+      </div>
     </div>
     
     <div class="medium-6 columns">

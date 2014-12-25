@@ -17,14 +17,7 @@ describe "Account Manager" do
       context "With Complete/Valid Inputs" do
         let(:confirmation_email) { ActionMailer::Base.deliveries.last }
         before do 
-          fill_in("First Name", with: "Harriette")
-          fill_in("Last Name", with: "Winslow")
-          choose("user_active_true") #Radio button - Active
-          fill_in("Email", with: "hwinslow@example.com")
-          select("#{Group.last.name}", from: "group_ids[]")
-          # select("Parent", from: "Role") - maybe later
-          # Password field - hidden
-          # Add or select student - later
+          fill_in_basic_user_fields
           click_on("Submit")
           @new_parent = User.last
         end
