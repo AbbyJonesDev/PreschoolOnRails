@@ -50,13 +50,17 @@
   table {
     width: 100%;
   }
+
+  form a:hover {
+    color: $light-blue;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: $light-blue;
+  }
 }
 
 select#group_ids_ {
   height: rem-calc(100px);
-}
-
-#edit_password_field:hover {
-  color: $light-blue;
 }
 

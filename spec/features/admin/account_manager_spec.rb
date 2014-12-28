@@ -76,6 +76,11 @@ describe "Account Manager" do
         click_on("Submit")
         expect(page).to have_selector('div', text: "Account updated")
       end
+
+      it "takes me back if I change my mind" do
+        click_on("Cancel")
+        expect(current_path).to eq(admin_parents_path)
+      end
     end
 
     describe "Delete Parent Account" do
