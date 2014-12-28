@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups,
                           :join_table  => :class_parents
 
+  has_and_belongs_to_many :students
+
+  
   # Causing an infinite loop
   # Investigate more later...
   # scope :parents, -> { where(role: 'parent') } 

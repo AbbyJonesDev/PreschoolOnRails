@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
 
+  describe 'validations' do
+    it { should have_and_belong_to_many(:groups) }
+    it { should have_and_belong_to_many(:students) }
+    it { should validate_uniqueness_of(:email) }
+  end
+
   describe '#parents' do
     let(:parent) { FactoryGirl.create(:user, role: "parent") }
     let(:admin)  { FactoryGirl.create(:user, role: "admin")  }
