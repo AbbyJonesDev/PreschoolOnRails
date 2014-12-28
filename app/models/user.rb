@@ -30,4 +30,10 @@ class User < ActiveRecord::Base
     ids.each { |id| self.groups << Group.find(id) }
   end
 
+  def klass_ids
+    ids = []
+    self.groups.each { |group| ids << group.id }
+    return ids
+  end
+
 end

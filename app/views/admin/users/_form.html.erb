@@ -46,7 +46,7 @@
     
     <div class="medium-6 columns">
       <%= f.label :group_ids, "Class:" %>
-      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name'), {multiple: true, prompt: 'Use "shift" to make multiple selections'} %>
+      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name', selected = @user.klass_ids), {multiple: true, prompt: 'Use "shift" to make multiple selections'} %>
     </div>
   </div>
 
