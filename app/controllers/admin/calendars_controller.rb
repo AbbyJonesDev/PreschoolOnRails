@@ -1,23 +1,22 @@
 class Admin::CalendarsController < Admin::DashboardController
   def index
-    @calendar ||= Calendar.new
-    @calendars = Calendar.all
+    load_index_variables
   end
 
   def create
     @calendar = Calendar.new(calendar_params)
     if @calendar.save
       flash[:notice] = "Calendar uploaded successfully"
-      redirect_to admin_file_uploader_path
+      redirect_to admin_calendars_path
     else
-      @calendars = Calendar.all
-      render template: '/admin/dashboard/file_uploader.html.erb'
+      load_index_variables
+      render :index
     end
   end
 
   def edit
     @calendar = Calendar.find(params[:id])
-    @calendars = Calendar.all
+    load_index_variables
     render :index
   end
 
@@ -27,7 +26,7 @@ class Admin::CalendarsController < Admin::DashboardController
       flash[:notice] = "Calendar updated successfully"
       redirect_to admin_calendars_path
     else
-      @calendars = Calendar.all
+      load_index_variables
       render :index
     end
   end
@@ -36,12 +35,20 @@ class Admin::CalendarsController < Admin::DashboardController
     calendar = Calendar.find(params[:id])
     calendar.destroy
     flash[:notice] = "Calendar deleted"
-    redirect_to admin_file_uploader_path
+    # Load variables for index
+    load_index_variables
+    render :index
   end
 
   private
 
   def calendar_params
     params.require(:calendar).permit(:title, :current, :calendar_file)
+  end
+
+  def load_index_variables
+    @calendar ||= Calendar.new
+    @current_calendar = Calendar.most_current
+    @calendars = Calendar.order(updated_at: :desc)
   end
 end

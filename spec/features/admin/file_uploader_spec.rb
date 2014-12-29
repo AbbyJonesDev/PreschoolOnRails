@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature 'File Uploader', js: true do
+feature 'File Uploader' do
   before do
     admin = FactoryGirl.create(:user, role: 'admin')
     login_as(admin, scope: :user)
@@ -11,32 +11,29 @@ feature 'File Uploader', js: true do
   scenario 'visit file uploader page' do
     visit admin_dashboard_path
     click_on "File Uploader"
-    expect(current_path).to eq('/admin/file_uploader')
+    # Default path - Calendar 'tab'
+    expect(current_path).to eq('/admin/calendars')
   end
 
-  context 'On File Uploader Page' do
-    before { visit '/admin/file_uploader' }
-
-    feature 'Manage Calendars' do
-      before do 
-        2.times { FactoryGirl.create(:calendar) }
-        page.find('#calendar_panel').click
-      end
-
-      scenario 'view list of existing calendars'
-        # expect(page).to have_selector("tbody tr", count: 2)
-
-      scenario 'delete existing calendar'
-
-      scenario 'upload new calendar'
-
+  feature 'Manage Calendars' do
+    before do 
+      2.times { FactoryGirl.create(:calendar) }
+      visit admin_calendars_path
     end
 
-    feature 'Upload Handbook' do
+    scenario 'view list of existing calendars' do
+      expect(page).to have_selector("tbody tr", count: 2)
     end
 
-    feature 'Upload Registration Form' do
-    end
+    scenario 'delete existing calendar'
+
+
+    scenario 'upload new calendar'
   end
 
+  feature 'Upload Handbook' do
+  end
+
+  feature 'Upload Registration Form' do
+  end
 end

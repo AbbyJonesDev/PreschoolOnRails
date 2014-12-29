@@ -4,4 +4,9 @@ class Calendar < ActiveRecord::Base
   validates_attachment :calendar_file, 
     :presence => true,
     :content_type => { :content_type => "application/pdf" }
+
+  def self.most_current
+    Calendar.where(current: true).order(updated_at: :desc).first
+  end 
 end
+

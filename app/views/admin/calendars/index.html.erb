@@ -10,7 +10,7 @@
   <table>
     <thead>
       <th> Name </th>
-      <th> Current? </th>
+      <th> Most Current? </th>
       <th> Edit/Delete </th>
     </thead>
 
@@ -18,7 +18,7 @@
       <% @calendars.each do |calendar| %>
         <tr>
           <td> <%= link_to "#{calendar.title}", calendar.calendar_file.url %> </td>
-          <td> <%= calendar.current? %> </td>
+          <td> <%= calendar == @current_calendar %> </td>
           <td> 
             <%= link_to "Edit", edit_admin_calendar_path(calendar) %> /
             <%= link_to "Delete", admin_calendar_path(calendar), method: :delete, 
