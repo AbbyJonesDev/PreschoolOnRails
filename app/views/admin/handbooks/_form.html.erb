@@ -1,12 +1,12 @@
-<%= form_for [:admin, @calendar], multipart: true do |f| %>
+<%= form_for [:admin, @handbook], multipart: true do |f| %>
 
-  <% if @calendar.errors.any? %>
+  <% if @handbook.errors.any? %>
     <div id="error_explanation">
       <p>
-        <%= pluralize(@calendar.errors.count, "error") %> prevented this calendar from being saved:
+        <%= pluralize(@handbook.errors.count, "error") %> prevented this handbook from being saved:
       </p>
       <ul>
-        <% @calendar.errors.full_messages.each do |msg| %>
+        <% @handbook.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="medium-12 columns">
-      <%= f.file_field :calendar_file %>
+      <%= f.file_field :file %>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
       <%= f.submit "Submit" %>
     </div>
     <div class="medium-2 columns">
-      <%= link_to "Cancel", admin_calendars_path %>
+      <%= link_to "Cancel", admin_handbooks_path %>
     </div>
   </div>
 <% end %>

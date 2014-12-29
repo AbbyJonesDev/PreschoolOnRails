@@ -1,0 +1,31 @@
+<div class="panel">
+  <%= render 'layouts/admin/file_uploader_tabs' %>
+  <br>
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Handbooks </small></h2>
+
+  <table>
+    <thead>
+      <th> Name </th>
+      <th> Most Current? </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @handbooks.each do |handbook| %>
+        <tr>
+          <td> <%= link_to "#{handbook.title}", handbook.file.url %> </td>
+          <td> <%= handbook == @current_handbook %> </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_handbook_path(handbook) %> /
+            <%= link_to "Delete", admin_handbook_path(handbook), method: :delete, 
+                  data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

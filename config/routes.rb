@@ -49,6 +49,8 @@ PreschoolOnRails::Application.routes.draw do
     get '/file_uploader' => 'dashboard#file_uploader'
     resources :calendars, controller: 'calendars'
     resources :calendars
+    resources :handbooks, controller: 'handbooks'
+    resources :handbooks
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
