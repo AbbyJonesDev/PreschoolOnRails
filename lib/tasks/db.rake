@@ -13,6 +13,14 @@ namespace :db do
     Newsletter.destroy_all
     create_newsletters
   end
+
+  ##  Calendars done in a separate step to avoid
+  ##  making unnecessary repeat calls to AWS
+  desc "Create demo calendars"
+  task seed_calendars: :environment do
+    Calendar.destroy_all
+    create_calendars
+  end
 end
 
 def clean_db
@@ -68,5 +76,16 @@ def create_newsletters
     )
   Newsletter.create(date: Time.now - 1.weeks,
     file: File.new("#{Rails.root}/db/summer_camp.pdf")
+    )
+end
+
+def create_calendars
+  Calendar.create(title: "2013-2014 Calendar",
+    current: false,
+    calendar_file: File.new("#{Rails.root}/db/calendar.pdf")
+    )  
+  Calendar.create(title: "2014-2015 Calendar",
+    current: true,
+    calendar_file: File.new("#{Rails.root}/db/calendar.pdf")
     )
 end
