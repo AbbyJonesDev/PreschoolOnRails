@@ -40,16 +40,15 @@ class StaticPagesController < ApplicationController
   end
 
   def calendar
-    # Link to pdf on Google Drive
-    @link = "https://drive.google.com/file/d/0B577ZL6EYWmad0hNamF0ZWY1WEk/view?usp=sharing"
+    @calendar_link = Calendar.most_current.calendar_file.url
   end
 
   def reg_form
-    @reg_form = "https://drive.google.com/file/d/0B577ZL6EYWmaeWNLamt1dlh5VXM/view?usp=sharing"
+    @reg_form_link = RegistrationForm.most_current.file.url
   end
 
   def handbook
-    @handbook = "https://drive.google.com/file/d/0B577ZL6EYWmaaWJpTnlhWWFtems/view?usp=sharing"
+    @handbook_link = Handbook.most_current.file.url
   end    
 
 end
