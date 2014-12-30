@@ -1,7 +1,10 @@
 class NewslettersController < ApplicationController
-  def index
-    @newsletters = Newsletter.all
-    @current = Newsletter.current
+  def current
+    @newest_newsletter = Newsletter.newest
+  end
+
+  def archive
+    @newsletters = Newsletter.order(date: :desc)
   end
 
 end

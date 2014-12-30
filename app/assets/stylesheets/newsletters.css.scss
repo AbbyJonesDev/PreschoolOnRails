@@ -1,3 +1,47 @@
 // Place all the styles related to the Newsletters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#peek_index {
+  padding-top: rem-calc(5px);
+  background-color: white;
+
+  h1, h2, a {
+    color: $dark-blue;
+  }
+
+  object {
+    border-top: rem-calc(2px) solid $dark-blue;
+    border-bottom: rem-calc(2px) solid $dark-blue;
+  }
+
+  a:hover {
+    color: $light-blue;
+  }
+
+  * {
+    padding-bottom: rem-calc(15px);
+  }
+}
+
+#peek_archive {
+  padding-top: rem-calc(5px);
+  background-color: white;
+  min-height: rem-calc(400px);
+
+  h1, h2, a {
+    color: $dark-blue;
+  }
+
+  a:hover {
+    color: $light-blue;
+  }
+
+  ul {
+    padding-top: rem-calc(15px);
+    list-style-type: none;
+  }
+
+  li {
+    padding-bottom: rem-calc(5px);
+  }
+}

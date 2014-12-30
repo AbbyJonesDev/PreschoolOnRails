@@ -48,7 +48,7 @@ class Admin::NewslettersController < Admin::DashboardController
 
   def load_index_variables
     @newsletter ||= Newsletter.new
-    @current_newsletter = Newsletter.current
+    @current_newsletter = Newsletter.newest
     @newsletters = Newsletter.order(date: :desc)
   end
 end

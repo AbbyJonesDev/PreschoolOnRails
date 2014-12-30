@@ -14,7 +14,8 @@ PreschoolOnRails::Application.routes.draw do
   get "/registration_form" => 'static_pages#reg_form'
   get "/handbook" => 'static_pages#handbook'
 
-  resources :newsletters, only: :index
+  get '/peek' => 'newsletters#current'
+  get '/peek/archive' => 'newsletters#archive'
 
   
   # Don't allow users to register... Admin/teacher will do that 

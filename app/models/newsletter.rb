@@ -5,7 +5,7 @@ class Newsletter < ActiveRecord::Base
 
   validates :date, :presence => true
   
-  def self.current
+  def self.newest
     self.order(date: :desc).first
   end
 
