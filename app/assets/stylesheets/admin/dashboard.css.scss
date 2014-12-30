@@ -32,6 +32,18 @@
     border-color: darken($green, 5%);
   }
 
+  dd a {
+    @include admin-button;
+    background-color: $green;
+    border-color: white;
+  }
+
+  .selected {
+    @include admin-button;
+    background-color: white;
+    border-color: $green;
+  }
+
   // Panel
   .panel {
     background-color: white;

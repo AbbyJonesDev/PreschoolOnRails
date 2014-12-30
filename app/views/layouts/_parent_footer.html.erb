@@ -2,11 +2,11 @@
 <div class="row show-for-large-up">
   <nav role="navigation">
     <ul class="footer-nav">
-      <li> <%= link_to "Peek", peek_path, :class => (@news ? "current" : nil) %> </li>
-      <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
-      <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
-      <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
-      <li> <%= link_to "Account", '#' %> </li>
+      <li> <%= nav_link_to "Peek", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Snack", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Account", '#', {:selected_class => "current"} %> </li>
       <%= render 'layouts/login_button' %>
     </ul>
   </nav>

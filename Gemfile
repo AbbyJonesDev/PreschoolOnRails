@@ -24,6 +24,9 @@ gem 'jquery-rails'
 # Use Foundation for styling, grid system, basic js
 gem 'foundation-rails'
 
+# Use NavLYNX to set class on link to current page
+gem 'nav_lynx'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

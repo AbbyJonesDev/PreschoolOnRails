@@ -1,23 +1,23 @@
 <ul id="dashboard_nav" class="side-nav">
-  <li class="admin-button-green">
-    <%= link_to "Peek of the Week Uploader", admin_peek_index_path %>
-  </li>
-  <li class="admin-button-orange">
-    <%= link_to "Volunteer Opportunities", '#' %>
-  </li>
-  <li class="admin-button-green">
-    <%= link_to "Snack Options", '#' %>
-  </li>
-  <li class="admin-button-orange">
-    <%= link_to "Conference Times", '#' %>
-  </li>
-  <li class="admin-button-green">
-    <%= link_to "Account Management", admin_parents_path %>
-  </li>
-  <li class="admin-button-orange">
-    <%= link_to "Classes", admin_classes_path %>
-  </li>
-  <li class="admin-button-green">
-    <%= link_to "File Uploader", admin_calendars_path %>
-  </li>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Peek of the Week Uploader", admin_peek_index_path, {}, 
+    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Volunteer Opportunities", '#', {}, 
+    {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Snack Options", '#', {}, 
+    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Conference Times", '#', {}, 
+    {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Account Management", admin_parents_path, {}, 
+    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Classes", admin_classes_path, {}, 
+    {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "File Uploader", admin_calendars_path, {}, 
+    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
 </ul>

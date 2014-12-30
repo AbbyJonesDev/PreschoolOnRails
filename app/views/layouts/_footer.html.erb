@@ -1,11 +1,16 @@
 <div class="row show-for-large-up">
   <nav role="navigation">
     <ul class="footer-nav">
-      <li> <%= link_to "Home", root_path, :class => (@home ? "current" : nil) %> </li>
-      <li> <%= link_to "About Us", about_us_path, :class => (@about ? "current" : nil) %> </li>
-      <li> <%= link_to "Schedule", schedule_path, :class => (@sched ? "current" : nil) %> </li>
-      <li> <%= link_to "Register", register_path, :class => (@reg ? "current" : nil) %> </li>
-      <li> <%= link_to "Photo Gallery", photo_gallery_path, :class => (@photo ? "current" : nil) %> </li>
+      <li> <%= nav_link_to "Home", root_path, {}, {
+        :selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "About Us", about_us_path, {}, 
+        {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Schedule", schedule_path, {}, 
+        {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Register", register_path, {}, 
+        {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Photo Gallery", photo_gallery_path, {}, 
+        {:selected_class => "current"} %> </li>
       <%= render 'layouts/login_button' %>
     </ul>
   </nav>

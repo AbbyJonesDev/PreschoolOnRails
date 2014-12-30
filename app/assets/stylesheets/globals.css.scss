@@ -74,6 +74,10 @@ html, body {
   background-color: $orange;
 }
 
+footer {
+  background-color: $light-blue;
+}
+
 footer > div > nav {
   margin-top: rem-calc(50px);
 }
