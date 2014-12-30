@@ -1,11 +1,7 @@
 class Admin::GroupsController < Admin::DashboardController
 
   def index
-    @groups = Group.all
-  end
-
-  def new
-    @group = Group.new
+    load_index_variables
   end
 
   def create
@@ -14,12 +10,15 @@ class Admin::GroupsController < Admin::DashboardController
       flash[:notice] = "Class successfully created"
       redirect_to admin_classes_path
     else
-      render :new
+      load_index_variables
+      render :index
     end
   end
 
   def edit
     @group = Group.find(params[:id])
+    load_index_variables
+    render :index
   end
 
   def update
@@ -28,7 +27,8 @@ class Admin::GroupsController < Admin::DashboardController
       flash[:notice] = "Class successfully updated"
       redirect_to admin_classes_path
     else
-      render :edit
+      load_index_variables
+      render :index
     end
   end    
 
@@ -36,7 +36,7 @@ class Admin::GroupsController < Admin::DashboardController
     @group = Group.find(params[:id])
     @group.destroy
     flash[:notice] = "#{@group.name} has been deleted"
-    redirect_to admin_classes_path
+      redirect_to admin_classes_path
   end
 
 
@@ -48,6 +48,11 @@ class Admin::GroupsController < Admin::DashboardController
                                     :student_ids => [],
                                     :parent_ids => [],
                                     :days => [])
+    end
+
+    def load_index_variables
+      @groups = Group.all
+      @group ||= Group.new
     end
 
 end

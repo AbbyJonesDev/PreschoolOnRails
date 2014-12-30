@@ -11,22 +11,8 @@ describe "Class Manager" do
       visit admin_classes_path
     end
 
-    it "has link to add class" do
-      expect(page).to have_link("Add new class")
-    end
-
-    specify "link goes to add class page" do
-      click_on("Add new class")
-      expect(current_path).to eq(new_admin_class_path)
-    end
-
     it "displays table of classes" do
       expect(page).to have_selector("table tr", count: 3)
-    end
-
-    it "has links to edit each class" do
-      click_on("Edit", :match => :first)
-      expect(current_path).to eq(edit_admin_class_path(Group.first))
     end
 
     describe "delete class" do
@@ -62,12 +48,7 @@ describe "Class Manager" do
   end
 
 
-  context "On Add Class Page" do
-    before { visit new_admin_class_path }
-
-    it "has correct header" do
-      expect(page).to have_selector("h2", text: "ADD NEW CLASS")
-    end
+  describe "Add Class" do
 
     describe "with valid inputs" do
       let(:klass) { Group.last }
@@ -112,10 +93,11 @@ describe "Class Manager" do
     end
   end
 
-  context "On Edit Page" do
-    let(:klass) { FactoryGirl.create(:group, days: ["Monday, Wednesday, Friday"]) }
+  describe "Edit Class" do
+    let(:klass) { FactoryGirl.create(:group, days: ["Monday", "Wednesday", "Friday"]) }
     before do
-     visit edit_admin_class_path(klass) 
+     visit admin_classes_path
+     click_on("Edit", match: :first) 
      check("Tuesday")
      check("Thursday")
      click_on("Submit")
