@@ -9,7 +9,7 @@ feature 'File Uploader' do
   end
 
   scenario 'visit file uploader page' do
-    visit admin_dashboard_path
+    visit admin_root_path
     click_on "File Uploader"
     # Default path - Calendar 'tab'
     expect(current_path).to eq('/admin/calendars')

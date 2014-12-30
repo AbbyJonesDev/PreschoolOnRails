@@ -10,7 +10,7 @@ describe "Parent Basics" do
 
   it "takes parent to newsletter when they log in" do
     login(parent)
-    expect(current_path).to eq(newsletters_path)
+    expect(current_path).to eq(peek_path)
   end
 
   context "with parent logged in" do

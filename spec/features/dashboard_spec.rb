@@ -8,12 +8,12 @@ describe "Admin Dashboard" do
 
   describe "After Logging In" do
     it "takes admin to dashboard" do
-      expect(current_path).to eq(admin_dashboard_path)
+      expect(current_path).to eq(admin_root_path)
     end
    
     it "has link to dashboard from other pages" do
       visit root_path
-      expect(page).to have_link("Dashboard", href: admin_dashboard_path)
+      expect(page).to have_link("Dashboard", href: admin_root_path)
     end
   end
 

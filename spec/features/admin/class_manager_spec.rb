@@ -3,13 +3,13 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 describe "Class Manager" do
-  before { login_admin }
+  before do
+    3.times { FactoryGirl.create(:group) }
+    login_admin
+    visit admin_classes_path
+  end
 
   context "On Class Index Page" do
-    before do
-      3.times { FactoryGirl.create(:group) }
-      visit admin_classes_path
-    end
 
     it "displays table of classes" do
       expect(page).to have_selector("table tr", count: 3)
@@ -64,7 +64,7 @@ describe "Class Manager" do
 
 
       it "creates new class" do
-        expect(Group.count).to eq 1
+        expect(Group.count).to eq(4) # 3 initial + 1 new
       end
 
       specify "has correct days" do
@@ -94,10 +94,12 @@ describe "Class Manager" do
   end
 
   describe "Edit Class" do
-    let(:klass) { FactoryGirl.create(:group, days: ["Monday", "Wednesday", "Friday"]) }
+    let(:klass) { Group.first }
     before do
      visit admin_classes_path
      click_on("Edit", match: :first) 
+     uncheck("Monday")
+     uncheck("Wednesday")
      check("Tuesday")
      check("Thursday")
      click_on("Submit")
