@@ -50,6 +50,8 @@ PreschoolOnRails::Application.routes.draw do
     resources :calendars
     resources :handbooks
     resources :registration_forms
+    resources :peek, controller: 'newsletters'
+    resources :newsletters
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

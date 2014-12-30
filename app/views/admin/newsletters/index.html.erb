@@ -1,0 +1,27 @@
+<div class="panel">
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Peek of the Week and Vocabulary </small></h2>
+
+  <table>
+    <thead>
+      <th> Date </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @newsletters.each do |newsletter| %>
+        <tr>
+          <td> <%= link_to date_to_s(newsletter.date), newsletter.file.url %> </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_newsletter_path(newsletter) %> /
+            <%= link_to "Delete", admin_newsletter_path(newsletter), method: :delete, 
+                  data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
