@@ -186,7 +186,7 @@ footer a:hover {
         font-family: $header-font-family
       }
       a:hover {
-          color: white;
+        color: white;
       }
     }
   }
@@ -195,11 +195,11 @@ footer a:hover {
     width: 100%;
     position: absolute;
     top: rem-calc(115px);
-    left: 8%;
+    left: 10%;
   }
 
   footer nav {
-    margin-left: 8%;
+    margin-left: 10%;
   }
 }
 
