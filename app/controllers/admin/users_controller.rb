@@ -17,8 +17,9 @@ class Admin::UsersController < Admin::DashboardController
   end
 
   def edit
-    @groups = Group.all
     @user = User.find(params[:id])
+    load_variables
+    render :index
   end
 
   def update
