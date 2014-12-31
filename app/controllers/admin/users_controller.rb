@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::DashboardController
     @user = User.find(params[:id])
     @user.skip_reconfirmation!
     if @user.update(user_params)
-      @user.update_klasses(params[:group_ids]) if params[:group_ids]
+      @user.update_klasses(params[:group_ids])
       flash[:notice] = "Account updated"
       redirect_to admin_parents_path
     else

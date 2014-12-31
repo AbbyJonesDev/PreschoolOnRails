@@ -16,18 +16,26 @@ class User < ActiveRecord::Base
 
 
   def update_klasses(ids)
-    # Check existing groups
-    self.groups.each do |group|
-      # Remove duplicate ids from params
-      if ids.include?(group.id)
-        ids.delete(group.id)
-      # Remove deprecated ids from user
-      else
-        self.groups.delete(group.id)
+    # This whole method is terrible and should be
+    # refactored with a vengeance.
+    # But for now...it works.
+    begin
+      # Check existing groups
+      self.groups.each do |group|
+        # Remove duplicate ids from params
+        if ids.include?(group.id)
+          ids.delete(group.id)
+        # Remove deprecated ids from user
+        else
+          self.groups.delete(group.id)
+        end
       end
+      # Add non-duplicate groups from params
+      ids.each { |id| self.groups << Group.find(id) }
+    rescue
+      # Blows up on ids.each if there are no ids
+      self.groups = []
     end
-    # Add non-duplicate groups from params
-    ids.each { |id| self.groups << Group.find(id) }
   end
 
   def klass_ids
