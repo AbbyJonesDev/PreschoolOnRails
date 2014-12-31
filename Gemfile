@@ -53,6 +53,10 @@ end
 # Use unicorn as the app server
 gem 'unicorn'
 
+group :production, :staging do
+  gem 'rails_12factor' # To compile assets on Heroku
+end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
@@ -68,8 +72,6 @@ gem "letter_opener", :group => :development
 group :test do
   gem 'shoulda-matchers', require: false
 end
-
-gem 'rails_12factor', group: :production, :staging # To make app work on Heroku
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
