@@ -139,6 +139,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    recipient_interceptor (0.1.2)
+      mail
     rspec-core (3.0.0)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.0)
@@ -218,6 +220,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.4)
   rails_12factor
+  recipient_interceptor
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.2)
   sdoc

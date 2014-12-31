@@ -42,6 +42,9 @@ gem 'devise'
 # Create demo users
 gem 'faker'
 
+# Intercept emails in staging environment
+gem 'recipient_interceptor'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
