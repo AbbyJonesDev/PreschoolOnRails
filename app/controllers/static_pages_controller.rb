@@ -40,15 +40,15 @@ class StaticPagesController < ApplicationController
   end
 
   def calendar
-    @calendar_link = Calendar.most_current.calendar_file.url
+    @calendar = Calendar.most_current
   end
 
   def reg_form
-    @reg_form_link = RegistrationForm.most_current.file.url
+    @reg_form = RegistrationForm.most_current
   end
 
   def handbook
-    @handbook_link = Handbook.most_current.file.url
+    @handbook = Handbook.most_current
   end    
 
 end

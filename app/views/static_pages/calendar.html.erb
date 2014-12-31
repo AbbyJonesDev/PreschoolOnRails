@@ -1,6 +1,16 @@
 <!-- Calendar -->
 <main class="row">
-  <iframe src=<%= @calendar_link %> class="embedded_pdf small-12 columns">
-    <%= "If calendar doesn't load, please visit #{@calendar_link}" %>
-  </iframe>
+  <% if @calendar %>
+    <object data="<%= @calendar.calendar_file.url %>" type="application/pdf" 
+      class="embedded_pdf small-12 columns">    
+        <p>
+          It appears you don't have a PDF plugin for this browser.
+          No problem... You can <a href="<%= @calendar.calendar_file.url %>">click here to
+          download the PDF file.</a>
+        </p>     
+    </object>
+  <% else %>
+    <p class="text-center"> Uh oh - the file you're looking for is missing.  </p>
+    <p class="text-center"> Please check back later. </p>
+  <% end %>
 </main>
