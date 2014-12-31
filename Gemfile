@@ -69,7 +69,7 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
-gem 'rails_12factor', group: :production # To make app work on Heroku
+gem 'rails_12factor', group: :production, :staging # To make app work on Heroku
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
