@@ -1,0 +1,31 @@
+<div class="panel">
+  <%= render 'layouts/admin/file_uploader_tabs' %>
+  <br>
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Registration Forms </small></h2>
+
+  <table>
+    <thead>
+      <th> Name </th>
+      <th> Most Current? </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @registration_forms.each do |reg_form| %>
+        <tr>
+          <td> <%= link_to "#{reg_form.title}", reg_form.file.url %> </td>
+          <td> <%= reg_form == @current_reg_form %> </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_registration_form_path(reg_form) %> /
+            <%= link_to "Delete", admin_registration_form_path(reg_form), method: :delete, 
+                  data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

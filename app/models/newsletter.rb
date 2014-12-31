@@ -3,8 +3,9 @@ class Newsletter < ActiveRecord::Base
   validates_attachment :file, :presence => true,
                               :content_type => { :content_type => "application/pdf"}
 
-
-  def self.current
+  validates :date, :presence => true
+  
+  def self.newest
     self.order(date: :desc).first
   end
 

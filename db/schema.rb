@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011130326) do
+ActiveRecord::Schema.define(version: 20141229194943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: true do |t|
+    t.string   "title"
+    t.boolean  "current"
+    t.string   "calendar_file_file_name"
+    t.string   "calendar_file_content_type"
+    t.integer  "calendar_file_file_size"
+    t.datetime "calendar_file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "class_parents", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+  end
 
   create_table "class_reminders", force: true do |t|
     t.string   "name",       null: false
@@ -24,11 +40,27 @@ ActiveRecord::Schema.define(version: 20141011130326) do
     t.datetime "updated_at"
   end
 
+  create_table "enrolled_students", id: false, force: true do |t|
+    t.integer "student_id"
+    t.integer "group_id"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "name"
     t.string   "days"
     t.time     "start_time"
     t.time     "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "handbooks", force: true do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.boolean  "current"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,12 +73,28 @@ ActiveRecord::Schema.define(version: 20141011130326) do
     t.datetime "file_updated_at"
   end
 
+  create_table "registration_forms", force: true do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.boolean  "current"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", force: true do |t|
     t.string   "fname",                             null: false
     t.string   "lname",              default: ""
     t.boolean  "currently_enrolled", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "students_users", id: false, force: true do |t|
+    t.integer "student_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

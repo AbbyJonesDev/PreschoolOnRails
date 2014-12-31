@@ -1,0 +1,45 @@
+<%= form_for [:admin, @group] do |f| %>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :name, "Class Name:" %>
+      <%= f.text_field :name %>
+    </div>
+  
+    <div class="medium-6 columns">
+      <%= f.check_box :days, {:multiple => true}, "Monday", nil %>
+      <%= f.label :days_monday, "Monday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Tuesday", nil %>
+      <%= f.label :days_tuesday, "Tuesday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Wednesday", nil %>
+      <%= f.label :days_wednesday, "Wednesday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Thursday", nil %>
+      <%= f.label :days_thursday, "Thursday" %>
+      <br>
+      <%= f.check_box :days, {:multiple => true}, "Friday", nil %>
+      <%= f.label :days_friday, "Friday" %>
+    </div>
+
+    <div class="medium-6 columns">
+      <%= f.label :start_time, "Begins:" %>
+      <%= f.text_field :start_time %>
+
+      <%= f.label :end_time, "Ends:" %>
+      <%= f.text_field :end_time %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_groups_path %>
+    </div>
+  </div>
+
+
+<% end %>

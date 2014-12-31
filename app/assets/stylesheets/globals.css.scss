@@ -74,6 +74,10 @@ html, body {
   background-color: $orange;
 }
 
+footer {
+  background-color: $light-blue;
+}
+
 footer > div > nav {
   margin-top: rem-calc(50px);
 }
@@ -165,6 +169,10 @@ footer a:hover {
 .embedded_pdf {
   height: rem-calc(300px);
 }
+
+#error_explanation p, #error_explanation li {
+  color: darken($orange, 3%);
+}
   
 
 
@@ -182,7 +190,7 @@ footer a:hover {
         font-family: $header-font-family
       }
       a:hover {
-          color: white;
+        color: white;
       }
     }
   }
@@ -191,11 +199,11 @@ footer a:hover {
     width: 100%;
     position: absolute;
     top: rem-calc(115px);
-    left: 8%;
+    left: 10%;
   }
 
   footer nav {
-    margin-left: 8%;
+    margin-left: 10%;
   }
 }
 

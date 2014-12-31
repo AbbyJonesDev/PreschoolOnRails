@@ -1,0 +1,11 @@
+<div class="row" id="peek_archive">
+  <h1 class="small-12 columns text-center">
+    Peek of the Week Archive
+  </h1>
+
+  <ul class="small-12 columns text-center">
+    <% @newsletters.each do |n| %>
+      <li> <%= link_to date_to_s(n.date), n.file.url %> </li>
+    <% end %>
+  </ul>
+</div>

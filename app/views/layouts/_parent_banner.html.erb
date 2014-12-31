@@ -5,17 +5,17 @@
   <div class="large-12 columns">
     <nav role="navigation">
       <ul class="desktop-nav">
-        <li> <%= link_to "Home", root_path %> </li>
-        <li> <%= link_to "Peek", '#', :class => (@news ? "current" : nil) %> </li>
-        <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
-        <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
-        <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
+        <li> <%= nav_link_to "Peek", peek_path, {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Snack", '#',  {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Account", '#', {:selected_class => "current"} %> </li>
         <%= render 'layouts/login_button' %>
       </ul>
     </nav>
   </div>
 
-  <%= link_to('#') do %>
+  <%= nav_link_to('#') do %>
     <%= image_tag 'parent_banner.jpg', :class => "banner", :alt => "Here We Grow Parents" %>
   <% end %>        
 </div>
@@ -24,18 +24,18 @@
 
 <!-- Mobile Banner and Nav -->
 <div class="row hide-for-large-up">
-  <%= link_to('#') do %>
+  <%= nav_link_to('#') do %>
     <%= image_tag "mobile_parent_banner.jpg", :alt => "Here We Grow Parents" %>
   <% end %>
   <div class="small-12 columms">
     <nav role="navigation">
       <a href="#" class="mobile-nav-button small-12 columns">See More</a>
         <ul class="mobile-dropdown-menu no-bullet hide">   
-        <li> <%= link_to "Home", root_path %> </li>
-        <li> <%= link_to "Peek", '#', :class => (@news ? "current" : nil) %> </li>
-        <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
-        <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
-        <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
+        <li> <%= nav_link_to "Peek", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Snack", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Account", '#', {:selected_class => "current"} %> </li>
         <%= render 'layouts/login_button' %>
         </ul>
     </nav>

@@ -2,22 +2,27 @@
 <div class="row show-for-large-up">
   <nav role="navigation">
     <ul class="footer-nav">
-      <li> <%= link_to "Home", root_path %> </li>
-      <li> <%= link_to "Peek", '#', :class => (@news ? "current" : nil) %> </li>
-      <li> <%= link_to "Calendar", '#', :class => (@cal ? "current" : nil) %> </li>
-      <li> <%= link_to "Snack", '#', :class => (@snack ? "current" : nil) %> </li>
-      <li> <%= link_to "Volunteer", '#', :class => (@vol ? "current" : nil) %> </li>
+      <li> <%= nav_link_to "Peek", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Snack", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>
+      <li> <%= nav_link_to "Account", '#', {:selected_class => "current"} %> </li>
       <%= render 'layouts/login_button' %>
     </ul>
   </nav>
 </div>
 <div class="row">
   <hr>
-  <div class="small-12 columns">
+  <div class="small-12 columns text-center">
+    <% if admin_logged_in? %>
+      <%= link_to "Dashboard", admin_root_path %>
+      <br> <br>
+    <% end %>
+
     <p class="text-center"> <small> Website by Abby Jones </small> </p> 
     <p class="text-center"> 
       <small> 
-        <a href="mailto:abbyjonesdev@gmail.com"> Email: abbyjonesdev@gmail.com </a> | 
+        <a href="mailto:hello@abbyjones.net"> Email: hello@abbyjones.net </a> | 
         <a href="https://twitter.com/AbbyJones80"> Tweet: @AbbyJones80 </a> 
       </small> 
     </p>

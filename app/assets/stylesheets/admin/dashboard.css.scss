@@ -1,0 +1,78 @@
+// Place all the styles related to the admin/dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin admin-button {
+  @include button;
+  width: 100%;
+  padding: rem-calc(8px) rem-calc(16px);
+  border: rem-calc(4px) solid white;
+}
+
+.admin {
+  // Buttons
+  .admin-button-green {
+    @include admin-button;
+    background-color: darken($green, 5%);
+  }
+
+  .admin-button-orange {
+    @include admin-button;
+    background-color: $orange;
+  }
+
+  .admin-button-orange.current-tab {
+    @include admin-button;
+    background-color: white;
+    border-color: $orange;
+  }
+
+  .admin-button-green.current-tab {
+    @include admin-button;
+    border-color: darken($green, 5%);
+  }
+
+  dd a {
+    @include admin-button;
+    background-color: $green;
+    border-color: white;
+  }
+
+  .selected {
+    @include admin-button;
+    background-color: white;
+    border-color: $green;
+  }
+
+  // Panel
+  .panel {
+    background-color: white;
+    border: rem-calc(4px) solid $orange;
+    margin-bottom: 0;
+
+    h1, h2, h3, h4, p, h1 small, h2 small {
+      color: $light-blue;
+    }
+  }
+
+  .lower-panel {
+    border-top: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  form a:hover {
+    color: $light-blue;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: $light-blue;
+  }
+}
+
+select#group_ids_ {
+  height: rem-calc(100px);
+}
+

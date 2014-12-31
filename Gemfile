@@ -24,6 +24,9 @@ gem 'jquery-rails'
 # Use Foundation for styling, grid system, basic js
 gem 'foundation-rails'
 
+# Use NavLYNX to set class on link to current page
+gem 'nav_lynx'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -35,6 +38,12 @@ gem 'aws-sdk'
 
 # Use Devise for Admin and User authentication
 gem 'devise'
+
+# Create demo users
+gem 'faker'
+
+# Intercept emails in staging environment
+gem 'recipient_interceptor'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -54,7 +63,13 @@ group :development, :test do
   gem 'launchy'
 end
 
-gem 'rails_12factor', group: :production # To make app work on Heroku
+gem "letter_opener", :group => :development
+
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
+gem 'rails_12factor', group: :production, :staging # To make app work on Heroku
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

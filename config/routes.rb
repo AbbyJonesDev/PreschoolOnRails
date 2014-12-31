@@ -14,7 +14,8 @@ PreschoolOnRails::Application.routes.draw do
   get "/registration_form" => 'static_pages#reg_form'
   get "/handbook" => 'static_pages#handbook'
 
-  resources :newsletters, only: :index
+  get '/peek' => 'newsletters#current'
+  get '/peek/archive' => 'newsletters#archive'
 
   
   # Don't allow users to register... Admin/teacher will do that 
@@ -39,6 +40,21 @@ PreschoolOnRails::Application.routes.draw do
     get 'users', :to => redirect('/newsletters'), :as => :user_root
   end
 
+  #  Admin Dashboard Paths
+  namespace :admin do
+    root 'newsletters#index'
+    get '/dashboard' => 'dashboard#home'
+    resources :classes, controller: 'groups'
+    resources :groups
+    resources :parents, controller: "users"
+    resources :users
+    get '/file_uploader' => 'dashboard#file_uploader'
+    resources :calendars
+    resources :handbooks
+    resources :registration_forms
+    resources :peek, controller: 'newsletters'
+    resources :newsletters
+  end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

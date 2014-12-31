@@ -1,6 +1,6 @@
 <!-- Registration Form -->
 <main class="row">
-  <iframe src=<%= @reg_form %> class="embedded_pdf small-12 columns">
-  
+  <iframe src=<%= @reg_form_link %> class="embedded_pdf small-12 columns">
+    <%= "If file doesn't load, please visit #{RegistrationForm.most_current.file.url}" %>
   </iframe>
 </main>

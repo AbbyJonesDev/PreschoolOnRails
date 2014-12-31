@@ -1,0 +1,64 @@
+<%= form_for [:admin, @user] do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@user.errors.count, "error") %> prevented this account from being saved:
+      </p>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :fname, "First Name:" %>
+      <%= f.text_field :fname %>
+    </div>
+    <div class="medium-6 columns">
+      <%= f.label :lname, "Last Name:" %>
+      <%= f.text_field :lname %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :email, "Email:" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :active, "Status:" %>
+      <div class="medium-6 columns">
+        <%= f.label :active, "Active", style: "display:inline" %>
+        <%= f.radio_button :active, true %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.label :active, "Inactive", style: "display:inline" %>
+        <%= f.radio_button :active, false %>
+      </div>
+      
+      <div id="password_field">
+        <%= link_to "Click to Set Password", '#', :id => "edit_password_field" %>
+      </div>
+    </div>
+    
+    <div class="medium-6 columns">
+      <%= f.label :group_ids, "Class:" %>
+      <%= select_tag "group_ids[]", options_from_collection_for_select(@groups, 'id', 'name', selected = @user.klass_ids), {multiple: true, prompt: 'Use "shift" to make multiple selections'} %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_parents_path %>
+    </div>
+  </div>
+<% end %>
+

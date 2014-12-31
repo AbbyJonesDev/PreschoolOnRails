@@ -1,0 +1,52 @@
+<%= form_for [:admin, @handbook], multipart: true do |f| %>
+
+  <% if @handbook.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@handbook.errors.count, "error") %> prevented this handbook from being saved:
+      </p>
+      <ul>
+        <% @handbook.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-8 columns">
+      <%= f.label :title, "Title:" %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :current, "Current?" %>
+      <br>
+      <div class="medium-6 columns">
+        <%= f.label :current, "Yes", style: "display:inline" %>
+        <%= f.radio_button :current, true %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.label :current, "No", style: "display:inline" %>
+        <%= f.radio_button :current, false %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.file_field :file %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_handbooks_path %>
+    </div>
+  </div>
+<% end %>
+
