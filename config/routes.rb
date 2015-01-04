@@ -14,8 +14,8 @@ PreschoolOnRails::Application.routes.draw do
   get "/registration_form" => 'static_pages#reg_form'
   get "/handbook" => 'static_pages#handbook'
 
-  get '/peek' => 'newsletters#current'
-  get '/peek/archive' => 'newsletters#archive'
+  resources :peeks, only: [:show, :index],  controller: "newsletters"
+  get '/peek/current' => 'newsletters#current'
 
   
   # Don't allow users to register... Admin/teacher will do that 
@@ -37,7 +37,7 @@ PreschoolOnRails::Application.routes.draw do
     get "login", :to => "devise/sessions#new"
     delete "sign_out", :to => "devise/sessions#destroy"
     delete "logout", :to => "devise/sessions#destroy"
-    get 'users', :to => redirect('/newsletters'), :as => :user_root
+    get 'users', :to => redirect('/peek/current'), :as => :user_root
   end
 
   #  Admin Dashboard Paths

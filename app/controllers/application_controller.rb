@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if resource.role == "admin"
       admin_root_path
     else
-      peek_path
+      peek_current_path
     end
   end
 end

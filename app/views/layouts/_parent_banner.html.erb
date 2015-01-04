@@ -5,7 +5,7 @@
   <div class="large-12 columns">
     <nav role="navigation">
       <ul class="desktop-nav">
-        <li> <%= nav_link_to "Peek", peek_path, {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Peek", peek_current_path, {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Snack", '#',  {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>
@@ -31,7 +31,8 @@
     <nav role="navigation">
       <a href="#" class="mobile-nav-button small-12 columns">See More</a>
         <ul class="mobile-dropdown-menu no-bullet hide">   
-        <li> <%= nav_link_to "Peek", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Peek", peek_current_path, {}, 
+          {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Calendar", '#', {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Snack", '#', {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Volunteer", '#', {}, {:selected_class => "current"} %> </li>

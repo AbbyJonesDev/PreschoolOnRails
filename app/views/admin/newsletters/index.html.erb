@@ -14,7 +14,7 @@
     <tbody>
       <% @newsletters.each do |newsletter| %>
         <tr>
-          <td> <%= link_to date_to_s(newsletter.date), newsletter.file.url %> </td>
+          <td> <%= link_to date_to_s(newsletter.date), peek_path(newsletter) %> </td>
           <td> 
             <%= link_to "Edit", edit_admin_newsletter_path(newsletter) %> /
             <%= link_to "Delete", admin_newsletter_path(newsletter), method: :delete, 

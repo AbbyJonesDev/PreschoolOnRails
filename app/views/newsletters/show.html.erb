@@ -4,12 +4,12 @@
   </div>
 
   <div class="row">
-    <% if @newest_newsletter %>
-      <object data="<%= @newest_newsletter.file.url %>" type="application/pdf" 
+    <% if @newsletter %>
+      <object data="<%= @newsletter.file.url %>" type="application/pdf" 
         class="embedded_pdf small-12 columns">    
           <p>
             It appears you don't have a PDF plugin for this browser.
-            No problem... You can <a href="<%= @newest_newsletter.file.url %>">click here to
+            No problem... You can <a href="<%= @newsletter.file.url %>">click here to
             download the PDF file.</a>
           </p>     
       </object>
