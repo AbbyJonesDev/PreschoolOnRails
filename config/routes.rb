@@ -17,16 +17,13 @@ PreschoolOnRails::Application.routes.draw do
   resources :peeks, only: [:show, :index],  controller: "newsletters"
   get '/peek/current' => 'newsletters#current'
 
-  
   # Don't allow users to register... Admin/teacher will do that 
   # for them. They just need to change their password
-  devise_for :users, :skip => [:registrations]
-
-  # Add back the routes for users to edit their passwords
-  as :user do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
-  end
+  devise_for :users, :skip => [:registrations]                                          
+    as :user do
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+      patch 'users/:id' => 'devise/registrations#update', :as => 'user_registration'            
+    end
 
   # this lets you add to devise's routes because
   # now it knows you'll be in the user scope 
