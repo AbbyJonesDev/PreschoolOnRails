@@ -1,0 +1,27 @@
+<div class="panel">
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Peek at Our Week(s) and Vocabulary </small></h2>
+
+  <table>
+    <thead>
+      <th> Date </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @peeks.each do |peek| %>
+        <tr>
+          <td> <%= link_to date_to_s(peek.date), parents_peek_path(peek) %> </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_peek_path(peek) %> /
+            <%= link_to "Delete", admin_peek_path(peek), method: :delete, 
+                  data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

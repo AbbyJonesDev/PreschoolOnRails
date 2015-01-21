@@ -1,0 +1,38 @@
+<%= form_for [:admin, @peek], multipart: true do |f| %>
+
+  <% if @peek.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@peek.errors.count, "error") %> prevented this file from being saved:
+      </p>
+      <ul>
+        <% @peek.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :date, "Date:" %>
+      <%= f.date_field :date %>
+    </div>
+    
+    <div class="medium-12 columns">
+      <%= f.file_field :file %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_peeks_path %>
+    </div>
+  </div>
+<% end %>
+

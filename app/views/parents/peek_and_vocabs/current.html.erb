@@ -1,15 +1,15 @@
 <div class="peek_index">
   <div class="row">
-    <h1 class="text-center"> Newsletter </h1>
+    <h1 class="text-center"> Peek at Our Week(s) and Vocabulary </h1>
   </div>
 
   <div class="row">
-    <% if @newsletter %>
-      <object data="<%= @newsletter.file.url %>" type="application/pdf" 
+    <% if @newest_peek %>
+      <object data="<%= @newest_peek.file.url %>" type="application/pdf" 
         class="embedded_pdf small-12 columns">    
           <p>
             It appears you don't have a PDF plugin for this browser.
-            No problem... You can <a href="<%= @newsletter.file.url %>">click here to
+            No problem... You can <a href="<%= @newest_peek.file.url %>">click here to
             download the PDF file.</a>
           </p>     
       </object>
@@ -18,7 +18,7 @@
 
   <div class="row">
     <div class="small-12 columns text-center">
-        <%= link_to "View Archive", parents_newsletters_path %>
+        <%= link_to "View Archive", parents_peeks_path %>
     </div>
   </div>
 </div>

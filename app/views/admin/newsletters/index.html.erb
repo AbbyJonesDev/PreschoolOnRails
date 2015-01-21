@@ -3,7 +3,7 @@
 </div>
 
 <div class="panel lower-panel">
-  <h2><small> Peek of the Week and Vocabulary </small></h2>
+  <h2><small> Newsletters </small></h2>
 
   <table>
     <thead>
@@ -14,7 +14,9 @@
     <tbody>
       <% @newsletters.each do |newsletter| %>
         <tr>
-          <td> <%= link_to date_to_s(newsletter.date), peek_path(newsletter) %> </td>
+          <td> 
+            <%= link_to date_to_s(newsletter.date), parents_newsletter_path(newsletter) %> 
+          </td>
           <td> 
             <%= link_to "Edit", edit_admin_newsletter_path(newsletter) %> /
             <%= link_to "Delete", admin_newsletter_path(newsletter), method: :delete, 

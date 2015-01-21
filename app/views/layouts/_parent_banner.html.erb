@@ -11,7 +11,9 @@
         <li> <%= nav_link_to "Calendar", parents_calendar_path, {},
            {:selected_class => "current"} %> 
          </li>
-        <li> <%= nav_link_to "Newsletters", '#',  {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path,
+           {}, {:selected_class => "current"} %> 
+        </li>
         <li> <%= nav_link_to "Sign Ups", '#', {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Account", edit_user_registration_path,
            {:selected_class => "current"} %> </li>
@@ -42,7 +44,9 @@
         <li> <%= nav_link_to "Calendar", parents_calendar_path, {}, 
           {:selected_class => "current"} %> 
         </li>
-        <li> <%= nav_link_to "Newsletters", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path, {}, 
+          {:selected_class => "current"} %> 
+        </li>
         <li> <%= nav_link_to "Sign Ups", '#', {}, {:selected_class => "current"} %> </li>
         <li> <%= nav_link_to "Account", edit_user_registration_path, 
           {:selected_class => "current"} %> </li>

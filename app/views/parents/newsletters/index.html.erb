@@ -1,11 +1,11 @@
 <div class="row" id="peek_archive">
   <h1 class="small-12 columns text-center">
-    Peek at Our Week(s) And Vocabulary Archive
+    Newsletter Archive
   </h1>
 
   <ul class="small-12 columns text-center">
     <% @newsletters.each do |newsletter| %>
-      <li> <%= link_to date_to_s(newsletter.date), parents_peek_path(newsletter) %> </li>
+      <li> <%= link_to date_to_s(newsletter.date), parents_newsletter_path(newsletter) %> </li>
     <% end %>
   </ul>
 </div>

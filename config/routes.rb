@@ -31,30 +31,38 @@ PreschoolOnRails::Application.routes.draw do
     get "login", :to => "devise/sessions#new"
     delete "sign_out", :to => "devise/sessions#destroy"
     delete "logout", :to => "devise/sessions#destroy"
-    # Shouldn't be needed... Set after sign-in path
-    # get 'users', :to => redirect('/peek/current'), :as => :user_root
   end
 
   namespace :parents do
-    # Set root
-    resources :peeks, only: [:show, :index], controller: "newsletters"
-    get '/peek/current' => 'newsletters#current'
+    root 'peek_and_vocabs#current'
+
+    resources :peeks, only: [:show, :index], controller: 'peek_and_vocabs'
+    get '/peek/current' => 'peek_and_vocabs#current'
+    
+    resources :newsletters, only: [:show, :index]
+    get '/newsletter/current' => 'newsletters#current'
+    
     resource :calendar
   end
 
   #  Admin Dashboard Paths
   namespace :admin do
-    root 'newsletters#index'
+    root 'peek_and_vocabs#index'
     get '/dashboard' => 'dashboard#home'
+
     resources :classes, controller: 'groups'
     resources :groups
+    
     resources :parents, controller: "users"
     resources :users
+    
     get '/file_uploader' => 'dashboard#file_uploader'
     resources :calendars
     resources :handbooks
     resources :registration_forms
-    resources :peek, controller: 'newsletters'
+    resources :peeks, controller: 'peek_and_vocabs'
+    resources :peek_and_vocabs
+    
     resources :newsletters
   end
 

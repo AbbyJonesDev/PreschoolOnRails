@@ -1,0 +1,2 @@
+module Parents::PeekAndVocabsHelper
+end
