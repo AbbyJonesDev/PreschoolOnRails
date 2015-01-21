@@ -1,4 +1,6 @@
 class NewslettersController < ApplicationController
+  before_filter :authenticate_user!
+  
   def current
     @newest_newsletter = Newsletter.newest
   end

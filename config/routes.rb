@@ -34,7 +34,13 @@ PreschoolOnRails::Application.routes.draw do
     get "login", :to => "devise/sessions#new"
     delete "sign_out", :to => "devise/sessions#destroy"
     delete "logout", :to => "devise/sessions#destroy"
-    get 'users', :to => redirect('/peek/current'), :as => :user_root
+    # Shouldn't be needed... Set after sign-in path
+    # get 'users', :to => redirect('/peek/current'), :as => :user_root
+  end
+
+  namespace :parents do
+    # Set root
+    resource :calendar
   end
 
   #  Admin Dashboard Paths
