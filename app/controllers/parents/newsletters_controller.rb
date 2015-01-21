@@ -1,4 +1,4 @@
-class NewslettersController < ApplicationController
+class Parents::NewslettersController < ApplicationController
   before_filter :authenticate_user!
   
   def current

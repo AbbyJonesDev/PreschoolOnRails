@@ -14,9 +14,6 @@ PreschoolOnRails::Application.routes.draw do
   get "/registration_form" => 'static_pages#reg_form'
   get "/handbook" => 'static_pages#handbook'
 
-  resources :peeks, only: [:show, :index],  controller: "newsletters"
-  get '/peek/current' => 'newsletters#current'
-
   # Don't allow users to register... Admin/teacher will do that 
   # for them. They just need to change their password
   devise_for :users, :skip => [:registrations]                                          
@@ -40,6 +37,8 @@ PreschoolOnRails::Application.routes.draw do
 
   namespace :parents do
     # Set root
+    resources :peeks, only: [:show, :index], controller: "newsletters"
+    get '/peek/current' => 'newsletters#current'
     resource :calendar
   end
 

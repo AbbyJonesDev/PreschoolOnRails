@@ -5,7 +5,7 @@
 
   <ul class="small-12 columns text-center">
     <% @newsletters.each do |newsletter| %>
-      <li> <%= link_to date_to_s(newsletter.date), peek_path(newsletter) %> </li>
+      <li> <%= link_to date_to_s(newsletter.date), parents_peek_path(newsletter) %> </li>
     <% end %>
   </ul>
 </div>
