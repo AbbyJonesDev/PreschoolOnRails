@@ -41,6 +41,8 @@ PreschoolOnRails::Application.routes.draw do
     
     resources :newsletters, only: [:show, :index]
     get '/newsletter/current' => 'newsletters#current'
+
+    resources :announcements, only: [:show, :index]
     
     resource :calendar
   end
@@ -56,14 +58,15 @@ PreschoolOnRails::Application.routes.draw do
     resources :parents, controller: "users"
     resources :users
     
+    resources :peeks, controller: 'peek_and_vocabs'
+    resources :peek_and_vocabs
+
     get '/file_uploader' => 'dashboard#file_uploader'
     resources :calendars
     resources :handbooks
     resources :registration_forms
-    resources :peeks, controller: 'peek_and_vocabs'
-    resources :peek_and_vocabs
-    
     resources :newsletters
+    resources :announcements
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

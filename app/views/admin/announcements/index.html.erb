@@ -1,0 +1,41 @@
+<div class="panel">
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Announcements </small></h2>
+
+  <table>
+    <thead>
+      <th> Date Created </th>
+      <th> Name </th>
+      <th> Classes </th>
+      <th> Expires On </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @announcements.each do |announcement| %>
+        <tr>
+          <td> 
+            <%= date_to_s(announcement.created_at) %> 
+          </td>
+          <td>
+            <%= announcement.name %>
+          </td>
+          <td>
+            <%= announcement.all_classes? ? "All" : announcement.klasses %>
+          </td>
+          <td>
+            <%= date_to_s(announcement.expires_on) %>
+          </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_announcement_path(announcement) %> /
+            <%= link_to "Delete", admin_announcement_path(announcement), method: :delete, 
+                  data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

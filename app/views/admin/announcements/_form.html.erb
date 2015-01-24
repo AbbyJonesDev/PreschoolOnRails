@@ -1,0 +1,51 @@
+<%= form_for [:admin, @announcement] do |f| %>
+
+  <% if @announcement.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@announcement.errors.count, "error") %> prevented this announcement from being saved:
+      </p>
+      <ul>
+        <% @announcement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :name, "Name:" %>
+      <%= f.text_field :name, placeholder: "For subject line in email and heading on website" %>
+    </div>
+
+    <div class="medium-12 columns">
+      <%= f.label :message %>
+      <%= f.text_area :message, placeholder: "For body of email and main text on website" %>
+    </div>
+    
+    <div class="medium-6 columns">
+      <%= f.label :expires_on %>
+      <%= f.date_field :expires_on %>
+    </div>
+
+    <div class="medium-6 columns" id="announcement-klasses">
+      <%= f.check_box :all_classes %>
+      <%= f.label :all_classes, "All Classes" %>
+      <input type="checkbox">
+      <label> Select Classes </label>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_announcements_path %>
+    </div>
+  </div>
+<% end %>
+

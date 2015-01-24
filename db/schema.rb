@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121013411) do
+ActiveRecord::Schema.define(version: 20150124182650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "announcements", force: true do |t|
+    t.string   "name",                        null: false
+    t.text     "message",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "klasses"
+    t.boolean  "all_classes", default: true
+    t.date     "expires_on"
+    t.boolean  "email_sent",  default: false
+  end
 
   create_table "calendars", force: true do |t|
     t.string   "title"
@@ -30,14 +41,6 @@ ActiveRecord::Schema.define(version: 20150121013411) do
   create_table "class_parents", id: false, force: true do |t|
     t.integer "user_id"
     t.integer "group_id"
-  end
-
-  create_table "class_reminders", force: true do |t|
-    t.string   "name",       null: false
-    t.text     "message",    null: false
-    t.integer  "group_id",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "enrolled_students", id: false, force: true do |t|

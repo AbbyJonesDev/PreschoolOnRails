@@ -3,15 +3,18 @@
     <%= nav_link_to "Peek at Our Week Uploader", admin_peeks_path, {}, 
     {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
   <!-- LI created by helper -->
-    <%= nav_link_to "Newsletter Uploader", admin_newsletters_path, {}, 
+    <%= nav_link_to "Announcements", admin_announcements_path, {}, 
     {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Newsletter Uploader", admin_newsletters_path, {}, 
+    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
   <!-- LI created by helper -->
     <%= nav_link_to "Parent Accounts", admin_parents_path, {}, 
-    {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
-  <!-- LI created by helper -->
-    <%= nav_link_to "File Uploader", admin_calendars_path, {}, 
     {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
   <!-- LI created by helper -->
-    <%= nav_link_to "Classes", admin_classes_path, {}, 
+    <%= nav_link_to "File Uploader", admin_calendars_path, {}, 
     {:wrapper_class => "admin-button-green", :wrapper => 'li'} %>
+  <!-- LI created by helper -->
+    <%= nav_link_to "Classes", admin_classes_path, {}, 
+    {:wrapper_class => "admin-button-orange", :wrapper => 'li'} %>
 </ul>
