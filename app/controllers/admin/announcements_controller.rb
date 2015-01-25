@@ -53,5 +53,6 @@ class Admin::AnnouncementsController < Admin::DashboardController
   def load_index_variables
     @announcement ||= Announcement.new
     @announcements = Announcement.order(expires_on: :asc)
+    @klasses = Group.names_and_ids # hash of names and ids
   end
 end

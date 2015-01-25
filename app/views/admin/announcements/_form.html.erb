@@ -29,10 +29,12 @@
       <%= f.date_field :expires_on %>
     </div>
 
-    <div class="medium-6 columns" id="announcement-klasses">
+    <div class="medium-6 columns" id="announcement-classes">
+      <label> Which classes should see this announcement? </label>
       <%= f.check_box :all_classes %>
       <%= f.label :all_classes, "All Classes" %>
-      <input type="checkbox">
+      <%= check_box_tag :selected_classes, value = '0', checked = false, 
+        :id => "announcement_select_classes", data: {klasses: @klasses} %>
       <label> Select Classes </label>
     </div>
   </div>
