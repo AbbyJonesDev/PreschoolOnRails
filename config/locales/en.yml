@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      announcement:
+        klasses: "Selected classes"
+    errors:
+      models:
+        announcement:
+          attributes:
+            klasses:
+              blank: "can't be blank"

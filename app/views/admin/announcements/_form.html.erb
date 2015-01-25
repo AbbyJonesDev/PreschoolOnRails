@@ -33,10 +33,19 @@
       <label> Which classes should see this announcement? </label>
       <%= f.check_box :all_classes %>
       <%= f.label :all_classes, "All Classes" %>
-      <%= check_box_tag :selected_classes, value = '0', checked = false, 
+      <%= check_box_tag :selected_classes, 
+        value = @announcement.all_classes? ? '0' : '1', 
+        checked = @announcement.all_classes? ? false : 'checked', 
         :id => "announcement_select_classes", data: {klasses: @klasses} %>
       <label> Select Classes </label>
     </div>
+
+    <% if ! @announcement.all_classes? %>
+      <div id="class_list_options" class="medium-12 columns">
+        <%= select_tag "announcement[klasses][]", options_for_select(@klasses, 
+        selected = @announcement.klasses), {multiple: true} %>
+      </div>
+    <% end %>
   </div>
 
   <br>
