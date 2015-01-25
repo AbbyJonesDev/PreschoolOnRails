@@ -1,0 +1,25 @@
+<div class="panel">
+  <h1 class="text-center"><small>Announcement</small></h1>
+  <hr>
+  <h2><%= @announcement.name %></h2>
+  <p><%= @announcement.message %></p>
+  <p> 
+    <b>Classes:</b> 
+      <%= @announcement.all_classes? ? "All" : @announcement.klass_names %>
+  </p>
+  <p> 
+    <% if @announcement.email_sent? %>
+      Email notification has been sent.
+    <% else %>
+      <%= link_to "Send email notification now", "#" %>
+    <% end %>
+    <br>
+    <%= link_to "Edit", edit_admin_announcement_path(@announcement) %> /
+    <%= link_to "Delete", admin_announcement_path(@announcement), method: :delete, 
+      data: { confirm: "Are you sure?" } %>
+  </p>
+  <hr>
+  <p class="text-center">
+    <%= link_to "Back to Dashboard", admin_announcements_path %>
+  </p>
+</div>

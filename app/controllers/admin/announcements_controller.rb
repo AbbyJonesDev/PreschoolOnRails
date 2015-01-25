@@ -3,11 +3,15 @@ class Admin::AnnouncementsController < Admin::DashboardController
     load_index_variables
   end
 
+  def show
+    @announcement = Announcement.find(params[:id])
+  end
+
   def create
     @announcement = Announcement.new(announcement_params)
     if @announcement.save
       flash[:notice] = "Announcement created successfully"
-      redirect_to admin_announcements_path
+      redirect_to admin_announcement_path(@announcement)
     else
       load_index_variables
       render :index
@@ -24,7 +28,7 @@ class Admin::AnnouncementsController < Admin::DashboardController
     @announcement = Announcement.find(params[:id])
     if @announcement.update(announcement_params)
       flash[:notice] = "Announcement updated successfully"
-      redirect_to admin_announcements_path
+      redirect_to admin_announcement_path(@announcement)
     else
       load_index_variables
       render :index
