@@ -66,8 +66,11 @@ PreschoolOnRails::Application.routes.draw do
     resources :handbooks
     resources :registration_forms
     resources :newsletters
+
     resources :announcements
   end
+
+  get '/email_announcement/:id' => 'admin/announcements#email_announcement'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

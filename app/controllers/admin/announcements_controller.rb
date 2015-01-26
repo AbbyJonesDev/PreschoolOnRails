@@ -18,6 +18,20 @@ class Admin::AnnouncementsController < Admin::DashboardController
     end
   end
 
+  def email_announcement
+    @announcement = Announcement.find(params[:id])
+    begin
+      NotificationsMailer.email_announcement(@announcement).deliver!
+    rescue
+      flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
+    else
+      @announcement.update_attribute(:email_sent, true)
+      flash[:notice] = "Email has been sent"
+    ensure
+      redirect_to admin_announcements_path
+    end
+  end
+
   def edit
     @announcement = Announcement.find(params[:id])
     load_index_variables

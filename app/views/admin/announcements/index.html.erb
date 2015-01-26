@@ -31,7 +31,7 @@
             <% if announcement.email_sent? %>
               Sent
             <% else %>
-              <%= link_to "Send Now", "#" %>
+              <%= link_to "Send Now", "/email_announcement/#{announcement.id}" %>
             <% end %>
           </td>
           <td> 

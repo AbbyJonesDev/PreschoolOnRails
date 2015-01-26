@@ -11,7 +11,8 @@
     <% if @announcement.email_sent? %>
       Email notification has been sent.
     <% else %>
-      <%= link_to "Send email notification now", "#" %>
+      <%= link_to "Send email notification now",
+         "/email_announcement/#{@announcement.id}" %> 
     <% end %>
     <br>
     <%= link_to "Edit", edit_admin_announcement_path(@announcement) %> /
