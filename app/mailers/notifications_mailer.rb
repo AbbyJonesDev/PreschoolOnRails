@@ -14,9 +14,9 @@ class NotificationsMailer < ActionMailer::Base
 
   def get_user_list(announcement)
     if announcement.all_classes?
-      users = User.where(role: "parent").where(active: true).pluck(:email)
+      users = User.where(active: true).pluck(:email)
     else
-      users = User.where(role: "parent").where(active: true).joins(:groups).
+      users = User.where(active: true).joins(:groups).
       where(groups: { id: announcement.klasses }).pluck(:email)      
     end
     return users
