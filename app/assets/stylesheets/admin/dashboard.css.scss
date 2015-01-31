@@ -50,7 +50,7 @@
     border: rem-calc(4px) solid $orange;
     margin-bottom: 0;
 
-    h1, h2, h3, h4, h1 small, h2 small {
+    h1, h2, h3, h4, h1 small, h2 small, h3 small {
       color: $light-blue;
     }
   }
@@ -63,7 +63,7 @@
     width: 100%;
   }
 
-  form a:hover, p > a:hover {
+  form a:hover, p > a:hover, div > a:hover {
     color: $light-blue;
   }
 

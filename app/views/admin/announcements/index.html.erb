@@ -5,42 +5,10 @@
 
 <div class="panel lower-panel">
   <h2><small> Current Announcements </small></h2>
+  <%= link_to "View Expired Announcements", '/expired_announcements', 
+    :id => "select_announcements", remote: true %>
 
-  <table>
-    <thead>
-      <th> Name </th>
-      <th> Classes </th>
-      <th> Expires On </th>
-      <th> Email Notification </th>
-      <th> Edit/Delete </th>
-    </thead>
-
-    <tbody>
-      <% @announcements.each do |announcement| %>
-        <tr>
-          <td>
-            <%= link_to announcement.name, admin_announcement_path(announcement) %>
-          </td>
-          <td>
-            <%= announcement.all_classes? ? "All" : announcement.klass_names %>
-          </td>
-          <td>
-            <%= date_to_s(announcement.expires_on) %>
-          </td>
-          <td>
-            <% if announcement.email_sent? %>
-              Sent
-            <% else %>
-              <%= link_to "Send Now", "/email_announcement/#{announcement.id}" %>
-            <% end %>
-          </td>
-          <td> 
-            <%= link_to "Edit", edit_admin_announcement_path(announcement) %> /
-            <%= link_to "Delete", admin_announcement_path(announcement), method: :delete, 
-                  data: { confirm: "Are you sure?" } %>
-          </td>        
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div id="announcement_table">
+    <%= render partial: 'table', locals: { announcements: @announcements } %>
+  </div>
 </div>

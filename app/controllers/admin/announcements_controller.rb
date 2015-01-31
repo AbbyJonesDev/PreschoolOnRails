@@ -58,6 +58,21 @@ class Admin::AnnouncementsController < Admin::DashboardController
     render :index
   end
 
+  def expired
+    @announcements = Announcement.expired
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def current
+    @announcements = Announcement.current
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
   private
 
   def announcement_params
@@ -70,7 +85,7 @@ class Admin::AnnouncementsController < Admin::DashboardController
 
   def load_index_variables
     @announcement ||= Announcement.new
-    @announcements = Announcement.order(expires_on: :asc)
+    @announcements = Announcement.current.order(expires_on: :asc)
     @klasses = Group.names_and_ids # hash of names and ids
   end
 end

@@ -70,7 +70,10 @@ PreschoolOnRails::Application.routes.draw do
     resources :announcements
   end
 
+# CUSTOM ROUTES FOR ADMIN FUNCTIONS
   get '/email_announcement/:id' => 'admin/announcements#email_announcement'
+  get 'expired_announcements' => 'admin/announcements#expired'
+  get 'current_announcements' => 'admin/announcements#current'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

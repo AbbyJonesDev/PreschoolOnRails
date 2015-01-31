@@ -1,0 +1,6 @@
+$('h2 small').html("Current Announcements");
+$('a#select_announcements').text('View Expired Announcements').
+  attr('href', '/expired_announcements');
+
+$("div#announcement_table").html("<%= escape_javascript(render partial: 'table', 
+  locals: { announcements: @announcements } ) %>");
