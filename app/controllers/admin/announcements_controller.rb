@@ -65,7 +65,7 @@ class Admin::AnnouncementsController < Admin::DashboardController
                                           :message, 
                                           :all_classes, 
                                           :expires_on, 
-                                          :klasses => [])
+                                          :group_ids => [])
   end
 
   def load_index_variables

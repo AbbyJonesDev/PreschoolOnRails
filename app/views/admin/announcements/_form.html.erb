@@ -42,8 +42,8 @@
 
     <% if ! @announcement.all_classes? %>
       <div id="class_list_options" class="medium-12 columns">
-        <%= select_tag "announcement[klasses][]", options_for_select(@klasses, 
-        selected = @announcement.klasses), {multiple: true} %>
+        <%= select_tag "announcement[group_ids][]", options_for_select(@klasses, 
+        selected = @announcement.group_ids), {multiple: true} %>
       </div>
     <% end %>
   </div>

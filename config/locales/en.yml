@@ -24,10 +24,10 @@ en:
   activerecord:
     attributes:
       announcement:
-        klasses: "Selected classes"
+        group_ids: "Selected classes"
     errors:
       models:
         announcement:
           attributes:
-            klasses:
-              blank: "can't be blank"
+            group_ids:
+              length: 

@@ -3,7 +3,7 @@ var ac = $('#announcement_all_classes');
 var class_list = sc.data('klasses');
 var options = "";
 var class_select_options = $('<div class="medium-12 columns" id="class_list_options"><select multiple' + 
-      " name='announcement[klasses][]'>" + class_options(class_list) +
+      " name='announcement[group_ids][]'>" + class_options(class_list) +
       '</select></div>');
 
 function class_options(data) {
