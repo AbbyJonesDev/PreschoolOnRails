@@ -1,5 +1,7 @@
 class Group < ActiveRecord::Base
   serialize :days, Array
+  has_many :class_announcements
+  has_many :announcements, :through => :class_announcements
   
   has_and_belongs_to_many   :students,  
                             :join_table =>  :enrolled_students
