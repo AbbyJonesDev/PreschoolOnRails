@@ -17,7 +17,7 @@ class NotificationsMailer < ActionMailer::Base
       users = User.where(active: true).pluck(:email)
     else
       users = User.where(active: true).joins(:groups).
-      where(groups: { id: announcement.klasses }).pluck(:email)      
+      where(groups: { id: announcement.group_ids }).pluck(:email)      
     end
     return users
   end

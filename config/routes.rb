@@ -42,7 +42,7 @@ PreschoolOnRails::Application.routes.draw do
     resources :newsletters, only: [:show, :index]
     get '/newsletter/current' => 'newsletters#current'
 
-    resources :announcements, only: [:show, :index]
+    resources :announcements, only: [:index]
     
     resource :calendar
   end

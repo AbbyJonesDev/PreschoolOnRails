@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if resource.role == "admin"
       admin_root_path
     else
-      parents_root_path
+      parents_announcements_path
     end
   end
 end

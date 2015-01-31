@@ -1,0 +1,10 @@
+<main class="row panel">
+  <h1 class="text-center"> Announcements </h1>
+  <br>
+  <hr>
+  <% @announcements.each do |announcement| %>
+    <h2><%= announcement.name %></h2>
+    <p><%= announcement.message %></p>
+    <hr>
+  <% end %>
+</main>
