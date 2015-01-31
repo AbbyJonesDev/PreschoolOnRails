@@ -11,7 +11,8 @@
       <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path, {}, 
         {:selected_class => "current"} %> 
       </li>
-      <li> <%= nav_link_to "Sign Ups", '#', {}, {:selected_class => "current"} %> </li>
+        <li> <%= nav_link_to "Announcements", parents_announcements_path,
+           {}, {:selected_class => "current"} %> </li>
       <li> <%= nav_link_to "Account", edit_user_registration_path, {},
         {:selected_class => "current"} %> </li>
       <%= render 'layouts/login_button' %>
