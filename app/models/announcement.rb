@@ -37,12 +37,12 @@ class Announcement < ActiveRecord::Base
   # Used to get announcements for a user
   def self.for_user(user)
     announcements = []
-    announcements << Announcement.current.where(all_classes: true)
-    announcements << user.announcements.current
+    announcements << Announcement.current.where(all_classes: true).to_a
+    announcements << user.announcements.current.to_a
     # Two ways of doing the same thing...
     # Save SQL version (commented out now) for 
     # possible use later in combining queries...
     # announcements << Announcement.current.joins(:groups).where('groups.id' => user.groups)
-    return announcements.uniq
+    return announcements.flatten.uniq
   end
 end
