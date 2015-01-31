@@ -38,6 +38,11 @@ class Announcement < ActiveRecord::Base
   def self.for_user(user)
     announcements = []
     announcements << Announcement.current.where(all_classes: true)
-    return announcements
+    announcements << user.announcements.current
+    # Two ways of doing the same thing...
+    # Save SQL version (commented out now) for 
+    # possible use later in combining queries...
+    # announcements << Announcement.current.joins(:groups).where('groups.id' => user.groups)
+    return announcements.uniq
   end
 end

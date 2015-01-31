@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                           :join_table  => :class_parents
 
   has_and_belongs_to_many :students
+  has_many :announcements, :through => :groups
 
   
   # Causing an infinite loop
