@@ -9,6 +9,7 @@
   <table>
     <thead>
       <th> Date </th>
+      <th> Email Notification </th>
       <th> Edit/Delete </th>
     </thead>
 
@@ -17,6 +18,13 @@
         <tr>
           <td> 
             <%= link_to date_to_s(newsletter.date), parents_newsletter_path(newsletter) %> 
+          </td>
+          <td>
+            <% if newsletter.email_sent? %>
+              Sent
+            <% else %>
+              <%= link_to "Send Now", "/email_newsletter/#{newsletter.id}" %>
+            <% end %>
           </td>
           <td> 
             <%= link_to "Edit", edit_admin_newsletter_path(newsletter) %> /

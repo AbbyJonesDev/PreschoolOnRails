@@ -40,6 +40,21 @@ class Admin::PeekAndVocabsController < Admin::DashboardController
     render :index
   end
 
+  def email_peek
+    @peek = PeekAndVocab.find(params[:id])
+    begin
+      NotificationsMailer.email_peek(@peek).deliver!
+    rescue
+      flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
+    else
+      @peek.update_attribute(:email_sent, true)
+      flash[:notice] = "Email has been sent"
+    ensure
+      redirect_to admin_peeks_path
+    end
+  end
+
+
   private
 
   def peek_params

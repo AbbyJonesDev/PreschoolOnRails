@@ -40,6 +40,20 @@ class Admin::NewslettersController < Admin::DashboardController
     render :index
   end
 
+  def email_newsletter
+    @newsletter = Newsletter.find(params[:id])
+    begin
+      NotificationsMailer.email_newsletter(@newsletter).deliver
+    rescue
+      flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
+    else
+      @newsletter.update_attribute(:email_sent, true)
+      flash[:notice] = "Email has been sent"
+    ensure
+      redirect_to admin_newsletters_path
+    end
+  end
+
   private
 
   def newsletter_params

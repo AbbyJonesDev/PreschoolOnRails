@@ -72,6 +72,8 @@ PreschoolOnRails::Application.routes.draw do
 
 # CUSTOM ROUTES FOR ADMIN FUNCTIONS
   get '/email_announcement/:id' => 'admin/announcements#email_announcement'
+  get '/email_peek/:id' => 'admin/peek_and_vocabs#email_peek'
+  get '/email_newsletter/:id' => 'admin/newsletters#email_newsletter'
   get 'expired_announcements' => 'admin/announcements#expired'
   get 'current_announcements' => 'admin/announcements#current'
 
