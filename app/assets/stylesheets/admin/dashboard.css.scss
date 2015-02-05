@@ -76,3 +76,31 @@ select#group_ids_ {
   height: rem-calc(100px);
 }
 
+// DATEPICKER styles
+
+div.ui-datepicker-header {
+  border: rem-calc(1px) solid $dark-blue;
+}
+
+.ui-datepicker-next {
+  left: 82%;
+}
+
+table.ui-datepicker-calendar {
+  border: rem-calc(1px) solid $dark-blue;
+
+  th, td {
+    border: rem-calc(1px) solid $dark-blue;
+    color: $dark-blue;
+  }
+
+  a { color: $dark-blue; }
+  
+  tr:nth-child(even) {
+    background-color: lighten($light-blue, 5%);
+  }
+  tr:nth-child(odd) {
+    background-color: white;
+  }  
+}
+

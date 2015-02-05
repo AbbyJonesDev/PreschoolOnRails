@@ -21,6 +21,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# jquery ui for datepicker widget
+gem 'jquery-ui-sass-rails'
+
 # Use Foundation for styling, grid system, basic js
 gem 'foundation-rails'
 
