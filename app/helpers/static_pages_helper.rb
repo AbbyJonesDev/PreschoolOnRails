@@ -4,7 +4,7 @@ module StaticPagesHelper
     if controller_name == 'static_pages'
       render 'layouts/banner'
     else
-      render 'layouts/parent_banner'
+      render 'layouts/parents/parent_banner'
     end
   end
 
@@ -12,7 +12,7 @@ module StaticPagesHelper
     if controller_name == 'static_pages'
       render 'layouts/footer'
     else
-      render 'layouts/parent_footer'
+      render 'layouts/parents/parent_footer'
     end
   end
 
