@@ -44,7 +44,8 @@ class Admin::NewslettersController < Admin::DashboardController
     @newsletter = Newsletter.find(params[:id])
     begin
       NotificationsMailer.email_newsletter(@newsletter).deliver
-    rescue
+    rescue Exception => e
+      puts e.message
       flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
     else
       @newsletter.update_attribute(:email_sent, true)

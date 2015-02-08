@@ -15,20 +15,15 @@ class NotificationsMailer < ActionMailer::Base
     recipients = User.all.pluck(:email)
     build_header(recipients)
     attachments["Peek#{peek.date}.pdf"] = open("#{peek.file.url}").read
-    mail(
-      subject: "Peek at Our Week(s) Available Now",
-      body: "A new peek at our upcoming weeks is available now."
-      )
+    mail(subject: "New Peek at Our Week(s) Available")
   end
 
   def email_newsletter(newsletter)
     recipients = User.all.pluck(:email)
     build_header(recipients)
     attachments["Newsletter#{newsletter.date}.pdf"] = open("#{newsletter.file.url}").read
-    mail(
-      subject: "Newsletter Available Now",
-      body: "A new edition of the Here We Grow Preschool newsletter is available now."
-      )
+    mail(subject: "Newsletter Available")
+    @newsletter = newsletter
   end
 
   def get_user_list(announcement)

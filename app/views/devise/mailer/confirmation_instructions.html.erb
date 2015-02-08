@@ -1,5 +1,22 @@
-<p>Welcome <%= @email %>!</p>
+<p>
+  Welcome to the Here We Grow Parent Site. By logging in, you will receive access to important news and announcements, our current and archived Peek at Our Week(s) and Vocabulary, sign up information, and other content that pertains to the smooth running of our classroom.
+</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>
+  To get started, follow this link to <%= link_to 'confirm your account', confirmation_url(@resource, confirmation_token: @token) %> and log in using the following information:
+  <br>
+  Email: (enter your email address)
+  <br>
+  Password: password
+</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>
+  Once you are logged in, click on "My Account" and reset the general password to your own personal, secure option. 
+<p>
+
+<p> Now you're ready to go! From now on, you can click the "Parents" link at the top righthand side of the page to log in.
+</p>
+
+<p> Please let me know if you have any questions, or need assistance. </p>
+
+<%= render 'layouts/mailers/footer' %>
