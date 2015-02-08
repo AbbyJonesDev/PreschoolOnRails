@@ -23,7 +23,7 @@
     </nav>
   </div>
 
-  <%= nav_link_to('#') do %>
+  <%= link_to parents_root_path do %>
     <%= image_tag 'parent_banner.jpg', :class => "banner", :alt => "Here We Grow Parents" %>
   <% end %>        
 </div>
@@ -32,7 +32,7 @@
 
 <!-- Mobile Banner and Nav -->
 <div class="row hide-for-large-up">
-  <%= nav_link_to('#') do %>
+  <%= link_to parents_root_path do %>
     <%= image_tag "mobile_parent_banner.jpg", :alt => "Here We Grow Parents" %>
   <% end %>
   <div class="small-12 columms">
