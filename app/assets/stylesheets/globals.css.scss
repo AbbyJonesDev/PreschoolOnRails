@@ -170,15 +170,13 @@ footer a:hover {
   color: darken($orange, 3%);
 }
   
-
-
 @media #{$large-up} {
 
   nav {
     ul {
       li {
-        display: inline;
-        padding: 3.5%;
+        // display: inline;
+        // padding: 3.5%;
         }  
       a {
         color: $dark-blue;
@@ -193,9 +191,9 @@ footer a:hover {
 
   header nav {
     width: 100%;
-    position: absolute;
-    top: rem-calc(115px);
-    left: 6%;
+    // position: absolute;
+    // top: rem-calc(115px);
+    // left: 6%;
   }
 
   footer nav {

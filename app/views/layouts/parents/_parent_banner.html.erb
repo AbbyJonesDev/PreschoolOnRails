@@ -1,4 +1,56 @@
 <!-- PARENT BANNER -->
+<div class="row">
+  <%= link_to parents_root_path do %>
+    <%= image_tag 'parent_banner.jpg', :class => "banner", :alt => "Here We Grow Parents" %>
+  <% end %>        
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul>
+        <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
+          {:selected_class => "current"} %> 
+        </li>
+        <li> <%= nav_link_to "Calendar", parents_calendar_path, {},
+           {:selected_class => "current"} %> 
+         </li>
+        <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path,
+           {}, {:selected_class => "current"} %> 
+        </li>
+        <li> <%= nav_link_to "Announcements", parents_announcements_path,
+           {}, {:selected_class => "current"} %> </li>
+        <li> 
+          <%= link_to "My Account", '#', :class => "has-dropdown" %>
+          <%= render 'layouts/parents/account_button' %>
+        </li>
+
+<!--       <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+ -->    </ul>
+
+    <!-- Left Nav Section -->
+    <!-- <ul class="left"> -->
+      <!-- <li><a href="#">Left Nav Button</a></li> -->
+    <!-- </ul> -->
+  </section>
+</nav>
+
+
+</div>
+
+<!-- ORIGINAL -->
+
+
 
 <!-- Tablet/Desktop Banner and Nav -->
 <div class="row show-for-large-up">
@@ -16,9 +68,10 @@
         </li>
         <li> <%= nav_link_to "Announcements", parents_announcements_path,
            {}, {:selected_class => "current"} %> </li>
-        <li> <%= nav_link_to "My Account", edit_user_registration_path, {},
-           {:selected_class => "current"} %> </li>
-        <%= render 'layouts/login_button' %>
+        <li> 
+          <%= link_to "My Account", '#', :class => "dropdown-menu-trigger" %>
+          <%= render 'layouts/parents/account_button' %>
+        </li>
       </ul>
     </nav>
   </div>
@@ -39,20 +92,21 @@
     <nav role="navigation">
       <a href="#" class="mobile-nav-button small-12 columns">See More</a>
         <ul class="mobile-dropdown-menu no-bullet hide">   
-        <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
-          {:selected_class => "current"} %> 
-        </li>
-        <li> <%= nav_link_to "Calendar", parents_calendar_path, {}, 
-          {:selected_class => "current"} %> 
-        </li>
-        <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path, {}, 
-          {:selected_class => "current"} %> 
-        </li>
-        <li> <%= nav_link_to "Announcements", parents_announcements_path,
-           {}, {:selected_class => "current"} %> </li>
-        <li> <%= nav_link_to "My Account", edit_user_registration_path, 
-          {:selected_class => "current"} %> </li>
-        <%= render 'layouts/login_button' %>
+          <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
+            {:selected_class => "current"} %> 
+          </li>
+          <li> <%= nav_link_to "Calendar", parents_calendar_path, {}, 
+            {:selected_class => "current"} %> 
+          </li>
+          <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path, {}, 
+            {:selected_class => "current"} %> 
+          </li>
+          <li> <%= nav_link_to "Announcements", parents_announcements_path,
+             {}, {:selected_class => "current"} %> </li>
+          <li> 
+            <%= link_to "My Account", '#', :class => "dropdown-menu-trigger" %>
+            <%= render 'layouts/parents/account_button' %>
+          </li>
         </ul>
     </nav>
   </div>
