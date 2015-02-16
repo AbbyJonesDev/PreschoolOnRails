@@ -44,7 +44,7 @@ PreschoolOnRails::Application.routes.draw do
 
     resources :announcements, only: [:index]
     
-    resource :calendar
+    resource :calendar, :registration_form, :handbook
   end
 
   #  Admin Dashboard Paths
