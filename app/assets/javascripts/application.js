@@ -21,3 +21,7 @@ $(function(){ $(document).foundation(); });
 $(".mobile-nav-button").click(function() {
     $(".mobile-dropdown-menu").toggle();
   })
+
+$(".mobile-sub-menu-link").click(function() {
+  $("ul.mobile-sub-menu", this).toggle();
+})

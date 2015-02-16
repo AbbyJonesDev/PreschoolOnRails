@@ -1,0 +1,134 @@
+// SELECTED ELEMENTS
+.current {
+  color: white;
+  background-color: lighten($light-blue, 8%);
+  padding: rem-calc(5px 7px);
+}
+
+// MOBILE MENU
+.mobile-nav-button {
+  width: 100%;
+  margin-bottom: rem-calc(10px);
+  text-align: center;
+  padding-top: rem-calc(15px);
+  padding-bottom: rem-calc(15px);
+  background-color: $light-blue;
+  color: $dark-blue;
+  text-decoration: underline;
+  font-family: $header-font-family;
+  font-size: $larger-font-size;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.mobile-nav-button:hover {
+  color: white;
+  background-color: darken($light-blue, 5%);
+}
+
+.dropdownwrap {
+  display: none;
+}
+
+.mobile-dropdown-menu {
+  background-color: $light-blue;
+  padding-top: rem-calc(50px);
+  padding-bottom: rem-calc(15px);
+
+  li {
+    text-align: center;
+    margin: rem-calc(12px) auto;
+    padding: rem-calc(5, 10);
+    line-height: rem-calc(18);
+  }
+
+  a {
+    color: $dark-blue;
+    font-family: $header-font-family;
+    text-decoration: underline;
+  }
+}
+
+// LARGE SCREENS
+@media #{$large-up} {
+
+  nav.main-nav, nav.main-nav-footer {
+    ul {
+      li {
+        display: inline;
+        padding: 3.5%;
+        }  
+      a {
+        color: $dark-blue;
+        text-decoration: underline;
+        font-family: $header-font-family
+      }
+      a:hover {
+        color: white;
+      }
+    }
+  }
+
+  // Main site
+  header nav.main-nav {
+    width: 100%;
+    position: absolute;
+    top: rem-calc(115px);
+    left: 6%;
+  }
+
+  // Parent site
+  .top-bar-section ul li {
+    padding: 0 1.9%;
+
+    a { text-decoration: underline; }
+  }
+
+  // Main site
+  footer nav.main-nav-footer {
+    margin-left: 6%;
+  }
+
+  // Parent site
+  // Override background color for footer
+  footer nav.top-bar.parent-footer-nav {
+    background-color: transparent;
+
+    li, .top-bar-section ul li a {
+      background-color: transparent;
+    }
+  }
+}
+
+// FOOTERS
+footer > div > nav {
+  margin-top: rem-calc(50px);
+}
+
+footer a {
+  color: $dark-blue;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: white;
+}
+
+// Keep footer from disappearing on light-blue pages
+.blue-background {
+  footer {
+    color: $light-blue;
+  }
+
+  .footer-nav > li > a {
+    color: white;
+  }
+
+  footer a {
+    color: $light-blue;
+  }
+
+  footer a:hover {
+    color: white;
+  }
+}

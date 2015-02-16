@@ -1,25 +1,37 @@
 <!-- PARENT SITE -->
 <div class="row show-for-large-up">
-  <nav role="navigation">
-    <ul class="footer-nav">
-      <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
-        {:selected_class => "current"} %> 
-      </li>
-      <li> <%= nav_link_to "Calendar", parents_calendar_path,
-         {}, {:selected_class => "current"} %> 
-       </li>
-      <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path, {}, 
-        {:selected_class => "current"} %> 
-      </li>
-      <li> <%= nav_link_to "Announcements", parents_announcements_path,
-         {}, {:selected_class => "current"} %> </li>
-      <li> 
-        <%= link_to "My Account", '#', :class => "dropdown-menu-trigger" %>
-        <%= render 'layouts/parents/account_button' %>
-      </li>
-    </ul>
+  <nav class="top-bar parent-footer-nav" data-topbar role="navigation">
+    <section class="top-bar-section">
+      <ul>
+        <li> <%= nav_link_to "Announcements", parents_announcements_path,
+           {}, {:selected_class => "current"} %> 
+        </li>
+        <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
+          {:selected_class => "current"} %> 
+        </li>
+        <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path,
+           {}, {:selected_class => "current"} %> 
+        </li>
+        <li> <%= nav_link_to "Class Contacts", '#', {},
+           {:selected_class => "current"} %> 
+        </li>
+        <li class="has-dropdown"> 
+          <%= link_to "General Info", '#' %>
+          <ul class="dropdown">
+            <li><%= link_to "Calendar", parents_calendar_path %></li>
+            <li><%= link_to "Handbook", '#' %></li>
+            <li><%= link_to "Registration", '#' %></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"> 
+          <%= link_to "My Account", '#' %>
+          <%= render 'layouts/parents/account_button' %>
+        </li>
+      </ul>
+    </section>
   </nav>
 </div>
+
 <div class="row">
   <hr>
   <div class="small-12 columns text-center">
