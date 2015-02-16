@@ -49,6 +49,17 @@
   }
 }
 
+ul.mobile-sub-menu.hide {
+  margin-left: 0;
+
+  li {
+    width: 50%;
+    margin: rem-calc(10px) auto;
+    background-color: lighten($light-blue, 5%);
+    border: rem-calc(1px) solid white;
+  }
+}
+
 // LARGE SCREENS
 @media #{$large-up} {
 
