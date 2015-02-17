@@ -1,0 +1,40 @@
+<%= form_for [:admin, @class_contact_list], multipart: true do |f| %>
+
+  <% if @class_contact_list.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@class_contact_list.errors.count, "error") %> prevented this class contact list from being saved:
+      </p>
+      <ul>
+        <% @class_contact_list.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-8 columns">
+      <%= f.label :title, "Title:" %>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.file_field :file %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_handbooks_path %>
+    </div>
+  </div>
+<% end %>
+

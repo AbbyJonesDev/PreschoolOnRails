@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131214506) do
+ActiveRecord::Schema.define(version: 20150217030950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20150131214506) do
 
   add_index "class_announcements", ["announcement_id"], name: "index_class_announcements_on_announcement_id", using: :btree
   add_index "class_announcements", ["group_id"], name: "index_class_announcements_on_group_id", using: :btree
+
+  create_table "class_contact_lists", force: true do |t|
+    t.integer  "group_id"
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "class_contact_lists", ["group_id"], name: "index_class_contact_lists_on_group_id", using: :btree
 
   create_table "class_parents", id: false, force: true do |t|
     t.integer "user_id"

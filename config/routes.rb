@@ -66,6 +66,7 @@ PreschoolOnRails::Application.routes.draw do
     resources :handbooks
     resources :registration_forms
     resources :newsletters
+    resources :class_contact_lists
 
     resources :announcements
   end

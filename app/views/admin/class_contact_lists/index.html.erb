@@ -1,0 +1,33 @@
+<div class="panel">
+  <%= render 'layouts/admin/file_uploader_tabs' %>
+  <br>
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Class Contact Lists </small></h2>
+
+  <table>
+    <thead>
+      <th> Name </th>
+      <th> Class </th>
+      <th> Uploaded </th>
+      <th> Edit/Delete </th>
+    </thead>
+
+    <tbody>
+      <% @class_contact_lists.each do |class_contact_list| %>
+        <tr>
+          <td> <%= link_to "#{class_contact_list.title}", class_contact_list.file.url %> </td>
+          <td> <%= class_contact_list.group %> </td>
+          <td> <%= date_to_s(class_contact_list.updated_at) %> </td>
+          <td> 
+            <%= link_to "Edit", edit_admin_class_contact_list_path(class_contact_list) %> /
+            <%= link_to "Delete", admin_class_contact_list_path(class_contact_list), 
+              method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

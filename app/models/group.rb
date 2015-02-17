@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
   serialize :days, Array
+  has_one :class_contact_list
   has_many :class_announcements
   has_many :announcements, :through => :class_announcements
   
