@@ -2,7 +2,7 @@ class Admin::HandbooksController < Admin::DashboardController
   def index
     @handbook = Handbook.last
     if @handbook == nil
-      redirect_to new_admin_handbooks_path
+      redirect_to new_admin_handbook_path
     end
   end
 
