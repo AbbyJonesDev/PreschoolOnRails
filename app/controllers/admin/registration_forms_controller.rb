@@ -2,7 +2,7 @@ class Admin::RegistrationFormsController < Admin::DashboardController
   def index
     @registration_form = RegistrationForm.last
     if @registration_form == nil
-      redirect_to new_admin_registration_forms_path
+      redirect_to new_admin_registration_form_path
     end
   end
 
