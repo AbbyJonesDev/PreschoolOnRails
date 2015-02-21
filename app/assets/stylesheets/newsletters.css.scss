@@ -1,7 +1,7 @@
 // Place all the styles related to the Newsletters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.peek_index {
+.pdf_display_page {
   padding-top: rem-calc(5px);
   background-color: white;
 
@@ -23,7 +23,7 @@
   }
 }
 
-#peek_archive {
+.pdf_archive {
   padding-top: rem-calc(5px);
   background-color: white;
   min-height: rem-calc(400px);
