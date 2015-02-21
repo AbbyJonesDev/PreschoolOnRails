@@ -7,6 +7,7 @@ class Admin::GroupsController < Admin::DashboardController
   def create
     @group = Group.new(group_params)
     if @group.save
+      @group.create_class_contact_list
       flash[:notice] = "Class successfully created"
       redirect_to admin_classes_path
     else
@@ -28,7 +29,7 @@ class Admin::GroupsController < Admin::DashboardController
       redirect_to admin_classes_path
     else
       load_index_variables
-      render :index
+      render :index and return
     end
   end    
 
@@ -54,5 +55,4 @@ class Admin::GroupsController < Admin::DashboardController
       @groups = Group.all
       @group ||= Group.new
     end
-
 end

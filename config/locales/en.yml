@@ -27,6 +27,12 @@ en:
         group_ids: "Selected classes"
     errors:
       models:
+        group:
+          attributes:
+            start_time: 
+              blank: "must be present and use format HH:MM"
+            end_time:
+              blank: "must be present and use format HH:MM"
         announcement:
           attributes:
             group_ids:

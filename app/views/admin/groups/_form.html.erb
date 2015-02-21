@@ -1,5 +1,18 @@
 <%= form_for [:admin, @group] do |f| %>
 
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@group.errors.count, "error") %> prevented this class from being saved:
+      </p>
+      <ul>
+        <% @group.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="medium-12 columns">
       <%= f.label :name, "Class Name:" %>

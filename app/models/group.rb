@@ -1,6 +1,8 @@
 class Group < ActiveRecord::Base
   serialize :days, Array
-  has_one :class_contact_list
+  validates :name, presence: true
+  validates :start_time, :end_time, presence: true
+  has_one :class_contact_list, dependent: :destroy
   has_many :class_announcements
   has_many :announcements, :through => :class_announcements
   

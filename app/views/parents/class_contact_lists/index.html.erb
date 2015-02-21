@@ -3,7 +3,7 @@
 
   <% current_user.groups.each do |group| %>
     <h2 class="text-center"><%= group.name %></h2>
-    <% if group.class_contact_list %>
+    <% if group.class_contact_list.file_file_name %>
       <object data="<%= group.class_contact_list.file.url %>" type="application/pdf" 
         class="embedded_pdf small-12 columns">    
           <p>
