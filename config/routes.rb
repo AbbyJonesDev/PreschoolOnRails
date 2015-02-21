@@ -44,7 +44,7 @@ PreschoolOnRails::Application.routes.draw do
 
     resources :announcements, only: [:index]    
     resources :class_contact_lists, only: [:index, :show]
-    resource :calendar, :registration_form, :handbook
+    resource :calendar, :registration_form, :handbook, only: [:show]
   end
 
   #  Admin Dashboard Paths
@@ -62,12 +62,9 @@ PreschoolOnRails::Application.routes.draw do
     resources :peek_and_vocabs
 
     get '/file_uploader' => 'dashboard#file_uploader'
-    resources :calendars
-    resources :handbooks
-    resources :registration_forms
-    resources :newsletters
+    resources :calendars, :handbooks, :registration_forms, except: [:destroy]
     resources :class_contact_lists, except: [:new, :create, :destroy]
-
+    resources :newsletters
     resources :announcements
   end
 

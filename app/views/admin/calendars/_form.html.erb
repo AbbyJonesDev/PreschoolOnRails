@@ -14,21 +14,9 @@
   <% end %>
 
   <div class="row">
-    <div class="medium-8 columns">
-      <%= f.label :title, "Title:" %>
-      <%= f.text_field :title %>
-    </div>
-    <div class="medium-4 columns">
-      <%= f.label :current, "Current?" %>
-      <br>
-      <div class="medium-6 columns">
-        <%= f.label :current, "Yes", style: "display:inline" %>
-        <%= f.radio_button :current, true %>
-      </div>
-      <div class="medium-6 columns">
-        <%= f.label :current, "No", style: "display:inline" %>
-        <%= f.radio_button :current, false %>
-      </div>
+    <div class="medium-12 columns">
+      <%= f.label :year, "Year:" %>
+      <%= f.text_field :year, placeholder: "20XX-20XX" %>
     </div>
   </div>
 
@@ -49,4 +37,3 @@
     </div>
   </div>
 <% end %>
-

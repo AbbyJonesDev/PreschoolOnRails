@@ -1,31 +1,28 @@
 <div class="panel">
   <%= render 'layouts/admin/file_uploader_tabs' %>
-  <br>
+  <h2><small>Update Registration Form</small></h2>
   <%= render 'form' %>
 </div>
 
 <div class="panel lower-panel">
-  <h2><small> Uploaded Registration Forms </small></h2>
+  <h2><small> Current Registration Form </small></h2>
 
-  <table>
-    <thead>
-      <th> Name </th>
-      <th> Most Current? </th>
-      <th> Edit/Delete </th>
-    </thead>
-
-    <tbody>
-      <% @registration_forms.each do |reg_form| %>
-        <tr>
-          <td> <%= link_to "#{reg_form.title}", reg_form.file.url %> </td>
-          <td> <%= reg_form == @current_reg_form %> </td>
-          <td> 
-            <%= link_to "Edit", edit_admin_registration_form_path(reg_form) %> /
-            <%= link_to "Delete", admin_registration_form_path(reg_form), method: :delete, 
-                  data: { confirm: "Are you sure?" } %>
-          </td>        
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <div class="row">
+    <div class="medium-6 columns">
+      Year: <%= @registration_form.year %>
+    </div>
+    <div class="medium-6 columns">
+      Updated: <%= date_to_s(@registration_form.updated_at) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <object data="<%= @registration_form.file.url %>" type="application/pdf" 
+      class="small-12 columns embedded-pdf">
+      <p>
+        It appears you don't have a PDF plugin for this browser.
+        No problem... You can <a href="<%= @registration_form.file.url %>">click here to
+        download the PDF file.</a>
+      </p>     
+    </object>
+  </div>

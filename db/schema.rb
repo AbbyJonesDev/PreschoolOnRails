@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217030950) do
+ActiveRecord::Schema.define(version: 20150221150651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,13 @@ ActiveRecord::Schema.define(version: 20150217030950) do
   end
 
   create_table "calendars", force: true do |t|
-    t.string   "title"
-    t.boolean  "current"
     t.string   "calendar_file_file_name"
     t.string   "calendar_file_content_type"
     t.integer  "calendar_file_file_size"
     t.datetime "calendar_file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "year"
   end
 
   create_table "class_announcements", force: true do |t|
@@ -50,7 +49,6 @@ ActiveRecord::Schema.define(version: 20150217030950) do
 
   create_table "class_contact_lists", force: true do |t|
     t.integer  "group_id"
-    t.string   "title"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
@@ -81,14 +79,13 @@ ActiveRecord::Schema.define(version: 20150217030950) do
   end
 
   create_table "handbooks", force: true do |t|
-    t.string   "title"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.boolean  "current"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "year"
   end
 
   create_table "newsletters", force: true do |t|
@@ -112,14 +109,13 @@ ActiveRecord::Schema.define(version: 20150217030950) do
   end
 
   create_table "registration_forms", force: true do |t|
-    t.string   "title"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.boolean  "current"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "year"
   end
 
   create_table "students", force: true do |t|

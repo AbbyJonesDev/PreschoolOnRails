@@ -1,31 +1,30 @@
 <div class="panel">
   <%= render 'layouts/admin/file_uploader_tabs' %>
-  <br>
+  <h2><small>Update Handbook</small></h2>
   <%= render 'form' %>
 </div>
 
 <div class="panel lower-panel">
-  <h2><small> Uploaded Handbooks </small></h2>
+  <h2><small> Current Handbook </small></h2>
 
-  <table>
-    <thead>
-      <th> Name </th>
-      <th> Most Current? </th>
-      <th> Edit/Delete </th>
-    </thead>
+  <div class="row">
+    <div class="medium-6 columns">
+      Year: <%= @handbook.year %>
+    </div>
+    <div class="medium-6 columns">
+      Updated: <%= date_to_s(@handbook.updated_at) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <object data="<%= @handbook.file.url %>" type="application/pdf" 
+      class="small-12 columns embedded-pdf">
+      <p>
+        It appears you don't have a PDF plugin for this browser.
+        No problem... You can <a href="<%= @handbook.file.url %>">click here to
+        download the PDF file.</a>
+      </p>     
+    </object>
+  </div>
 
-    <tbody>
-      <% @handbooks.each do |handbook| %>
-        <tr>
-          <td> <%= link_to "#{handbook.title}", handbook.file.url %> </td>
-          <td> <%= handbook == @current_handbook %> </td>
-          <td> 
-            <%= link_to "Edit", edit_admin_handbook_path(handbook) %> /
-            <%= link_to "Delete", admin_handbook_path(handbook), method: :delete, 
-                  data: { confirm: "Are you sure?" } %>
-          </td>        
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

@@ -1,31 +1,29 @@
 <div class="panel">
   <%= render 'layouts/admin/file_uploader_tabs' %>
-  <br>
+  <h2><small>Update Calendar</small></h2>
   <%= render 'form' %>
 </div>
 
 <div class="panel lower-panel">
-  <h2><small> Uploaded Calendars </small></h2>
+  <h2><small> Current Calendar </small></h2>
 
-  <table>
-    <thead>
-      <th> Name </th>
-      <th> Most Current? </th>
-      <th> Edit/Delete </th>
-    </thead>
-
-    <tbody>
-      <% @calendars.each do |calendar| %>
-        <tr>
-          <td> <%= link_to "#{calendar.title}", calendar.calendar_file.url %> </td>
-          <td> <%= calendar == @current_calendar %> </td>
-          <td> 
-            <%= link_to "Edit", edit_admin_calendar_path(calendar) %> /
-            <%= link_to "Delete", admin_calendar_path(calendar), method: :delete, 
-                  data: { confirm: "Are you sure?" } %>
-          </td>        
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="medium-6 columns">
+      Year: <%= @calendar.year %>
+    </div>
+    <div class="medium-6 columns">
+      Updated: <%= date_to_s(@calendar.updated_at) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <object data="<%= @calendar.calendar_file.url %>" type="application/pdf" 
+      class="small-12 columns embedded-pdf">
+      <p>
+        It appears you don't have a PDF plugin for this browser.
+        No problem... You can <a href="<%= @calendar.calendar_file.url %>">click here to
+        download the PDF file.</a>
+      </p>     
+    </object>
+  </div>
 </div>

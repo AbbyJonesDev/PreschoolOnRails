@@ -1,6 +1,13 @@
 class Admin::HandbooksController < Admin::DashboardController
   def index
-    load_index_variables
+    @handbook = Handbook.last
+    if @handbook == nil
+      redirect_to new_admin_handbooks_path
+    end
+  end
+
+  def new
+    @handbook = Handbook.new
   end
 
   def create
@@ -9,14 +16,12 @@ class Admin::HandbooksController < Admin::DashboardController
       flash[:notice] = "Handbook uploaded successfully"
       redirect_to admin_handbooks_path
     else
-      load_index_variables
-      render :index
+      render :new
     end
   end
 
   def edit
     @handbook = Handbook.find(params[:id])
-    load_index_variables
     render :index
   end
 
@@ -26,29 +31,14 @@ class Admin::HandbooksController < Admin::DashboardController
       flash[:notice] = "Handbook updated successfully"
       redirect_to admin_handbooks_path
     else
-      load_index_variables
       render :index
     end
-  end
-
-  def destroy
-    handbook = Handbook.find(params[:id])
-    handbook.destroy
-    flash[:notice] = "Handbook deleted"
-    # Load variables for index
-    load_index_variables
-    render :index
   end
 
   private
 
   def handbook_params
-    params.require(:handbook).permit(:title, :current, :file)
+    params.require(:handbook).permit(:year, :file)
   end
 
-  def load_index_variables
-    @handbook ||= Handbook.new
-    @current_handbook = Handbook.most_current
-    @handbooks = Handbook.order(updated_at: :desc)
-  end
 end
