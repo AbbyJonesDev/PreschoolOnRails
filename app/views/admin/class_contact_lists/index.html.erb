@@ -6,7 +6,8 @@
   <table>
     <thead>
       <th> Class </th>
-      <th> Uploaded </th>
+      <th> File </th>
+      <th> Updated </th>
       <th> Edit </th>
     </thead>
 
@@ -14,8 +15,11 @@
       <% @class_contact_lists.each do |class_contact_list| %>
         <tr>
           <td> 
-            <%= link_to "#{class_contact_list.group.name}", 
-            parents_class_contact_list_path(class_contact_list) %> 
+            <%= class_contact_list.group.name %> 
+          </td>
+          <td> 
+            <%= link_to "#{class_contact_list.file_file_name}",
+                parents_class_contact_list_path(class_contact_list) %> 
           </td>
           <td> <%= date_to_s(class_contact_list.updated_at) %> </td>
           <td> 

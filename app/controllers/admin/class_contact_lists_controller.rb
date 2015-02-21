@@ -22,7 +22,7 @@ class Admin::ClassContactListsController < Admin::DashboardController
   private
 
   def class_contact_list_params
-    params.require(:class_contact_list).permit(:file)
+    params.require(:class_contact_list).permit(:file) unless ! params[:class_contact_list]
   end
 
   def load_contact_lists
