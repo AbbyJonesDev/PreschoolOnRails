@@ -1,6 +1,11 @@
 <div class="panel">
   <%= render 'layouts/admin/file_uploader_tabs' %>
+  <h2><small> Edit Class Contact List </small></h2>
+  <p>Class: <%= @class_contact_list.group.name %></p>
+  <%= render 'form' %>
+</div>
 
+<div class="panel lower-panel">
   <h2><small> Class Contact Lists </small></h2>
 
   <table>
@@ -14,8 +19,7 @@
       <% @class_contact_lists.each do |class_contact_list| %>
         <tr>
           <td> 
-            <%= link_to "#{class_contact_list.group.name}", 
-            parents_class_contact_list(@class_contact_list) %> 
+            <%= link_to "#{class_contact_list.group.name}", class_contact_list.file.url %> 
           </td>
           <td> <%= date_to_s(class_contact_list.updated_at) %> </td>
           <td> 

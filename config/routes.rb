@@ -42,8 +42,8 @@ PreschoolOnRails::Application.routes.draw do
     resources :newsletters, only: [:show, :index]
     get '/newsletter/current' => 'newsletters#current'
 
-    resources :announcements, only: [:index]
-    
+    resources :announcements, only: [:index]    
+    resources :class_contact_lists, only: [:index, :show]
     resource :calendar, :registration_form, :handbook
   end
 
@@ -66,7 +66,7 @@ PreschoolOnRails::Application.routes.draw do
     resources :handbooks
     resources :registration_forms
     resources :newsletters
-    resources :class_contact_lists
+    resources :class_contact_lists, except: [:new, :create, :destroy]
 
     resources :announcements
   end
