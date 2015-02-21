@@ -3,4 +3,8 @@ class Parents::ClassContactListsController < ApplicationController
 
   def index
   end
+
+  def show
+    @list = ClassContactList.find(params[:id])
+  end
 end

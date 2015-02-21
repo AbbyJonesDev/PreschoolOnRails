@@ -1,0 +1,16 @@
+<div class="row pdf_display_page">
+  <h1 class="text-center"> Class Contact List </h1>
+
+  <h2 class="text-center"><%= @list.group.name %></h2>
+  <% if @list.file %>
+    <object data="<%= @list.file.url %>" type="application/pdf" 
+      class="embedded_pdf small-12 columns">    
+        <p>
+          It appears you don't have a PDF plugin for this browser.
+          No problem... You can <a href="<%= @list.file.url %>">click here to download the PDF file.</a>
+        </p>     
+    </object>
+  <% else %>
+    <p class="text-center"> No contact list is currently available for this class.  </p>
+  <% end %>
+</div>

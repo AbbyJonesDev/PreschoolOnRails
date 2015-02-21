@@ -1,7 +1,10 @@
 <div class="panel">
   <%= render 'layouts/admin/file_uploader_tabs' %>
-  <h2><small> Edit Class Contact List </small></h2>
-  <p>Class: <%= @class_contact_list.group.name %></p>
+  <h2><small> 
+    <strong>Update Class Contact List: </strong>
+    <%= @class_contact_list.group.name %>
+  </small></h2>
+  <br>
   <%= render 'form' %>
 </div>
 
