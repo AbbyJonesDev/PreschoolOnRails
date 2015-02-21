@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups,
                           :join_table  => :class_parents
+                          
+  has_many :class_contact_lists, :through => :groups
 
   has_and_belongs_to_many :students
   has_many :announcements, :through => :groups

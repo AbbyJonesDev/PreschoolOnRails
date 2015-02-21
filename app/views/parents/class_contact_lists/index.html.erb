@@ -1,21 +1,18 @@
 <div class="row pdf_display_page">
   <h1 class="text-center"> Class Contact List </h1>
 
-  <% if @lists %>
-    <% @lists.each do |list| %>
-      <div>
-          <h2 class="text-center"><%= list.group.name %></h2>
-          <object data="<%= list.file.url %>" type="application/pdf" 
-            class="embedded_pdf small-12 columns">    
-              <p>
-                It appears you don't have a PDF plugin for this browser.
-                No problem... You can <a href="<%= list.file.url %>">click here to
-                download the PDF file.</a>
-              </p>     
-          </object>
-      </div>
-    <% end %>
+  <% current_user.groups.each do |group| %>
+    <h2 class="text-center"><%= group.name %></h2>
+    <% if group.class_contact_list %>
+      <object data="<%= group.class_contact_list.file.url %>" type="application/pdf" 
+        class="embedded_pdf small-12 columns">    
+          <p>
+            It appears you don't have a PDF plugin for this browser.
+            No problem... You can <a href="<%= group.class_contact_list.file.url %>">click here to download the PDF file.</a>
+          </p>     
+      </object>
     <% else %>
-      <div> No contact list is currently available for your class.  </div>
+      <p class="text-center"> No contact list is currently available for this class.  </p>
+    <% end %>
   <% end %>
 </div>
