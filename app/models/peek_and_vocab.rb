@@ -4,8 +4,4 @@ class PeekAndVocab < ActiveRecord::Base
                               :content_type => { :content_type => "application/pdf"}
 
   validates :date, :presence => true
-  
-  def self.newest
-    self.order(date: :desc).first
-  end
 end

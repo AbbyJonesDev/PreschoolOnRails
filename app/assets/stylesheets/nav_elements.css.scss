@@ -63,12 +63,13 @@ ul.mobile-sub-menu.hide {
 // LARGE SCREENS
 @media #{$large-up} {
 
+  // Main site
   nav.main-nav, nav.main-nav-footer {
     ul {
       li {
         display: inline;
         padding: 3.5%;
-        }  
+      }  
       a {
         color: $dark-blue;
         text-decoration: underline;
@@ -80,7 +81,6 @@ ul.mobile-sub-menu.hide {
     }
   }
 
-  // Main site
   header nav.main-nav {
     width: 100%;
     position: absolute;
@@ -92,8 +92,9 @@ ul.mobile-sub-menu.hide {
   .top-bar-section ul li {
     padding: 0 1.9%;
 
-    a { text-decoration: underline; }
+    a { text-decoration: underline; }  
   }
+
 
   // Main site
   footer nav.main-nav-footer {

@@ -3,8 +3,11 @@
   <br>
   <hr>
   <% @announcements.each do |announcement| %>
-    <h2><%= announcement.name %></h2>
-    <p><%= announcement.message %></p>
-    <hr>
+    <div class="small-12 columns">
+      <h2><%= announcement.name %></h2>
+      <p>Posted: <%= date_to_s(announcement.created_at) %></p>
+      <p><%= announcement.message %></p>
+      <hr>
+    </div>
   <% end %>
 </main>

@@ -85,6 +85,25 @@ html, body {
   height: rem-calc(300px);
 }
 
+.flash-message-box {
+  width: 80%;
+  margin: 0 auto;
+  padding: rem-calc(8px);
+  background-color: white;
+  border: rem-calc(2px) solid $dark-blue;
+  font-size: rem-calc(18px);
+
+  p.notice {
+    margin-bottom: 0;
+    border: rem-calc(1px) solid $green;
+  }
+
+  p.alert {
+    margin-bottom: 0;
+    border: rem-calc(1px) solid $orange;
+  }
+}
+
 #error_explanation p, #error_explanation li {
   color: darken($orange, 3%);
 }

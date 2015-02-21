@@ -2,7 +2,7 @@ class Parents::PeekAndVocabsController < ApplicationController
   before_filter :authenticate_user!
   
   def current
-    @newest_peek = PeekAndVocab.newest
+    @newest_peek = PeekAndVocab.last
   end
 
   def index

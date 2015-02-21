@@ -1,8 +1,12 @@
 <!-- Display Flash Messages -->
-
-<div class="row">
-  <div class="small-12 columns text-center">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<% if flash[:notice] %>
+  <div class="row flash-message-box">
+    <p class="notice text-center"><strong><%= notice %></strong></p>
   </div>
-</div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="row flash-message-box">
+    <p class="alert text-center"><strong><%= alert %></strong></p>
+  </div>
+<% end %>

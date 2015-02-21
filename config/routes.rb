@@ -27,6 +27,7 @@ PreschoolOnRails::Application.routes.draw do
   # so you can use the simplified routes
   # (since devise is built for multiple scopes)
   devise_scope :user do
+    get '/parents', to: 'parents/peek_and_vocabs#current', as: :user_root
     get "sign_in", to: "devise/sessions#new"
     get "login", :to => "devise/sessions#new"
     delete "sign_out", :to => "devise/sessions#destroy"

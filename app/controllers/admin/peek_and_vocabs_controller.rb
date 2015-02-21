@@ -35,7 +35,6 @@ class Admin::PeekAndVocabsController < Admin::DashboardController
     peek = PeekAndVocab.find(params[:id])
     peek.destroy
     flash[:notice] = "Peek at Our Week deleted"
-    # Load variables for index
     load_index_variables
     render :index
   end
@@ -63,7 +62,7 @@ class Admin::PeekAndVocabsController < Admin::DashboardController
 
   def load_index_variables
     @peek ||= PeekAndVocab.new
-    @current_peek = PeekAndVocab.newest
+    @current_peek = PeekAndVocab.last
     @peeks = PeekAndVocab.order(date: :desc)
   end
 end
