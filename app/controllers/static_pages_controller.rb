@@ -19,23 +19,35 @@ class StaticPagesController < ApplicationController
   end
 
   def register
+    # Dynamically set year in view link
+    if RegistrationForm.last
+      @year = RegistrationForm.last.year
+    else
+      @year = ''
+    end
   end
 
   def schedule
     # Set class for background color
     @body_background = "orange-background"
+    # Dynamically set year in view link
+    if Calendar.last
+      @year = Calendar.last.year
+    else
+      @year = ''
+    end
   end
 
   def calendar
-    @calendar = Calendar.most_current
+    @calendar = Calendar.last
   end
 
   def reg_form
-    @reg_form = RegistrationForm.most_current
+    @reg_form = RegistrationForm.last
   end
 
   def handbook
-    @handbook = Handbook.most_current
+    @handbook = Handbook.last
   end    
 
 end

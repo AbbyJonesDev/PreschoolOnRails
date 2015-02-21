@@ -21,7 +21,7 @@
     <div class="large-6 columns">
         <%= link_to registration_form_path, id: "RegButton", :class=>"button" do %> 
           <%= image_tag "logo_transparent1.png", alt: "Here We Grow Preschool Logo" %>
-           <div> 2015-2016 <br> Registration Form </div>
+           <div> <%= @year %> <br> Registration Form </div>
         <% end %> 
         <%= link_to handbook_path, id: "HBButton", :class=>"button" do %>
           <%= image_tag "logo_transparent1.png", alt: "Here We Grow Preschool Logo" %>
