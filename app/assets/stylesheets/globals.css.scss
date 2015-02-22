@@ -81,10 +81,6 @@ html, body {
   margin-bottom: 0;
 }
 
-.embedded_pdf {
-  height: rem-calc(300px);
-}
-
 .flash-message-box {
   width: 80%;
   margin: 0 auto;
@@ -106,6 +102,14 @@ html, body {
 
 #error_explanation p, #error_explanation li {
   color: darken($orange, 3%);
+}
+
+@media #{$small-only} {
+  .embedded_pdf {
+  height: rem-calc(300px);
+  width: 80%;
+  margin-left: 10%;
+  }
 }
 
 @media #{$medium-up} {
