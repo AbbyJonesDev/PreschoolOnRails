@@ -33,6 +33,22 @@ en:
               blank: "must be present and use format HH:MM"
             end_time:
               blank: "must be present and use format HH:MM"
+        class_contact_list:
+          attributes:
+            file_content_type:
+              invalid: "must be pdf"
+        handbook:
+          attributes:
+            file_content_type:
+              invalid: "must be pdf"
+        registration_form:
+          attributes:
+            file_content_type:
+              invalid: "must be pdf"
+        calendar:
+          attributes:
+            calendar_file_content_type:
+              invalid: "must be pdf"
         announcement:
           attributes:
             group_ids:
