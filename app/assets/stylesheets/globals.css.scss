@@ -100,6 +100,12 @@ html, body {
   }
 }
 
+footer address {
+  text-align: center;
+  padding: rem-calc(5px);
+  margin-bottom: rem-calc(5px);
+}
+
 #error_explanation p, #error_explanation li {
   color: darken($orange, 3%);
 }
