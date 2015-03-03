@@ -1,16 +1,4 @@
 <!-- Handbook -->
 <main class="row">
-  <% if @handbook %>
-    <object data="<%= @handbook.file.url %>" type="application/pdf" 
-      class="embedded_pdf small-12 columns">    
-        <p>
-          It appears you don't have a PDF plugin for this browser.
-          No problem... You can <a href="<%= @handbook.file.url %>">click here to
-          download the PDF file.</a>
-        </p>     
-    </object>
-  <% else %>
-    <p class="text-center"> Uh oh - the file you're looking for is missing.  </p>
-    <p class="text-center"> Please check back later. </p>
-  <% end %>
+  <%= render partial: "layouts/embedded_pdf", locals: { file: @handbook.file } %>
 </main>

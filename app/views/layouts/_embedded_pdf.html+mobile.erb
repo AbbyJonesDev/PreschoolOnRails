@@ -1,0 +1,20 @@
+<!-- Embedded pdf file -->
+<!-- Locals: file -->
+
+<main>
+  <% if file.size != nil %>
+    <p class="small-12 columns">
+      It looks like you're using a mobile device.  Mobile devices
+      are wonderful, but they have some issues with displaying
+      pdf files inside of web pages. 
+    </p>
+    <p class="small-12 columns">
+      You can use <%= link_to "this link", file.url %> to access the file.
+      Depending on your device, it may open in the browser or download onto
+      the device so you can open it with another application.
+    </p>
+  <% else %>
+    <p class="text-center"> The file you requested is missing.  </p>
+    <p class="text-center"> Please check back later. </p>
+  <% end %>
+</main>

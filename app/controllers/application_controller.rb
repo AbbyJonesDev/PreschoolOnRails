@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :admin_logged_in?
+  before_action :set_device_type
 
   def admin_logged_in?
     current_user && current_user.role == "admin"
@@ -15,6 +16,23 @@ class ApplicationController < ActionController::Base
       admin_root_path
     else
       parents_announcements_path
+    end
+  end
+
+  private 
+
+  def set_device_type
+    case request.user_agent
+      when /iPad/i
+        request.variant = :mobile
+      when /iPhone/i
+        request.variant = :mobile
+      when /Android/i
+        request.variant = :mobile
+      when /Windows Phone/i
+        request.variant = :mobile
+      else
+        request.variant = :desktop
     end
   end
 end

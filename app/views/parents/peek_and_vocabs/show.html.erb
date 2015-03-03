@@ -5,14 +5,7 @@
 
   <div class="row">
     <% if @peek %>
-      <object data="<%= @peek.file.url %>" type="application/pdf" 
-        class="embedded_pdf small-12 columns">    
-          <p>
-            It appears you don't have a PDF plugin for this browser.
-            No problem... You can <a href="<%= @peek.file.url %>">click here to
-            download the PDF file.</a>
-          </p>     
-      </object>
+      <%= render partial: "layouts/embedded_pdf", locals: { file: @peek.file } %>
     <% end %>
   </div>
 

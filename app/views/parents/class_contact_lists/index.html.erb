@@ -3,16 +3,7 @@
 
   <% current_user.groups.each do |group| %>
     <h2 class="text-center"><%= group.name %></h2>
-    <% if group.class_contact_list.file_file_name %>
-      <object data="<%= group.class_contact_list.file.url %>" type="application/pdf" 
-        class="embedded_pdf small-12 columns">    
-          <p>
-            It appears you don't have a PDF plugin for this browser.
-            No problem... You can <a href="<%= group.class_contact_list.file.url %>">click here to download the PDF file.</a>
-          </p>     
-      </object>
-    <% else %>
-      <p class="text-center"> No contact list is currently available for this class.  </p>
-    <% end %>
+    <%= render partial: "layouts/embedded_pdf", locals: 
+        { file: group.class_contact_list.file } %>
   <% end %>
 </div>

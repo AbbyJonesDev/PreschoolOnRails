@@ -2,7 +2,7 @@
 <!-- Locals: file -->
 
 <main class="row">
-  <% if file %>
+  <% if file.size != nil %>
     <object data="<%= file.url %>" type="application/pdf" 
       class="embedded_pdf show-for-medium-up medium-12 columns">    
         <p>
@@ -11,14 +11,6 @@
           download the PDF file.</a>
         </p>     
     </object>
-    <div class="show-for-small-only">
-      <p class="small-12 columns">
-        Mobile browsers don't play well with pdf files inside of web pages, 
-        but you can <%= link_to "click here to get the file.", file.url %> 
-        Depending on your device, it may open in the browser or download onto
-        the device so you can open it with another application.
-      </p>
-    </div>
   <% else %>
     <p class="text-center"> The file you requested is missing.  </p>
     <p class="text-center"> Please check back later. </p>
