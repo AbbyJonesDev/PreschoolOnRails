@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.0'
 
 # Use postgres as the database for Active Record
 gem 'pg'
@@ -40,7 +40,7 @@ gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 
 # Use Devise for Admin and User authentication
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 
 # Create demo users
 gem 'faker'
@@ -69,6 +69,8 @@ group :development, :test do
   # gem 'debugger'
   gem 'jazz_hands'
   gem 'launchy'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
 group :development do
