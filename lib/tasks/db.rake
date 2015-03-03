@@ -8,27 +8,13 @@ namespace :db do
     create_users
   end
 
-  ##  Newsletters done in a separate step to avoid
+  ##  Seed docs in separate steps to avoid
   ##  making unnecessary repeat calls to AWS
-  desc "Create demo newsletters"
-  task seed_newsletters: :environment do
-    create_newsletters
-  end
-
-  ##  Calendars done in a separate step to avoid
-  ##  making unnecessary repeat calls to AWS
-  desc "Create demo calendars"
-  task seed_calendars: :environment do
-    create_calendars
-  end
-
-  ##  Seed all 4 types of docs at one time
-  desc "Create all 4 types of docs"
+  desc "Create general docs"
   task seed_docs: :environment do
-    create_newsletters
-    create_calendars
-    create_handbooks  
-    create_registration_forms
+    create_calendar
+    create_handbook  
+    create_registration_form
   end
 end
 
@@ -58,8 +44,8 @@ def create_users
   User.create(fname: "Mrs", lname: "Smith", email: "admin@pretend.preschool",
     password: "adminadmin", role: "admin", active: true, confirmed_at: Time.now)
   # Create a teacher user
-  User.create(fname: "Ms", lname: "Jones", email: "teacher@pretend.preschool",
-    password: "teacher1", role: "teacher", active: true, confirmed_at: Time.now)
+  # User.create(fname: "Ms", lname: "Jones", email: "teacher@pretend.preschool",
+  #   password: "teacher1", role: "teacher", active: true, confirmed_at: Time.now)
   # Create a batch of parent users
   10.times do
     User.create(  fname: Faker::Name.first_name,
@@ -71,45 +57,38 @@ def create_users
                   confirmed_at: Time.now)
   end
   # Create a batch of students
-  20.times do
-    Student.create( fname: Faker::Name.first_name,
-                    lname: Faker::Name.last_name )
-  end
+  # 20.times do
+  #   Student.create( fname: Faker::Name.first_name,
+  #                   lname: Faker::Name.last_name )
+  # end
+
   # Build class associations
   klasses = []
   Group.all.each { |g| klasses << g }
   User.where(role: "parent").each { |p| p.groups << klasses.sample }
-  Student.all.each { |s| s.groups << klasses.sample }
+  # Student.all.each { |s| s.groups << klasses.sample }
 end
 
-
-def create_newsletters
-  Newsletter.destroy_all
-  Newsletter.create(date: Time.now,
-    file: File.new("#{Rails.root}/db/docs/Sample_Newsletter.pdf")
-    )
-end
-
-def create_calendars
+def create_calendar
   Calendar.destroy_all
-  Calendar.create(title: "2014-2015 Calendar",
-    current: true,
+  Calendar.create(
+    year: "2014-2015",
     calendar_file: File.new("#{Rails.root}/db/docs/2014-15 Calendar.pdf")
     )
 end
 
-def create_registration_forms
+def create_registration_form
   RegistrationForm.destroy_all
-  RegistrationForm.create(title: "2014-2015 Registration",
-    current: true,
+  RegistrationForm.create(
+    year: "2014-2015",
     file: File.new("#{Rails.root}/db/docs/2014-15 Registration.pdf")
     )
 end
 
-def create_handbooks
+def create_handbook
   Handbook.destroy_all
-  Handbook.create(title: "2014-2015 Handbook",
-    current: true,
+  Handbook.create(
+    year: "2014-2015",
     file: File.new("#{Rails.root}/db/docs/HereWeGrowHandbook.pdf")
     )
 end
