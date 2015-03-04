@@ -1,4 +1,10 @@
 <!-- Handbook -->
 <main class="row">
-  <%= render partial: "layouts/embedded_pdf", locals: { file: @handbook.file } %>
+  <% if @handbook %>
+    <%= render partial: "layouts/embedded_pdf", locals: { file: @handbook.file } %>
+  <% else %>
+    <div class="panel">
+      No handbook available at this time.
+    </div>
+  <% end %>
 </main>
