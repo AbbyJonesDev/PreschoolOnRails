@@ -1,6 +1,6 @@
 namespace :db do
   desc "Populate database with demo users and etc"
-  task seed_demo: :environment do
+  task seed_users: :environment do
     clean_db
     # Groups must be created before users
     # to set up associations
@@ -37,6 +37,9 @@ def create_groups
     start_time: Time.new(2014, 8, 25, 12, 30, 0, "-06:00"),
     end_time: Time.new(2014, 8, 25, 15, 30, 0, "-06:00")
     )
+  Group.all.each do |g|
+    g.create_class_contact_list
+  end
 end
 
 def create_users
