@@ -26,8 +26,7 @@
     
     <div class="medium-6 columns">
       <%= f.label :expires_on %>
-      <%= f.date_field :expires_on, :placeholder => "mm/dd/yyyy",
-            :value => @announcement.try(:expires_on).try(:strftime,'%m-%d-%y') %>
+      <%= f.date_field :expires_on, :placeholder => "mm/dd/yyyy" %>
     </div>
 
     <div class="medium-6 columns" id="announcement-classes">
