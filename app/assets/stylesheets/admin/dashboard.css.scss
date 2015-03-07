@@ -77,12 +77,9 @@ select#group_ids_ {
 }
 
 // DATEPICKER styles
-div.ui-datepicker-div {
+div.ui-datepicker-header {
   background-color: white;
   opacity: 1;
-}
-
-div.ui-datepicker-header {
   border: rem-calc(1px) solid $dark-blue;
 }
 
