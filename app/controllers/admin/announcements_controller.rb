@@ -21,7 +21,7 @@ class Admin::AnnouncementsController < Admin::DashboardController
   def email_announcement
     @announcement = Announcement.find(params[:id])
     begin
-      NotificationsMailer.email_announcement(@announcement).deliver!
+      NotificationsMailer.email_announcement(@announcement).deliver_now
     rescue
       flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
     else

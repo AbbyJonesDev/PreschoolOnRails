@@ -42,7 +42,7 @@ class Admin::PeekAndVocabsController < Admin::DashboardController
   def email_peek
     @peek = PeekAndVocab.find(params[:id])
     begin
-      NotificationsMailer.email_peek(@peek).deliver!
+      NotificationsMailer.email_peek(@peek).deliver_now
     rescue
       flash[:warning] = "Sorry, something went wrong. Please contact your site administrator"
     else
