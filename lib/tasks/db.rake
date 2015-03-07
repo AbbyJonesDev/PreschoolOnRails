@@ -25,7 +25,7 @@ def clean_db
 end
 
 def create_groups
-  Group.create(name: "MWF Morning", days: ["Monday", "Wedneday", "Friday"], 
+  Group.create(name: "MWF Morning", days: ["Monday", "Wednesday", "Friday"], 
     start_time: Time.new(2014, 8, 25, 8, 30, 0, "-06:00"),
     end_time: Time.new(2014, 8, 25, 11, 30, 0, "-06:00")
     )
@@ -33,7 +33,7 @@ def create_groups
     start_time: Time.new(2014, 8, 25, 8, 30, 0, "-06:00"),
     end_time: Time.new(2014, 8, 25, 11, 30, 0, "-06:00")
     )
-  Group.create(name: "Afternoon", days: ["Monday", "Tuesday", "Wedneday", "Thursday"], 
+  Group.create(name: "Afternoon", days: ["Monday", "Tuesday", "Wednesday", "Thursday"], 
     start_time: Time.new(2014, 8, 25, 12, 30, 0, "-06:00"),
     end_time: Time.new(2014, 8, 25, 15, 30, 0, "-06:00")
     )
