@@ -14,6 +14,9 @@ class Group < ActiveRecord::Base
                             :join_table => :class_parents,
                             :class_name => "User"
 
+  after_create :create_contact_list
+  after_create :register_admins
+
   def self.names_and_ids
     # Build hash of names and ids
     nai = {}
@@ -21,5 +24,16 @@ class Group < ActiveRecord::Base
       nai[group.name] = group.id
     end
     return nai
-  end 
+  end
+
+  private
+
+  def create_contact_list
+    self.create_class_contact_list
+  end
+
+  def register_admins
+    User.register_admins(self)
+  end
+ 
 end

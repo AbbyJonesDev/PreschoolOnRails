@@ -47,4 +47,10 @@ class User < ActiveRecord::Base
     return ids
   end
 
+  def self.register_admins(group)
+    User.where(role: 'admin').each do |admin|
+      admin.groups << group
+    end
+  end
+
 end

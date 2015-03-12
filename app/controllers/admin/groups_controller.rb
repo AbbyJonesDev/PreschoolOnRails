@@ -7,7 +7,6 @@ class Admin::GroupsController < Admin::DashboardController
   def create
     @group = Group.new(group_params)
     if @group.save
-      @group.create_class_contact_list
       flash[:notice] = "Class successfully created"
       redirect_to admin_classes_path
     else
