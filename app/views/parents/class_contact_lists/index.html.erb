@@ -1,9 +1,9 @@
 <div class="row pdf_display_page">
-  <h1 class="text-center"> Class Contact List </h1>
-
-  <% current_user.groups.each do |group| %>
-    <h2 class="text-center"><%= group.name %></h2>
-    <%= render partial: "layouts/embedded_pdf", locals: 
-        { file: group.class_contact_list.file } %>
+  <h1 class="text-center"> Class Contact Lists </h1>
+  <hr>
+  <% @groups.each do |group| %>
+    <h2 class="text-center"><small>
+      <%= link_to group.name, parents_class_contact_list_path(group.class_contact_list) %>
+    </small></h2>
   <% end %>
 </div>
