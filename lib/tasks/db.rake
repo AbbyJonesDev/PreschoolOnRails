@@ -80,15 +80,15 @@ end
 def create_registration_form
   RegistrationForm.destroy_all
   RegistrationForm.create(
-    year: "2014-2015",
-    file: File.new("#{Rails.root}/db/docs/2014-15 Registration.pdf")
+    year: "2015-2016",
+    file: File.new("#{Rails.root}/db/docs/Preschool-Registration-2015-2016.pdf")
     )
 end
 
 def create_handbook
   Handbook.destroy_all
   Handbook.create(
-    year: "2014-2015",
-    file: File.new("#{Rails.root}/db/docs/HereWeGrowHandbook.pdf")
+    year: "2015-2016",
+    file: File.new("#{Rails.root}/db/docs/Here-We-Grow-Handbook-2015-2016.pdf")
     )
 end
