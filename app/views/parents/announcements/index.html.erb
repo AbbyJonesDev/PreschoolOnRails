@@ -2,6 +2,11 @@
   <h1 class="text-center"> Announcements </h1>
   <br>
   <hr>
+  <% if @announcements.length == 0 %>
+    <div class="small-12 columns text-center">
+      There are no announcements for your class at this time.
+    </div>
+  <% end %>
   <% @announcements.each do |announcement| %>
     <div class="small-12 columns">
       <h2><%= announcement.name %></h2>
