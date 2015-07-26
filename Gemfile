@@ -53,12 +53,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use unicorn as the app server
-gem 'unicorn'
+# Use unicorn as the app server (HEROKU ONLY)
+# gem 'unicorn'  
 
-group :production, :staging do
-  gem 'rails_12factor' # To compile assets on Heroku
-end
+# group :production, :staging do
+#   gem 'rails_12factor' # To compile assets on Heroku
+# end
 
 group :development, :test do
   gem 'factory_girl_rails'

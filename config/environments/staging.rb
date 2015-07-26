@@ -27,7 +27,7 @@ PreschoolOnRails::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -68,13 +68,13 @@ PreschoolOnRails::Application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 '587',
-    domain:               'heroku.com',
+    domain:               'hwg.abbyrose80.webfactional.com',
     user_name:            ENV['SENDGRID_USERNAME'],
     password:             ENV['SENDGRID_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
   config.action_mailer.default_url_options = { 
-    host: 'here-wegrow-staging.herokuapp.com'}
+    host: 'hwg.abbyrose80.webfactional.com'}
   config.action_mailer.default_options = { 
     from: ENV['EMAIL_FROM'], 
     reply_to: ENV['EMAIL_REPLY_TO']}
