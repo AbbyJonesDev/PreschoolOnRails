@@ -26,16 +26,16 @@ end
 
 def create_groups
   Group.create(name: "MWF Morning", days: ["Monday", "Wednesday", "Friday"], 
-    start_time: Time.new(2014, 8, 25, 8, 30, 0, "-06:00"),
-    end_time: Time.new(2014, 8, 25, 11, 30, 0, "-06:00")
+    start_time: Time.local(2014, 8, 25, 8, 30, 0),
+    end_time: Time.local(2014, 8, 25, 11, 30, 0)
     )
   Group.create(name: "TTH Morning", days: ["Tuesday", "Thursday"], 
-    start_time: Time.new(2014, 8, 25, 8, 30, 0, "-06:00"),
-    end_time: Time.new(2014, 8, 25, 11, 30, 0, "-06:00")
+    start_time: Time.local(2014, 8, 25, 8, 30, 0),
+    end_time: Time.local(2014, 8, 25, 11, 30, 0)
     )
   Group.create(name: "Afternoon", days: ["Monday", "Tuesday", "Wednesday", "Thursday"], 
-    start_time: Time.new(2014, 8, 25, 12, 30, 0, "-06:00"),
-    end_time: Time.new(2014, 8, 25, 15, 30, 0, "-06:00")
+    start_time: Time.local(2014, 8, 25, 12, 30, 0),
+    end_time: Time.local(2014, 8, 25, 15, 30, 0)
     )
 end
 
@@ -72,8 +72,8 @@ end
 def create_calendar
   Calendar.destroy_all
   Calendar.create(
-    year: "2014-2015",
-    calendar_file: File.new("#{Rails.root}/db/docs/2014-15 Calendar.pdf")
+    year: "2015-2016",
+    calendar_file: File.new("#{Rails.root}/db/docs/2015-2016 Calendar.pdf")
     )
 end
 
