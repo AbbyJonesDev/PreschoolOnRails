@@ -53,21 +53,21 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use unicorn as the app server
-gem 'unicorn'
+# Setup for Capistrano deployment on Digital Ocean
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
-group :production, :staging do
-  gem 'rails_12factor' # To compile assets on Heroku
-end
-
+# Setup development and test gems
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara', '~> 2.4.3'  # To simulate user interaction with browser
   gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
   gem 'database_cleaner'  # To clean database after capybara-webkit messes it up
-  # gem 'debugger'
-  gem 'jazz_hands'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
   gem 'launchy'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -81,6 +81,3 @@ end
 group :test do
   gem 'shoulda-matchers', require: false
 end
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development

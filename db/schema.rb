@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "announcements", force: true do |t|
+  create_table "announcements", force: :cascade do |t|
     t.string   "name",                        null: false
     t.text     "message",                     null: false
     t.datetime "created_at"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.boolean  "email_sent",  default: false
   end
 
-  create_table "calendars", force: true do |t|
+  create_table "calendars", force: :cascade do |t|
     t.string   "calendar_file_file_name"
     t.string   "calendar_file_content_type"
     t.integer  "calendar_file_file_size"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.string   "year"
   end
 
-  create_table "class_announcements", force: true do |t|
+  create_table "class_announcements", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "announcement_id"
     t.datetime "created_at",      null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
   add_index "class_announcements", ["announcement_id"], name: "index_class_announcements_on_announcement_id", using: :btree
   add_index "class_announcements", ["group_id"], name: "index_class_announcements_on_group_id", using: :btree
 
-  create_table "class_contact_lists", force: true do |t|
+  create_table "class_contact_lists", force: :cascade do |t|
     t.integer  "group_id"
     t.string   "file_file_name"
     t.string   "file_content_type"
@@ -59,17 +59,17 @@ ActiveRecord::Schema.define(version: 20150221150651) do
 
   add_index "class_contact_lists", ["group_id"], name: "index_class_contact_lists_on_group_id", using: :btree
 
-  create_table "class_parents", id: false, force: true do |t|
+  create_table "class_parents", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
   end
 
-  create_table "enrolled_students", id: false, force: true do |t|
+  create_table "enrolled_students", id: false, force: :cascade do |t|
     t.integer "student_id"
     t.integer "group_id"
   end
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.string   "days"
     t.time     "start_time"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.datetime "updated_at"
   end
 
-  create_table "handbooks", force: true do |t|
+  create_table "handbooks", force: :cascade do |t|
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.string   "year"
   end
 
-  create_table "newsletters", force: true do |t|
+  create_table "newsletters", force: :cascade do |t|
     t.datetime "date"
     t.string   "file_file_name"
     t.string   "file_content_type"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.boolean  "email_sent",        default: false
   end
 
-  create_table "peek_and_vocabs", force: true do |t|
+  create_table "peek_and_vocabs", force: :cascade do |t|
     t.date     "date"
     t.string   "file_file_name"
     t.string   "file_content_type"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.boolean  "email_sent",        default: false
   end
 
-  create_table "registration_forms", force: true do |t|
+  create_table "registration_forms", force: :cascade do |t|
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.string   "year"
   end
 
-  create_table "students", force: true do |t|
+  create_table "students", force: :cascade do |t|
     t.string   "fname",                             null: false
     t.string   "lname",              default: ""
     t.boolean  "currently_enrolled", default: true
@@ -126,12 +126,12 @@ ActiveRecord::Schema.define(version: 20150221150651) do
     t.datetime "updated_at"
   end
 
-  create_table "students_users", id: false, force: true do |t|
+  create_table "students_users", id: false, force: :cascade do |t|
     t.integer "student_id"
     t.integer "user_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "fname",                  default: "",       null: false
     t.string   "lname",                  default: "",       null: false
     t.string   "role",                   default: "parent", null: false
