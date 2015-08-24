@@ -59,6 +59,11 @@ gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
+# Setup staging and production gems
+group :staging, :production do
+  gem 'therubyracer',  platforms: :ruby
+end
+
 # Setup development and test gems
 group :development, :test do
   gem 'factory_girl_rails'
