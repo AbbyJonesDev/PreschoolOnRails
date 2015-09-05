@@ -64,14 +64,22 @@ PreschoolOnRails::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 465,
+    domain:               ENV['DOMAIN'],
+    user_name:            ENV['GMAIL_USERNAME'],
+    password:             ENV['GMAIL_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_options = { 
     from: ENV['EMAIL_FROM'], 
     reply_to: ENV['EMAIL_REPLY_TO']
   }  
   config.action_mailer.default_url_options = { 
-    host: 'staging.herewegrow.com'
+    host: ENV['DOMAIN']
   }
   # Catch emails in staging environment
   Mail.register_interceptor RecipientInterceptor.new(ENV['EMAIL_RECIPIENTS'])
