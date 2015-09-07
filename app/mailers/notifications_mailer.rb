@@ -1,34 +1,34 @@
 class NotificationsMailer < ActionMailer::Base
   default from: ENV["EMAIL_FROM"]
-  # default to: ENV["EMAIL_FROM"] #Doesn't matter because Sendgrid API...
+  default to: ENV["EMAIL_FROM"] #Doesn't matter because Sendgrid API...
 
   def email_announcement(announcement)
     recipients = get_user_list(announcement)
-    # build_header(recipients)
+    build_header(recipients)
     mail(
       subject: announcement.name,
       body: announcement.message,
-      to: recipients
+      # to: recipients      HANDLED BY SENDGRID HEADER 
       )
   end
 
   def email_peek(peek)
     recipients = User.all.pluck(:email)
-    # build_header(recipients)
+    build_header(recipients)
     attachments["Peek#{peek.date}.pdf"] = open("#{peek.file.url}").read
     mail(
       subject: "New Peek at Our Week(s) Available",
-      to: recipients
+      # to: recipients      HANDLED BY SENDGRID HEADER
       )
   end
 
   def email_newsletter(newsletter)
     recipients = User.all.pluck(:email)
-    # build_header(recipients)
+    build_header(recipients)
     attachments["Newsletter#{newsletter.date}.pdf"] = open("#{newsletter.file.url}").read
     mail(
       subject: "Newsletter Available",
-      to: recipients
+      # to: recipients      HANDLED BY SENDGRID HEADER
       )
     @newsletter = newsletter
   end
