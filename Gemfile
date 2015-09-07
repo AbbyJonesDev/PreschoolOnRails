@@ -54,14 +54,16 @@ group :doc do
 end
 
 # Setup for Capistrano deployment on Digital Ocean
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
+# gem 'capistrano', '~> 3.1.0'
+# gem 'capistrano-bundler', '~> 1.1.2'
+# gem 'capistrano-rails', '~> 1.1.1'
+# gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 # Setup staging and production gems
-group :staging, :production do
-  gem 'therubyracer',  platforms: :ruby
+group :production, :staging do
+  gem 'unicorn'
+  gem 'rails_12factor' # To compile assets on Heroku
+# gem 'therubyracer',  platforms: :ruby   ONLY NEEDED ON LINUX BOX
 end
 
 # Setup development and test gems
