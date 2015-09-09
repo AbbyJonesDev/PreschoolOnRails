@@ -57,7 +57,7 @@ class Admin::PeekAndVocabsController < Admin::DashboardController
   private
 
   def peek_params
-    params.require(:peek_and_vocab).permit(:date, :file)
+    params.require(:peek_and_vocab).permit(:date, :peek, :vocab)
   end
 
   def load_index_variables

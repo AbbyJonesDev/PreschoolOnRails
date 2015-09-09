@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221150651) do
+ActiveRecord::Schema.define(version: 20150909220914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,13 +99,17 @@ ActiveRecord::Schema.define(version: 20150221150651) do
 
   create_table "peek_and_vocabs", force: :cascade do |t|
     t.date     "date"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.string   "peek_file_name"
+    t.string   "peek_content_type"
+    t.integer  "peek_file_size"
+    t.datetime "peek_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "email_sent",        default: false
+    t.boolean  "email_sent",         default: false
+    t.string   "vocab_file_name"
+    t.string   "vocab_content_type"
+    t.integer  "vocab_file_size"
+    t.datetime "vocab_updated_at"
   end
 
   create_table "registration_forms", force: :cascade do |t|

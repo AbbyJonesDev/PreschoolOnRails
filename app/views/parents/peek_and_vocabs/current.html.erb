@@ -6,7 +6,14 @@
   <div class="row">
 
     <% if @newest_peek %>
-      <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.file } %>
+      <div class="text-center">
+        <%= content_tag "a", id: "toggle-vocab", 
+          data: { 
+            peek: @newest_peek.peek.url, vocab: @newest_peek.vocab.url } do %>
+          Show Vocabulary
+        <% end %>      
+      </div>
+      <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.peek } %>
     <% end %>
   </div>
 

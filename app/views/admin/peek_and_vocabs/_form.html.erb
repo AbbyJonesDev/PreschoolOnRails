@@ -21,8 +21,13 @@
       <%= f.hidden_field :date, id: "hidden-date-field" %>
     </div>
     
-    <div class="medium-12 columns">
-      <%= f.file_field :file %>
+    <div class="medium-6 columns">
+      <%= f.label :peek, "Peek File:" %>
+      <%= f.file_field :peek %>
+    </div>
+    <div class="medium-6 columns">
+      <%= f.label :vocab, "Vocab File:" %>
+      <%= f.file_field :vocab %>
     </div>
   </div>
 

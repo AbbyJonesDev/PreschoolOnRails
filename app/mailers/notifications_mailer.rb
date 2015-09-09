@@ -15,7 +15,8 @@ class NotificationsMailer < ActionMailer::Base
   def email_peek(peek)
     recipients = User.all.pluck(:email)
     build_header(recipients)
-    attachments["Peek#{peek.date}.pdf"] = open("#{peek.file.url}").read
+    attachments["Peek#{peek.date}.pdf"] = open("#{peek.peek.url}").read
+    attachments["Vocab#{peek.date}.pdf"] = open("#{peek.vocab.url}").read
     mail(
       subject: "New Peek at Our Week(s) Available",
       # to: recipients      HANDLED BY SENDGRID HEADER
