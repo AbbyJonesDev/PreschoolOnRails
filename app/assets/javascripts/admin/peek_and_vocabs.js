@@ -1,5 +1,5 @@
 $("#toggle-vocab").click(function() {
-  if (this.text === "Show Vocabulary") {
+  if (/Vocabulary/.test(this.text)) {
     $('object').attr('data', $(this).data('vocab'));
     $(this).text("Show Peek")
   } else {

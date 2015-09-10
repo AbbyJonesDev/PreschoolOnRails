@@ -6,6 +6,7 @@
   <div class="row">
 
     <% if @newest_peek %>
+      <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.peek } %>
       <div class="text-center">
         <%= content_tag "a", id: "toggle-vocab", 
           data: { 
@@ -13,13 +14,12 @@
           Show Vocabulary
         <% end %>      
       </div>
-      <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.peek } %>
     <% end %>
   </div>
-
+  <br>
   <div class="row">
     <div class="small-12 columns text-center">
-        <%= link_to "View Archive", parents_peeks_path %>
+        <%= link_to "View Archive", parents_peeks_path, :class => "button" %>
     </div>
   </div>
 </div>
