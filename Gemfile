@@ -63,6 +63,7 @@ end
 group :production, :staging do
   gem 'puma'
   gem 'rails_12factor' # To compile assets on Heroku
+  gem "rack-timeout"  # To stop crazy long-running processes
 # gem 'therubyracer',  platforms: :ruby   ONLY NEEDED ON LINUX BOX
 end
 
