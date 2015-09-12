@@ -1,9 +1,12 @@
 production:
   adapter: postgresql
+  encoding: unicode
+  url: HEROKU_POSTGRESQL_BLACK_URL
   pool: 5
 
 staging:
   adapter: postgresql
+  encoding: unicode
   pool: 5
 
 development:
