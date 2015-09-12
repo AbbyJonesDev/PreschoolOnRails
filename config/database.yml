@@ -1,7 +1,9 @@
 production:
+  adapter: postgresql
   pool: 5
 
 staging:
+  adapter: postgresql
   pool: 5
 
 development:
