@@ -208,10 +208,10 @@
     width: 100%;
     margin-left: 1%;
 
-    img {
-    @include photo-border;
-    border-color: $dark-blue;
-    }
+    // img {
+    // @include photo-border;
+    // border-color: $dark-blue;
+    // }
   }
 }
 
