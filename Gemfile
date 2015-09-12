@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 1.2'
 # Use Paperclip to manage file attachments.  Read more: https://github.com/thoughtbot/paperclip
 gem "paperclip", "~> 4.1"
 
+# Direct upload form helper and assets
+gem 's3_direct_upload' 
+
 # Use Amazon Web Services S3 storage for file attachments
 gem 'aws-sdk'
 
@@ -44,6 +47,9 @@ gem 'devise', '~> 3.4.0'
 
 # Create demo users
 gem 'faker'
+
+# To stop crazy long-running processes
+gem "rack-timeout"
 
 # Intercept emails in staging environment
 gem 'recipient_interceptor'
@@ -63,7 +69,6 @@ end
 group :production, :staging do
   gem 'puma'
   gem 'rails_12factor' # To compile assets on Heroku
-  gem "rack-timeout"  # To stop crazy long-running processes
 # gem 'therubyracer',  platforms: :ruby   ONLY NEEDED ON LINUX BOX
 end
 
