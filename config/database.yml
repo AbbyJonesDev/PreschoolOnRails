@@ -1,7 +1,7 @@
 production:
   adapter: postgresql
   encoding: unicode
-  url: HEROKU_POSTGRESQL_BLACK_URL
+  url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
   pool: 5
 
 staging:
