@@ -79,7 +79,8 @@ class Admin::AnnouncementsController < Admin::DashboardController
     params.require(:announcement).permit( :name, 
                                           :message, 
                                           :all_classes, 
-                                          :expires_on, 
+                                          :expires_on,
+                                          :icon, 
                                           :group_ids => [])
   end
 

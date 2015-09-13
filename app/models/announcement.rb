@@ -14,6 +14,8 @@ class Announcement < ActiveRecord::Base
     too_short: "must include at least one class" }, if: :not_all_classes
   has_many :class_announcements
   has_many :groups, :through => :class_announcements
+  has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/logo-icon.jpg"
+  validates_attachment_content_type :icon, content_type: /\Aimage\/.*\Z/
   scope :current, -> { where "expires_on > ?", Time.now }
   scope :expired, -> { where "expires_on <= ?", Time.now}
 
