@@ -7,19 +7,15 @@
 
     <% if @newest_peek %>
       <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.peek } %>
-      <div class="text-center">
-        <%= content_tag "a", id: "toggle-vocab", 
-          data: { 
-            peek: @newest_peek.peek.url, vocab: @newest_peek.vocab.url } do %>
-          Show Vocabulary
-        <% end %>      
-      </div>
+      <p class="text-center">
+        See <%= link_to 'Vocabulary', parents_curriculum_current_vocab_path %> for this week.
+      </p>
     <% end %>
   </div>
   <br>
   <div class="row">
     <div class="small-12 columns text-center">
-        <%= link_to "View Archive", parents_peeks_path, :class => "button" %>
+        <%= link_to "View Archive", parents_curriculum_peek_and_vocab_path, :class => "button" %>
     </div>
   </div>
 </div>

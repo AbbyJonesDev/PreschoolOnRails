@@ -1,0 +1,21 @@
+<div class="pdf_display_page">
+  <div class="row">
+    <h1 class="text-center"> Peek at Our Week(s) and Vocabulary </h1>
+  </div>
+
+  <div class="row">
+
+    <% if @newest_peek %>
+      <%= render partial: "layouts/embedded_pdf", locals: { file: @newest_peek.vocab } %>
+      <p class="text-center">
+        See <%= link_to 'Peek', parents_curriculum_current_peek_path %> for this week.
+      </p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <div class="small-12 columns text-center">
+        <%= link_to "View Archive", parents_curriculum_peek_and_vocab_path, :class => "button" %>
+    </div>
+  </div>
+</div>

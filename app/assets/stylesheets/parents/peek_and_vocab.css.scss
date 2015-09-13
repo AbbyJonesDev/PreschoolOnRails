@@ -1,0 +1,31 @@
+table#archive {
+  margin-top: 25px;
+  background-color: white;
+  border: rem-calc(4px) groove $light-blue;
+  border-collapse: collapse;
+  padding: 0;
+
+  td {
+    border: rem-calc(1px) solid $light-blue;
+    border-collapse: collapse;
+  }
+}
+
+@media #{$small-only} {
+  table#archive {
+    td {
+      background-color: white;
+    }
+    td:nth-child(1) {
+      background-color: lighten($light-blue, 20%);
+    }
+  }
+}
+
+@media #{$medium-up} { 
+  table#archive {
+    tr:nth-child(even) {
+      background-color: lighten($light-blue, 20%);
+    }    
+  }
+}

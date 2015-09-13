@@ -11,19 +11,24 @@
       <li> <%= nav_link_to "Announcements", parents_announcements_path,
          {}, {:selected_class => "current"} %> 
       </li>
-      <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
-        {:selected_class => "current"} %> 
+      <li class="has-dropdown"> 
+        <%= link_to "Curriculum", '#' %>
+        <ul class="dropdown">
+          <li><%= link_to "Peek", parents_curriculum_current_peek_path %></li>
+          <li><%= link_to "Vocabulary", parents_curriculum_current_vocab_path %></li>
+          <li><%= link_to "Units", '#' %></li>
+        </ul>
       </li>
       <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path,
          {}, {:selected_class => "current"} %> 
       </li>
-      <li> <%= nav_link_to "Class Contacts", parents_class_contact_lists_path, {},
+      <li> <%= nav_link_to "Contacts", parents_class_contact_lists_path, {},
          {:selected_class => "current"} %> 
       </li>
       <li class="has-dropdown"> 
-        <%= link_to "General Info", '#' %>
+        <%= link_to "General", '#' %>
         <ul class="dropdown">
-          <li><%= link_to "Sign Ups", 'http://www.signupgenius.com/' %></li>
+          <li><%= link_to "Sign Up Genius", 'http://www.signupgenius.com/' %></li>
           <li><%= link_to "Calendar", parents_calendar_path %></li>
           <li><%= link_to "Handbook", parents_handbook_path %></li>
           <li><%= link_to "Registration", parents_registration_form_path %></li>
@@ -50,19 +55,24 @@
           <li> <%= nav_link_to "Announcements", parents_announcements_path,
              {}, {:selected_class => "current"} %> 
           </li>
-          <li> <%= nav_link_to "Peek", parents_peek_current_path, {}, 
-            {:selected_class => "current"} %> 
+          <li class="mobile-sub-menu-link"> 
+            <%= link_to "Curriculum", '#' %>
+            <ul class="mobile-sub-menu hide">
+              <li><%= link_to "Peek", parents_curriculum_current_peek_path %></li>
+              <li><%= link_to "Vocabulary", parents_curriculum_current_vocab_path %></li>
+              <li><%= link_to "Units", '#' %></li>
+            </ul>
           </li>
           <li> <%= nav_link_to "Newsletters", parents_newsletter_current_path,
              {}, {:selected_class => "current"} %> 
           </li>
-          <li> <%= nav_link_to "Class Contacts", parents_class_contact_lists_path, {},
+          <li> <%= nav_link_to "Contacts", parents_class_contact_lists_path, {},
              {:selected_class => "current"} %> 
           </li>
           <li class="mobile-sub-menu-link"> 
-            <%= link_to "General Info", '#' %>
+            <%= link_to "General", '#' %>
             <ul class="mobile-sub-menu hide">
-              <li><%= link_to "Sign Ups", 'http://www.signupgenius.com/' %></li>
+              <li><%= link_to "Sign Up Genius", 'http://www.signupgenius.com/' %></li>
               <li><%= link_to "Calendar", parents_calendar_path %></li>
               <li><%= link_to "Handbook", parents_handbook_path %></li>
               <li><%= link_to "Registration", parents_registration_form_path %></li>

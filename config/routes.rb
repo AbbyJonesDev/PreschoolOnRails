@@ -27,7 +27,7 @@ PreschoolOnRails::Application.routes.draw do
   # so you can use the simplified routes
   # (since devise is built for multiple scopes)
   devise_scope :user do
-    get '/parents', to: 'parents/peek_and_vocabs#current', as: :user_root
+    get '/parents', to: 'parents/announcements#index'
     get "sign_in", to: "devise/sessions#new"
     get "login", :to => "devise/sessions#new"
     delete "sign_out", :to => "devise/sessions#destroy"
@@ -35,11 +35,15 @@ PreschoolOnRails::Application.routes.draw do
   end
 
   namespace :parents do
-    root 'peek_and_vocabs#current'
+    root 'announcements#index'
 
-    resources :peeks, only: [:show, :index], controller: 'peek_and_vocabs'
-    get '/peek/current' => 'peek_and_vocabs#current'
-    
+    # resources :peeks, only: [:show, :index], controller: 'peek_and_vocabs'
+    get 'curriculum/peek_and_vocab' => 'peek_and_vocabs#index'
+    get '/curriculum/current/peek' => 'peek_and_vocabs#current_peek'
+    get '/curriculum/current/vocab' => 'peek_and_vocabs#current_vocab'
+    get '/curriculum/peek/:id' => 'peek_and_vocabs#show_peek'
+    get '/curriculum/vocab/:id' => 'peek_and_vocabs#show_vocab'
+
     resources :newsletters, only: [:show, :index]
     get '/newsletter/current' => 'newsletters#current'
 

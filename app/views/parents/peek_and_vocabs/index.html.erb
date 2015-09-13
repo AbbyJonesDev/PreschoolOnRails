@@ -3,9 +3,21 @@
     Peek at Our Week(s) And Vocabulary Archive
   </h1>
 
-  <ul class="small-12 columns text-center">
-    <% @peeks.each do |peek| %>
-      <li> <%= link_to date_to_s(peek.date), parents_peek_path(peek) %> </li>
-    <% end %>
-  </ul>
+  <% if @peeks %>
+    <table class="small-12 medium-8 columns small-12 medium-centered" id="archive">
+      <tbody>
+        <% @peeks.each do |peek| %>
+          <tr>
+            <td class="small-12 medium-4 columns text-center"> <%= date_to_s(peek.date) %> </td>
+            <td class="small-12 medium-4 columns text-center"> 
+              <%= link_to 'Peek', "/parents/curriculum/peek/#{peek.id}" %>
+            </td>
+            <td class="small-12 medium-4 columns text-center"> 
+              <%= link_to 'Vocabulary', "/parents/curriculum/vocab/#{peek.id}" %>
+            </td>
+          </tr> 
+        <% end %>     
+      </tbody>
+    </table>
+  <% end %>
 </div>
