@@ -37,7 +37,7 @@ PreschoolOnRails::Application.routes.draw do
   namespace :parents do
     root 'announcements#index'
 
-    # resources :peeks, only: [:show, :index], controller: 'peek_and_vocabs'
+    # Break out routes to show Peek and Vocab separately
     get 'curriculum/peek_and_vocab' => 'peek_and_vocabs#index'
     get '/curriculum/current/peek' => 'peek_and_vocabs#current_peek'
     get '/curriculum/current/vocab' => 'peek_and_vocabs#current_vocab'
@@ -49,7 +49,7 @@ PreschoolOnRails::Application.routes.draw do
 
     resources :announcements, only: [:index]    
     resources :class_contact_lists, only: [:index, :show]
-    resource :calendar, :registration_form, :handbook, only: [:show]
+    resource :calendar, :registration_form, :handbook, :unit_doc, only: [:show]
   end
 
   #  Admin Dashboard Paths
@@ -67,7 +67,7 @@ PreschoolOnRails::Application.routes.draw do
     resources :peek_and_vocabs
 
     get '/file_uploader' => 'dashboard#file_uploader'
-    resources :calendars, :handbooks, :registration_forms, except: [:destroy]
+    resources :calendars, :handbooks, :registration_forms, :unit_docs, except: [:destroy]
     resources :class_contact_lists, except: [:new, :create, :destroy]
     resources :newsletters
     resources :announcements

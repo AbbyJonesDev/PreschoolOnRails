@@ -1,0 +1,39 @@
+<%= form_for [:admin, @unit_doc], multipart: true do |f| %>
+
+  <% if @unit_doc.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@unit_doc.errors.count, "error") %> prevented this document from being saved:
+      </p>
+      <ul>
+        <% @unit_doc.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :year, "Year:" %>
+      <%= f.text_field :year, placeholder: "20XX-20XX" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.file_field :doc %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Cancel", admin_unit_docs_path %>
+    </div>
+  </div>
+<% end %>

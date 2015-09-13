@@ -1,0 +1,10 @@
+<!-- Units -->
+<main class="row">
+  <% if @unit_doc %>
+    <%= render partial: "layouts/embedded_pdf", locals: { file: @unit_doc.doc} %>
+  <% else %>
+    <div class="panel">
+      No units available at this time.
+    </div>
+  <% end %>
+</main>

@@ -1,0 +1,31 @@
+<div class="panel">
+  <%= render 'layouts/admin/file_uploader_tabs' %>
+  <h2><small>Update Units</small></h2>
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Current Units </small></h2>
+
+  <% if @unit_doc.id %>
+    <div class="row">
+      <div class="medium-6 columns">
+        Year: <%= @unit_doc.year %>
+      </div>
+      <div class="medium-6 columns">
+         Updated: <%= date_to_s(@unit_doc.updated_at) %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <object data="<%= @unit_doc.doc.url %>" type="application/pdf" 
+      class="small-12 columns embedded-pdf">
+        <p>
+          It appears you don't have a PDF plugin for this browser.
+          No problem... You can <a href="<%= @unit_doc.doc.url %>">click here to
+          download the PDF file.</a>
+        </p>     
+      </object>
+    </div>
+  <% end %>
+</div>
