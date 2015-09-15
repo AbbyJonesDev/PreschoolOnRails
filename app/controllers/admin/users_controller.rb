@@ -5,7 +5,13 @@ class Admin::UsersController < Admin::DashboardController
 
   def create
     @user = User.new(user_params)
-    @user.password = Devise.friendly_token unless params[:user][:password]
+
+    ### Option 1:  Create strong password if none is assigned 
+    # @user.password = Devise.friendly_token unless params[:user][:password]
+    ### Option 2:  Simplicity over security - have user change it
+    @user.password = "password" unless params[:user][:password]
+    
+
     if @user.save
       @user.update_klasses(params[:group_ids])
       flash[:notice] = "Parent account successfully added"

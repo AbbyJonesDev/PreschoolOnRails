@@ -16,7 +16,7 @@
     <tbody>
       <% @parents.each do |parent| %>
         <tr>
-          <td> <%= full_name(parent) %> </td>
+          <td> <%= full_name(parent) != '' ? full_name(parent) : parent.email %> </td>
           <td> <%= klass_names(parent) %> </td>
           <td> 
             <%= link_to "Edit", edit_admin_parent_path(parent)  %> /
