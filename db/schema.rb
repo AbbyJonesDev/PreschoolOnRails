@@ -11,25 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913184138) do
+ActiveRecord::Schema.define(version: 20150922225732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "announcements", force: :cascade do |t|
-    t.string   "name",                              null: false
-    t.text     "message",                           null: false
+    t.string   "name",                        null: false
+    t.text     "message",                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "klasses"
-    t.boolean  "all_classes",       default: true
+    t.boolean  "all_classes", default: true
     t.date     "expires_on"
-    t.boolean  "email_sent",        default: false
-    t.string   "icon_file_name"
-    t.string   "icon_content_type"
-    t.integer  "icon_file_size"
-    t.datetime "icon_updated_at"
+    t.boolean  "email_sent",  default: false
+    t.integer  "icon_id"
   end
+
+  add_index "announcements", ["icon_id"], name: "index_announcements_on_icon_id", using: :btree
 
   create_table "calendars", force: :cascade do |t|
     t.string   "calendar_file_file_name"
@@ -90,6 +89,19 @@ ActiveRecord::Schema.define(version: 20150913184138) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "year"
+  end
+
+  create_table "icons", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "{:null=>false}_file_name"
+    t.string   "{:null=>false}_content_type"
+    t.integer  "{:null=>false}_file_size"
+    t.datetime "{:null=>false}_updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "newsletters", force: :cascade do |t|

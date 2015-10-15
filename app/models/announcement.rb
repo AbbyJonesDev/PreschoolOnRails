@@ -14,10 +14,15 @@ class Announcement < ActiveRecord::Base
     too_short: "must include at least one class" }, if: :not_all_classes
   has_many :class_announcements
   has_many :groups, :through => :class_announcements
-  has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/logo-icon.jpg"
-  validates_attachment_content_type :icon, content_type: /\Aimage\/.*\Z/
+  belongs_to :icon   #Feels weird, but sets up connection
   scope :current, -> { where "expires_on > ?", Time.now }
   scope :expired, -> { where "expires_on <= ?", Time.now}
+
+  # Return icon url or default image for views
+  def icon_url(size = :thumb)
+    return self.icon.image.url(size) if self.icon
+    return '/logo-icon.jpg'
+  end
 
   # Used by custom validator
   def not_all_classes

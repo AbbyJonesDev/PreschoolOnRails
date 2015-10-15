@@ -1,0 +1,21 @@
+<%= form_for [:admin, @icon], multipart: true do |f| %>
+
+  <% if @icon.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@icon.errors.count, "error") %> prevented this icon from being saved:
+      </p>
+      <ul>
+        <% @icon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  Select image file to upload:
+  <br><br>
+  <%= f.file_field :image %>
+  <br>
+  <%= f.submit "Upload Icon" %>
+
+<% end %>

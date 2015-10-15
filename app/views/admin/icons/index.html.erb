@@ -1,0 +1,20 @@
+<div class="panel">
+  <%= render 'layouts/admin/file_uploader_tabs' %>
+  <h2><small>New Icon</small></h2>
+  <%= render 'form' %>
+</div>
+
+<div class="panel lower-panel">
+  <h2><small> Uploaded Icons </small></h2>
+
+  <ul class="small-block-grid-2 medium-block-grid-3">
+    <li>
+      <%= image_tag 'public/../../logo-icon.jpg', :class => "icon-image" %>
+    </li>
+    <% @icons.all.each do |icon| %>
+      <li>
+        <%= image_tag icon.image.url(:thumb), :class => "icon-image" %>
+      </li>
+    <% end %> 
+  </ul>
+</div>

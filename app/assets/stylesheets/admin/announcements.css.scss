@@ -8,3 +8,8 @@
 .announcements {
   border: rem-calc(2px) solid white;
 }
+
+.icon-image {
+  @include photo-border;
+  border-color: $pink;
+}

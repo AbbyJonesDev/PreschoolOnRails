@@ -80,7 +80,7 @@ class Admin::AnnouncementsController < Admin::DashboardController
                                           :message, 
                                           :all_classes, 
                                           :expires_on,
-                                          :icon, 
+                                          :icon_id,
                                           :group_ids => [])
   end
 
@@ -88,5 +88,6 @@ class Admin::AnnouncementsController < Admin::DashboardController
     @announcement ||= Announcement.new
     @announcements = Announcement.current.order(expires_on: :asc)
     @klasses = Group.names_and_ids # hash of names and ids
+    @icons = Icon.all
   end
 end

@@ -49,15 +49,24 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
-    <div class="medium-3 columns">
-      Icon:
-      <%= image_tag @announcement.icon.url(:thumb) %>
-    </div>
-    <div class="medium-6 medium-offset-3 columns">
-      <%= f.label :icon, "Upload a new icon to display (optional):" %>
-      <%= f.file_field :icon %>
-    </div>
+  
+  <div class="medium-12 columns" id="icon-select">
+    <%= f.hidden_field :icon_id, :value => @announcement.icon_id %>
+    <ul class="small-block-grid-2 medium-block-grid-3">
+    <li>
+      <%= image_tag 'public/../../logo-icon.jpg' %>
+    </li>
+    <% @icons.all.each do |icon| %>
+      <li>
+        <%= image_tag icon.image.url(:thumb), :data => {:icon_id => icon.id} %>
+      </li>
+    <% end %> 
+    <li>
+      <%= link_to "Upload New Icon", admin_icons_path, id: "new_icon_link",
+        data: {confirm: "Any unsaved changes will be lost.  Would you like to continue?"}
+       %>
+    </li>
+  </ul>
   </div>
 
   <br>
@@ -67,7 +76,7 @@
       <%= f.submit "Submit" %>
     </div>
     <div class="medium-2 columns">
-      <%= link_to "Cancel", admin_announcements_path %>
+      <%= link_to "Cancel", admin_announcements_path, id: "cancel_announcement" %>
     </div>
   </div>
 <% end %>

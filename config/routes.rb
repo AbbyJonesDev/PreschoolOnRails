@@ -71,6 +71,7 @@ PreschoolOnRails::Application.routes.draw do
     resources :class_contact_lists, except: [:new, :create, :destroy]
     resources :newsletters
     resources :announcements
+    resources :icons, only: [:new, :create, :index]
   end
 
 # CUSTOM ROUTES FOR ADMIN FUNCTIONS

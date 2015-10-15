@@ -38,3 +38,11 @@ ac.click(function() {
     sc.parent().after(class_select_options);
   };
 });
+
+// Update selected icon when user clicks on one
+$("#icon-select img").click(function() {
+  var id = $(this).data("icon-id");
+  $("#icon-select img.icon-image").removeClass("icon-image");
+  $(this).addClass("icon-image");
+  $('#icon-select input[type="hidden"]').val(id);
+});
