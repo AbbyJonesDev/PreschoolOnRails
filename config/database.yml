@@ -12,7 +12,9 @@ staging:
 development:
   adapter: postgresql
   encoding: unicode
-  database: db/preschool_development
+  database: preschool_development
+  username: postgres_db
+  password: postgres_db
   pool: 5
   timeout: 5000
 
@@ -22,6 +24,8 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: db/preschool_test
+  database: preschool_test
+  username: postgres_db
+  password: postgres_db
   pool: 5
   timeout: 5000
