@@ -8,9 +8,9 @@ describe "Parent Basics" do
   let!(:news1)  { FactoryGirl.create(:newsletter) }
   let!(:news2)  { FactoryGirl.create(:newsletter) }
 
-  it "takes parent to newsletter when they log in" do
+  it "takes parent to announcements when they log in" do
     login(parent)
-    expect(current_path).to eq(peek_path)
+    expect(current_path).to eq(parents_announcements_path)
   end
 
   context "with parent logged in" do

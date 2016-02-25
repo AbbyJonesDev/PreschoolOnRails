@@ -9,11 +9,11 @@ RSpec.describe Admin::DashboardController, :type => :controller do
       assert_redirected_to root_path
     end
 
-    it "redirects to newsletter for non-admins" do
+    it "redirects to peek for non-admins" do
       parent = FactoryGirl.build(:user)
       allow(controller).to receive(:current_user).and_return(parent)
       get :home
-      assert_redirected_to peek_path
+      assert_redirected_to parents_curriculum_current_peek_path
     end
     
     it "allows access for admins" do

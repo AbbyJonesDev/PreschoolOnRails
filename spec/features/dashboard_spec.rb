@@ -24,7 +24,7 @@ describe "Admin Dashboard" do
     end
 
     it "links to Account Manager section" do
-      click_on("Account Management")
+      click_on("Parent Accounts")
       expect(current_path).to eq(admin_parents_path)
     end
   end

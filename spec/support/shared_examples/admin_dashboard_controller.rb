@@ -10,7 +10,7 @@ RSpec.shared_examples "admin_dashboard_controller" do
       parent = FactoryGirl.build(:user)
       allow(controller).to receive(:current_user).and_return(parent)
       get :index
-      assert_redirected_to peek_path
+      assert_redirected_to parents_curriculum_current_peek_path
     end
     
     it "allows access for admins" do

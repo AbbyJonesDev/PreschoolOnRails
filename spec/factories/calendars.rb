@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :calendar do
-    title "Calendar"
-    current false
+    year '2016'
     calendar_file_file_name 'calendar.pdf'
     calendar_file_content_type 'application/pdf'
     calendar_file_file_size 1024

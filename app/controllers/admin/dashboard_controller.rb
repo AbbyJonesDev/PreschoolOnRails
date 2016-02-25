@@ -13,7 +13,7 @@ def authenticate_admin
   end
   if current_user.role != "admin"
     flash[:notice] = "You must be an administrator to perform this action"
-    redirect_to peek_path      
+    redirect_to parents_curriculum_current_peek_path      
   end
 end
 
