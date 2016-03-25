@@ -7,7 +7,7 @@
     <% if @peek %>
       <%= render partial: "layouts/embedded_pdf", locals: { file: @peek.vocab } %>
       <p class="text-center">
-           See <%= link_to 'Peek', "/parents/curriculum/peek/#{@peek.id}" %> for this week.
+           See <%= link_to 'Peek', "/parents/curriculum/peek/#{@peek.id}" %> for this unit.
       </p>
     <% end %>
   </div>
