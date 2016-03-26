@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: handbooks
+#
+#  id                :integer          not null, primary key
+#  file_file_name    :string
+#  file_content_type :string
+#  file_file_size    :integer
+#  file_updated_at   :datetime
+#  created_at        :datetime
+#  updated_at        :datetime
+#  year              :string
+#
+
 class Handbook < ActiveRecord::Base
   has_attached_file :file
   validates :year, 

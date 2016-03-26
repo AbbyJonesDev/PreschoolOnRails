@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: announcements
+
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  message     :text             not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  klasses     :string
+#  all_classes :boolean          default(TRUE)
+#  expires_on  :date
+#  email_sent  :boolean          default(FALSE)
+#  icon_id     :integer
+#
+
 class ExpirationDateValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     if value && value < Time.now - 1.day

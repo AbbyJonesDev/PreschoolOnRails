@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: unit_docs
+#
+#  id               :integer          not null, primary key
+#  year             :string
+#  doc_file_name    :string
+#  doc_content_type :string
+#  doc_file_size    :integer
+#  doc_updated_at   :datetime
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 class UnitDoc < ActiveRecord::Base
   has_attached_file :doc
   validates :year, 

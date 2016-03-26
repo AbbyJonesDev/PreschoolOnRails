@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: newsletters
+#
+#  id                :integer          not null, primary key
+#  date              :datetime
+#  file_file_name    :string
+#  file_content_type :string
+#  file_file_size    :integer
+#  file_updated_at   :datetime
+#  email_sent        :boolean          default(FALSE)
+#
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: groups
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  days       :string
+#  start_time :time
+#  end_time   :time
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Group < ActiveRecord::Base
   serialize :days, Array
   validates :name, presence: true

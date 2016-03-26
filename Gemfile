@@ -86,6 +86,8 @@ group :development, :test do
   gem 'launchy'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Document models and routes and etc
+  gem 'annotate'
 end
 
 group :development do
@@ -95,4 +97,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 2.8.0', require: false
+  gem 'simplecov', :require => false
 end
