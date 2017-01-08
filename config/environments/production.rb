@@ -67,7 +67,7 @@ Rails.application.configure do
     reply_to: ENV['EMAIL_REPLY_TO']
   }  
   config.action_mailer.default_url_options = { 
-    host: 'herewegrowlincoln.com'
+    host: 'www.herewegrowlincoln.com'
   }
 # SENDGRID SETUP
   config.action_mailer.delivery_method = :smtp
