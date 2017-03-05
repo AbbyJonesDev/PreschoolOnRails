@@ -9,6 +9,10 @@
     color: $dark-blue;
   }
 
+  a {
+    text-decoration: underline;
+  }
+
   object {
     border-top: rem-calc(2px) solid $dark-blue;
     border-bottom: rem-calc(2px) solid $dark-blue;
