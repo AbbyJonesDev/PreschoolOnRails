@@ -70,15 +70,15 @@ PreschoolOnRails::Application.configure do
   address:              'smtp.gmail.com',
   port:                 465,
   domain:               ENV['DOMAIN'],
-  user_name:            ENV['GMAIL_USERNAME'],
-  password:             ENV['GMAIL_PASSWORD'],
+  user_name:            ENV['SENDGRID_USERNAME'],
+  password:             ENV['SENDGRID_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true  }
-  config.action_mailer.default_options = { 
-    from: ENV['EMAIL_FROM'], 
+  config.action_mailer.default_options = {
+    from: ENV['EMAIL_FROM'],
     reply_to: ENV['EMAIL_REPLY_TO']
-  }  
-  config.action_mailer.default_url_options = { 
+  }
+  config.action_mailer.default_url_options = {
     host: ENV['DOMAIN']
   }
   # Catch emails in staging environment
@@ -91,7 +91,7 @@ PreschoolOnRails::Application.configure do
     user_name:            ENV['SENDGRID_USERNAME'],
     password:             ENV['SENDGRID_PASSWORD'],
     authentication:       'plain',
-    enable_starttls_auto: true  } 
+    enable_starttls_auto: true  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
