@@ -4,10 +4,10 @@
 // CUSTOM VARIABLES AND MIXINS
 //===========================================
 
-$large-font-size: 115%; 
+$large-font-size: 115%;
 $larger-font-size: 130%;
 
-.large-font { 
+.large-font {
   font-size: $large-font-size;
   line-height: $paragraph-line-height * 1.05;
 }
@@ -58,7 +58,7 @@ html, body {
   background-color: $orange;
 }
 
-.panel { 
+.panel {
   @include text-border;
 
   a {
@@ -103,6 +103,7 @@ html, body {
 footer address {
   text-align: center;
   padding: rem-calc(5px);
+  font-style: normal;
   margin-bottom: rem-calc(5px);
 }
 
@@ -137,9 +138,8 @@ footer address {
   }
 
   .embedded_pdf {
-    height: rem-calc(700px); 
+    height: rem-calc(700px);
   }
 }
 
 @import "foundation";
-
