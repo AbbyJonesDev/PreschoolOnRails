@@ -6,16 +6,20 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :groups,
                           :join_table  => :class_parents
-                          
+
   has_many :class_contact_lists, :through => :groups
 
   has_and_belongs_to_many :students
   has_many :announcements, :through => :groups
 
-  
-  # Causing an infinite loop
-  # Investigate more later...
-  # scope :parents, -> { where(role: 'parent') } 
+
+  def active_for_authentication?
+    super && self.active
+  end
+
+  def inactive_message
+    "Sorry, this account has been deactivated."
+  end
 
 
   def update_klasses(ids)
