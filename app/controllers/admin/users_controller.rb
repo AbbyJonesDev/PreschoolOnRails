@@ -6,11 +6,11 @@ class Admin::UsersController < Admin::DashboardController
   def create
     @user = User.new(user_params)
 
-    ### Option 1:  Create strong password if none is assigned 
+    ### Option 1:  Create strong password if none is assigned
     # @user.password = Devise.friendly_token unless params[:user][:password]
     ### Option 2:  Simplicity over security - have user change it
     @user.password = "password" unless params[:user][:password]
-    
+
 
     if @user.save
       @user.update_klasses(params[:group_ids])
@@ -58,8 +58,13 @@ class Admin::UsersController < Admin::DashboardController
   end
 
   def load_variables
-    @user ||= User.new 
-    @parents = User.where(role: "parent").includes(:groups)
+    @user ||= User.new
+    @inactive = params[:inactive] || false
+    if @inactive
+      @parents = User.where("role = 'parent' AND active = false").includes(:groups)
+    else
+      @parents = User.where("role = 'parent' AND active = true").includes(:groups)
+    end
     # @students = Student.all
     @groups = Group.all
   end

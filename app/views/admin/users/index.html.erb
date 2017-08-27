@@ -4,7 +4,13 @@
 </div>
 
 <div class="panel lower-panel">
-  <h2><small> Current Accounts </small></h2>
+  <% if @inactive %>
+    <h2><small> Inactive Accounts </small></h2>
+    <%= link_to "View current accounts", admin_parents_path %>
+  <% else %>
+    <h2><small> Current Accounts </small></h2>
+    <%= link_to "View inactive accounts", admin_parents_path(inactive: 'true') %>
+  <% end %>
 
   <table>
     <thead>
@@ -18,11 +24,11 @@
         <tr>
           <td> <%= full_name(parent) != '' ? full_name(parent) : parent.email %> </td>
           <td> <%= klass_names(parent) %> </td>
-          <td> 
+          <td>
             <%= link_to "Edit", edit_admin_parent_path(parent)  %> /
-            <%= link_to "Delete", admin_parent_path(parent), method: :delete, 
+            <%= link_to "Delete", admin_parent_path(parent), method: :delete,
                   data: { confirm: "Are you sure?" } %>
-          </td>        
+          </td>
         </tr>
       <% end %>
     </tbody>
