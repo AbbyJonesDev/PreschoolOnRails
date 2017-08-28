@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
     super && self.active
   end
 
-  def inactive_message
-    "Sorry, this account has been deactivated."
-  end
+  # def inactive_message
+  #   "Sorry, this account has been deactivated."
+  # end
 
 
   def update_klasses(ids)
