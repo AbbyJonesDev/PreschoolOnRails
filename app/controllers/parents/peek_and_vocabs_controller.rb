@@ -1,8 +1,8 @@
 class Parents::PeekAndVocabsController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
-    @peeks = PeekAndVocab.order(date: :desc)
+    @peeks = PeekAndVocab.for_current_school_year
   end
 
   def current_peek
@@ -20,5 +20,5 @@ class Parents::PeekAndVocabsController < ApplicationController
   def show_vocab
     @peek = PeekAndVocab.find(params[:id])
   end
-  
+
 end
