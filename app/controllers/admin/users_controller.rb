@@ -60,12 +60,7 @@ class Admin::UsersController < Admin::DashboardController
   def load_variables
     @user ||= User.new
     @inactive = params[:inactive] || false
-    if @inactive
-      @parents = User.where("role = 'parent' AND active = false").includes(:groups)
-    else
-      @parents = User.where("role = 'parent' AND active = true").includes(:groups)
-    end
-    # @students = Student.all
+    @parents = @inactive ? User.inactive_accounts : User.active_accounts
     @groups = Group.all
   end
 

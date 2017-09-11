@@ -17,6 +17,14 @@ class User < ActiveRecord::Base
     super && self.active
   end
 
+  def self.active_accounts
+    self.where("role = 'parent' AND active = true").order(fname: :asc).includes(:groups)
+  end
+
+  def self.inactive_accounts
+    self.where("role = 'parent' AND active = false").order(fname: :asc).includes(:groups)
+  end
+
   def update_klasses(ids)
     # This whole method is terrible and should be
     # refactored with a vengeance.
