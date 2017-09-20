@@ -8,12 +8,12 @@ class NotificationsMailer < ActionMailer::Base
     mail(
       subject: announcement.name,
       body: announcement.message,
-      # to: recipients      HANDLED BY SENDGRID HEADER 
+      # to: recipients      HANDLED BY SENDGRID HEADER
       )
   end
 
   def email_peek(peek)
-    recipients = User.all.pluck(:email)
+    recipients = User.where(active: true).pluck(:email)
     build_header(recipients)
     attachments["Peek#{peek.date}.pdf"] = open("#{peek.peek.url}").read
     attachments["Vocab#{peek.date}.pdf"] = open("#{peek.vocab.url}").read
@@ -24,7 +24,7 @@ class NotificationsMailer < ActionMailer::Base
   end
 
   def email_newsletter(newsletter)
-    recipients = User.all.pluck(:email)
+    recipients = User.where(active: true).pluck(:email)
     build_header(recipients)
     attachments["Newsletter#{newsletter.date}.pdf"] = open("#{newsletter.file.url}").read
     mail(
@@ -39,7 +39,7 @@ class NotificationsMailer < ActionMailer::Base
       users = User.where(active: true).pluck(:email)
     else
       users = User.where(active: true).joins(:groups).
-      where(groups: { id: announcement.group_ids }).pluck(:email)      
+      where(groups: { id: announcement.group_ids }).pluck(:email)
     end
     return users
   end
