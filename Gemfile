@@ -61,12 +61,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Setup for Capistrano deployment on Digital Ocean
-# gem 'capistrano', '~> 3.1.0'
-# gem 'capistrano-bundler', '~> 1.1.2'
-# gem 'capistrano-rails', '~> 1.1.1'
-# gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
 # Setup staging and production gems
 group :production, :staging do
   gem 'puma'
@@ -77,7 +71,7 @@ end
 # Setup development and test gems
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '~> 2.4.3'  # To simulate user interaction with browser
   gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
   gem 'database_cleaner'  # To clean database after capybara-webkit messes it up

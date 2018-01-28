@@ -13,8 +13,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: preschool_development
-  username: postgres_db
-  password: postgres_db
+  username: abigailjones
+  password: 
   pool: 5
   timeout: 5000
 
@@ -25,7 +25,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: preschool_test
-  username: postgres_db
-  password: postgres_db
+  username: abigailjones
+  password: 
   pool: 5
   timeout: 5000
