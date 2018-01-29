@@ -36,13 +36,13 @@ gem 'nav_lynx'
 gem 'jbuilder', '~> 1.2'
 
 # Use Paperclip to manage file attachments.  Read more: https://github.com/thoughtbot/paperclip
-gem "paperclip", "~> 4.1"
+gem "paperclip", "~> 5.2"
 
 # Direct upload form helper and assets
 gem 's3_direct_upload' 
 
 # Use Amazon Web Services S3 storage for file attachments
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.3'
 
 # Use Devise for Admin and User authentication
 gem 'devise', '~> 3.4.0'
