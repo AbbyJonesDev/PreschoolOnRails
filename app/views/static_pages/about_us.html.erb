@@ -52,10 +52,10 @@
           in the Williamsburg area)
         </p>
         <p>
-          <a href="www.facebook.com/herewegrowlincoln" target="__blank" id="FBLogo">
+          <%= link_to "https://www.facebook.com/herewegrowlincoln", html_options = { target: "_blank", id: "FBLogo" } do %>
             <%= image_tag "FB_blue_29.png", :alt => "Facebook logo" %>
-          </a>
-          Find us on <a href="www.facebook.com/herewegrowlincoln" target="__blank">Facebook</a>
+          <% end %>
+          Find us on <a href="https://www.facebook.com/herewegrowlincoln" target="__blank">Facebook</a>
         </p>
       </div>
 
