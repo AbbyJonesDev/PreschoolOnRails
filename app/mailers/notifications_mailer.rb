@@ -15,8 +15,8 @@ class NotificationsMailer < ActionMailer::Base
   def email_peek(peek)
     recipients = User.where(active: true).pluck(:email)
     build_header(recipients)
-    attachments["Peek#{peek.date}.pdf"] = open("#{peek.peek.url}").read
-    attachments["Vocab#{peek.date}.pdf"] = open("#{peek.vocab.url}").read
+    attachments["Peek#{peek.date}.pdf"] = open("http:#{peek.peek.url}").read
+    attachments["Vocab#{peek.date}.pdf"] = open("http:#{peek.vocab.url}").read
     mail(
       subject: "New Peek at Our Week(s) Available",
       # to: recipients      HANDLED BY SENDGRID HEADER
@@ -26,7 +26,7 @@ class NotificationsMailer < ActionMailer::Base
   def email_newsletter(newsletter)
     recipients = User.where(active: true).pluck(:email)
     build_header(recipients)
-    attachments["Newsletter#{newsletter.date}.pdf"] = open("#{newsletter.file.url}").read
+    attachments["Newsletter#{newsletter.date}.pdf"] = open("http:#{newsletter.file.url}").read
     mail(
       subject: "Newsletter Available",
       # to: recipients      HANDLED BY SENDGRID HEADER
