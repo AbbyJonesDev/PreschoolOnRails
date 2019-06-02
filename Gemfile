@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11.1'
 
 # Use postgres as the database for Active Record
 gem 'pg'
@@ -75,11 +75,11 @@ group :development, :test do
   gem 'capybara', '~> 2.4.3'  # To simulate user interaction with browser
   # gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
   gem 'database_cleaner'  # To clean database after capybara-webkit messes it up
-  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
-  gem 'pry-byebug'
+  # gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug', '~> 3'
   gem 'launchy'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3'
 end
 
 group :development do
