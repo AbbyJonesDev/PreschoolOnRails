@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
@@ -63,7 +63,7 @@ end
 
 # Setup staging and production gems
 group :production, :staging do
-  gem 'puma'
+  gem 'puma', '3.12.1'
   gem 'rails_12factor' # To compile assets on Heroku
 # gem 'therubyracer',  platforms: :ruby   ONLY NEEDED ON LINUX BOX
 end
@@ -73,7 +73,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '~> 2.4.3'  # To simulate user interaction with browser
-  gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
+  # gem 'capybara-webkit'  # For pages with JavaScript - so they load in real webpage
   gem 'database_cleaner'  # To clean database after capybara-webkit messes it up
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
