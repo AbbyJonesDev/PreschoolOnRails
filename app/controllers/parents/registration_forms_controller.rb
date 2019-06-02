@@ -1,5 +1,5 @@
 class Parents::RegistrationFormsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     @reg_form = RegistrationForm.last
