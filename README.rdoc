@@ -17,6 +17,3 @@ Running the project:
 * vagrant halt || vagrant suspend
 * vagrant destroy
 
-
-TODO:
-* Emails aren't being intercepted or redirected correctly in dev
