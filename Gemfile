@@ -63,7 +63,7 @@ end
 
 # Setup staging and production gems
 group :production, :staging do
-  gem 'puma', '3.12.1'
+  gem 'puma', '3.12.2'
   gem 'rails_12factor' # To compile assets on Heroku
 # gem 'therubyracer',  platforms: :ruby   ONLY NEEDED ON LINUX BOX
 end
