@@ -179,6 +179,8 @@
     margin-bottom: 8%;
 
     th, td {
+      padding-top: 12px;
+      padding-bottom: 12px;
       font-size: $large-font-size;
     }
   }
@@ -186,7 +188,7 @@
   .SchedulePics {
     @include photo-border;
     width: 98%;
-    margin: 15% 1% 14% 1%; 
+    margin: 16% 1% 14% 1%; 
   }
 }
 
