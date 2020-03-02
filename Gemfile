@@ -45,7 +45,7 @@ gem 's3_direct_upload'
 gem 'aws-sdk', '~> 2.3'
 
 # Use Devise for Admin and User authentication
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 
 # Create demo users
 gem 'faker'
